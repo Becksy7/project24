@@ -1,25 +1,25 @@
-$(function() {
+"use strict";
 
-    var App = (function(){
+$(function () {
+
+    var App = function () {
 
         return {
-            init : function() {
+            init: function init() {
                 DummyModule.init();
             }
-        }
-    })()
+        };
+    }()
 
     /**
      * Dummy Module Example
      */
-    ,DummyModule = (function(){
+    ,
+        DummyModule = function () {
         return {
-            init : function() {
+            init: function init() {
                 // do something
             }
-        }
-    })()
-
-    ;App.init();
-
+        };
+    }();App.init();
 });

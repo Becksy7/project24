@@ -18,6 +18,7 @@ module.exports = function(grunt) {
                 'htmlmin',
                 'prettify',
                 'copy',
+                'babel',
                 'shell:html_fixpaths'
             ]
         },
@@ -119,6 +120,19 @@ module.exports = function(grunt) {
                     {expand : true, cwd: 'src/js/', src: ['*'], dest: 'build/js/', filter: 'isFile'},
                 ],
             }
+        },
+
+        // Convert ES6 to ES5
+        babel: {
+            options: {
+                sourceMap: false,
+                presets: ['es2015']
+            },
+            dist: {
+                files: {
+                    'build/js/main.js': 'build/js/main.js'
+                }
+            }
         }
 
     });
@@ -148,6 +162,9 @@ module.exports = function(grunt) {
     // npm install --save-dev grunt-shell
     grunt.loadNpmTasks('grunt-shell');
 
+    // npm install --save-dev grunt-babel babel-preset-es2015
+    grunt.loadNpmTasks('grunt-babel');
+
     grunt.registerTask('online',  ['watch'] );
     grunt.registerTask('default', [
         'shell:html_template',
@@ -158,6 +175,7 @@ module.exports = function(grunt) {
         'htmlmin',
         'prettify',
         'copy',
+        'babel',
         'shell:html_fixpaths'
     ]);
 
