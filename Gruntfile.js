@@ -115,9 +115,6 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    // copy vendor folder
-                    {expand: true, cwd: 'src/vendor/', src: ['**'], dest: 'build/vendor/'},
-
                     // copy js folder
                     {expand : true, cwd: 'src/js/', src: ['*'], dest: 'build/js/', filter: 'isFile'},
                 ],
@@ -151,5 +148,17 @@ module.exports = function(grunt) {
     // npm install --save-dev grunt-shell
     grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('default',  ['watch'] );
+    grunt.registerTask('online',  ['watch'] );
+    grunt.registerTask('default', [
+        'shell:html_template',
+        'less',
+        'postcss',
+        'autoprefixer',
+        'cssmin',
+        'htmlmin',
+        'prettify',
+        'copy',
+        'shell:html_fixpaths'
+    ]);
+
 };

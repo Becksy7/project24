@@ -10,15 +10,14 @@
     "prospekt"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "localhost:8000",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "demo"
   ],
-  "dependencies": {
-    "jquery": "~2.2.0"
-  }
+  "dependencies": {}
 }
