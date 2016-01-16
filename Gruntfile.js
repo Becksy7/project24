@@ -5,7 +5,9 @@ module.exports = function(grunt) {
         // main task : watch files and do all tasks
         watch: {
             files: [
-                'src/less/**/*.less', 'src/views/**/*.phtml'
+                'src/less/**/*.less', 
+                'src/views/**/*.phtml',
+                'src/js/**/*.js'
             ],
             tasks: [
                 'shell:html_template',
@@ -112,8 +114,13 @@ module.exports = function(grunt) {
         // Copy JS file
         copy: {
             main: {
-                src  : 'src/main.js',
-                dest : 'build/js/main.js'
+                files: [
+                    // copy vendor folder
+                    {expand: true, cwd: 'src/vendor/', src: ['**'], dest: 'build/vendor/'},
+
+                    // copy js folder
+                    {expand : true, cwd: 'src/js/', src: ['*'], dest: 'build/js/', filter: 'isFile'},
+                ],
             }
         }
 

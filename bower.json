@@ -1,0 +1,24 @@
+{
+  "name": "prospekt",
+  "authors": [
+    "Larry Cinnabar <larry.cinnabar@gmail.com>"
+  ],
+  "description": "website",
+  "main": "main.js",
+  "moduleType": [],
+  "keywords": [
+    "prospekt"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0"
+  }
+}
