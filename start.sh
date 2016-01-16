@@ -1,0 +1,3 @@
+#!/bin/bash
+
+npm install --save-dev grunt grunt-postcss grunt-autoprefixer lost grunt-contrib-less grunt-contrib-cssmin grunt-prettify grunt-contrib-htmlmin grunt-contrib-copy grunt-contrib-watch grunt-shell
