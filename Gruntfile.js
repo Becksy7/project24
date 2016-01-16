@@ -22,11 +22,11 @@ module.exports = function(grunt) {
 
         shell: {
             html_template : {
-                command : 'php html_build.php'
+                command : 'php sys/html_build.php'
             },
 
             html_fixpaths : {
-                command : 'php html_fixpaths.php'
+                command : 'php sys/html_fixpaths.php'
             }
         },
 

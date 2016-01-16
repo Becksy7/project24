@@ -1,6 +1,6 @@
 <?php
 //
-// Исправление путей в собранных файлах
+// Fixing paths in built files
 //
 
 include "config.php";

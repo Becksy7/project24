@@ -1,13 +1,13 @@
 <?php
 //
-// Склеивание всех .phtml файл
-// в статические страницы .html
+// Concating all .phtml files
+// into static .html
 //
 
 include "config.php";
 
 //
-// Получение имён страниц из /src/view/pages/PAGENAME.phtml
+// Getting pages' names from /src/view/pages/PAGENAME.phtml
 //
 $pages = array_map(function($page){
     return basename($page, ".phtml");
@@ -15,13 +15,14 @@ $pages = array_map(function($page){
 
 
 foreach($pages as $page) {
+
     ob_start();
-    // там читается переменная $page
+    // there variable $page is read
     include "index.php";
     $content = ob_get_contents();
     ob_end_clean();
 
-    // @bad_solution (некогда делать по-человечески)
+    // @bad_solution (no time for refactor yet)
     $content = str_replace("/${src_dir}/main.js", "/${build_dir}/js/main.js", $content);
 
     // clean abs-path from $content

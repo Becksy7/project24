@@ -1,6 +1,6 @@
 <?php
 
-    include "config.php";
+    include "sys/config.php";
 
     if ( !function_exists('publicdir') ) {
         function publicdir($path) {
