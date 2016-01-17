@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         // main task : watch files and do all tasks
         watch: {
             files: [
-                'src/less/**/*.less', 
+                'src/styles/**/*.less', 
                 'src/views/**/*.phtml',
                 'src/js/**/*.js'
             ],
@@ -37,12 +37,12 @@ module.exports = function(grunt) {
         less: {
             development: {
                 files: {
-                    "build/css/styles.css": "src/less/styles.less"
+                    "build/css/styles.css": "src/styles/main.less"
                 }
             },
             production: {
                 files: {
-                    "build/css/styles.css": "src/less/styles.less"
+                    "build/css/styles.css": "src/styles/main.less"
                 }
             }
         },
