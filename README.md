@@ -1,10 +1,14 @@
+# go-off
+Front-end Bootstrap System
+
 ### Назначение папок
 
 * build/ - готовые статичные .html страницы
-* build/css - готовые css
-* build/js - js-файлы (в данный момент используются все на каждой странице)
+* build/css - css файлы
+* build/js - js-файлы
 * build/img - картинки
 * build/fonts - шрифты
+* build/vendor - сторонние зависимости (js/css)
 * src - файлы-исходники
 * src/views/ - шаблоны .phtml страниц или их частей
 * src/views/helpers - шаблоны вспомогательных элементов, частей страниц, которые используются повторно
@@ -14,17 +18,24 @@
 * src/less - исходники стилей .less
 * src/less/helpers - стили вспомогательных элементов страниц
 * src/less/blocks - стили блоков страниц
+* src/js - исходники JS (EcmaScript 6 разрешен)
+* sys - вспомогательные скрипты
 
 ### Просмотр готовой статичной верстки
 * Файлик build/pagename.html содержит готовую статичную верстку для pagename-страницы.
 
-### Просмотр динамической верстки
-* Находясь в корневой папке, поднять localhost (`php -S localhost:8000`)
-* Открыть localhost:8000 для просмотра главной страницы
-* Обращаться по параметру `?page=pagename` к другим готовым страницам
+### Комманды
+* `sys/grunt-install.sh` - установка grunt и grunt-модулей
+* `sys/serv.sh port` - поднимает localhost:port (доступный по сети устройствам)
+* `sys/config.php` - настройка
+
+#### Вспомогательные php-скрипты (вызываются через grunt-shell)
+* html_build.php - сборка цельных .html страниц из .phtml шаблонов
+* html_fixpaths.php - исправление путей (относительных) внутри .html, .css, и .js
 
 ### Build
-Проект собирается Grunt-задачами и php-шаблонизатором
+* `grunt` - единоразовая сборка
+* `grunt online` - сборка в watch-режиме
 
 #### Grunt-модули
 * grunt-contrib-less
@@ -36,11 +47,4 @@
 * grunt-contrib-copy
 * grunt-contrib-watch
 * grunt-shell
-
-#### Вспомогательные php-скрипты (вызываются через grunt-shell)
-* html_build.php - сборка цельных .html страниц из .phtml шаблонов
-* html_fixpaths.php - исправление путей (относительных) внутри .html, .css, и .js
-
-#### Установка Grunt
-`npm install --save-dev grunt grunt-postcss grunt-autoprefixer lost grunt-contrib-less grunt-contrib-cssmin grunt-prettify grunt-contrib-htmlmin grunt-contrib-copy grunt-contrib-watch grunt-shell
-`
+* grunt-babel (es6)
