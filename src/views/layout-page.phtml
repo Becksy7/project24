@@ -19,7 +19,7 @@
     <script>window.html5 || document.write('<script src="<?= publicdir("vendor/html5shiv.min.js") ?>"><\/script>')</script>
 <![endif]-->
 </head>
-<body class="page <?= $page ?> typography">
+<body class="page page-<?= $page ?>">
     <div class="layout-wrapper">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -30,7 +30,7 @@
             <?php include "helpers/nav.phtml" ?>
         </header><!-- .layout-header -->
 
-        <main class="layout-main content <?= $page; ?>">
+        <main class="layout-main content-<?= $page; ?>">
             <?php include "pages/" . $page . ".phtml" ; ?>
         </main><!-- .layout-main -->
 
