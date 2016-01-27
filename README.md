@@ -25,8 +25,8 @@ Front-end Bootstrap System
 * Файлик build/pagename.html содержит готовую статичную верстку для pagename-страницы.
 
 ### Комманды
-* `sys/grunt-install.sh` - установка grunt и grunt-модулей
-* `sys/serv.sh port` - поднимает localhost:port (доступный по сети устройствам)
+* `sys/grunt-install` - установка grunt и grunt-модулей
+* `sys/serv port` - поднимает localhost:port (доступный по сети устройствам)
 * `sys/config.php` - настройка
 
 #### Вспомогательные php-скрипты (вызываются через grunt-shell)
