@@ -29,7 +29,7 @@ foreach($pages as $page) {
     $content = str_replace("/${build_dir}/", '', $content);
 
     // replace links
-    $content = preg_replace("/\/?\?page=([a-zA-Z0-9\-]+)/", "/${build_dir}/$1.html", $content);
+    $content = preg_replace("/\/?\?page=([a-zA-Z0-9\-\_]+)/", "/${build_dir}/$1.html", $content);
 
     file_put_contents(sprintf("%s/%s.html", $build_dir, $page), $content);
 }
