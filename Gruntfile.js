@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 'htmlmin',
                 'prettify',
                 'copy',
-                'babel',
+           //     'babel',
                 'shell:html_fixpaths'
             ]
         },
@@ -175,7 +175,7 @@ module.exports = function(grunt) {
         'htmlmin',
         'prettify',
         'copy',
-        'babel',
+       // 'babel',
         'shell:html_fixpaths'
     ]);
 
