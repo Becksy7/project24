@@ -103,7 +103,8 @@ module.exports = function(grunt) {
         cssmin: {
             options: {
                 shorthandCompacting : false,
-                roundingPrecision   : -1
+                roundingPrecision   : -1,
+                'keepBreaks'        : true
             },
             target: {
                 files: {
