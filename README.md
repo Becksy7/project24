@@ -1,3 +1,5 @@
+![go-off__logo](https://yadi.sk/i/fv4DVGLToX7Bm)
+
 # go-off
 Front-end Bootstrap System
 
