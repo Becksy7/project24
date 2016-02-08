@@ -1,6 +1,11 @@
 # go-off
 Front-end Bootstrap System
 
+### Main TODOs:
+* Use Laravel/Blade as a template engine for merging html blocks (instead of php native templates)
+* Write post-css script to fix less/sass BEM name convention [BEM](https://en.bem.info/)
+* Write and install by default jquery-bem library (BEM class manipulation)
+
 ### Folders meaning
 
 * build/ - ready-to-use static .html pages
@@ -9,7 +14,7 @@ Front-end Bootstrap System
 * build/img - image assets
 * build/fonts - font assets
 * build/vendor - 3rd party libraries (js/css)
-
+* ---
 * src - source file
 * src/views/ - php html templates
 * src/views/helpers - templates of repeatable helper elements
@@ -20,7 +25,7 @@ Front-end Bootstrap System
 * src/styles/helpers - styles of helper blocks
 * src/styles/blocks - styles of blocks
 * src/scripts - JS script sources (ES6 is available)
-
+* ---
 * sys - framework core
 
 ### Viewing of built html files
