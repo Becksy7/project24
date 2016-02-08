@@ -1,43 +1,45 @@
 # go-off
 Front-end Bootstrap System
 
-### Назначение папок
+### Folders meaning
 
-* build/ - готовые статичные .html страницы
-* build/css - css файлы
-* build/js - js-файлы
-* build/img - картинки
-* build/fonts - шрифты
-* build/vendor - сторонние зависимости (js/css)
-* src - файлы-исходники
-* src/views/ - шаблоны .phtml страниц или их частей
-* src/views/helpers - шаблоны вспомогательных элементов, частей страниц, которые используются повторно
-* src/views/blocks - шаблон блоков страниц
-* src/views/pages - шаблоны отдельных страниц
-* src/views/data - хранение данных
-* src/less - исходники стилей .less
-* src/less/helpers - стили вспомогательных элементов страниц
-* src/less/blocks - стили блоков страниц
-* src/js - исходники JS (EcmaScript 6 разрешен)
-* sys - вспомогательные скрипты
+* build/ - ready-to-use static .html pages
+* build/css - css files
+* build/js - js files
+* build/img - image assets
+* build/fonts - font assets
+* build/vendor - 3rd party libraries (js/css)
 
-### Просмотр готовой статичной верстки
-* Файлик build/pagename.html содержит готовую статичную верстку для pagename-страницы.
+* src - source file
+* src/views/ - php html templates
+* src/views/helpers - templates of repeatable helper elements
+* src/views/blocks - templates of block elements
+* src/views/pages - templates of pages
+* src/views/data - data (dummy content) to fill up templates
+* src/styles - source style files (less/sass)
+* src/styles/helpers - styles of helper blocks
+* src/styles/blocks - styles of blocks
+* src/scripts - JS script sources (ES6 is available)
 
-### Комманды
-* `sys/grunt-install` - установка grunt и grunt-модулей
-* `sys/serv port` - поднимает localhost:port (доступный по сети устройствам)
-* `sys/config.php` - настройка
+* sys - framework core
 
-#### Вспомогательные php-скрипты (вызываются через grunt-shell)
-* html_build.php - сборка цельных .html страниц из .phtml шаблонов
-* html_fixpaths.php - исправление путей (относительных) внутри .html, .css, и .js
+### Viewing of built html files
+* File build/pagename.html contains built ready-to-use html-markup for the `pagename` page.
+
+### Framework commands
+* `sys/grunt-install` - grunt and grunt plugins install
+* `sys/serv port` - runs a php built-in web-server on localhost:port (available in WLAN/LAN by your IP)
+* `sys/config.php` - configuration file
+
+#### Helper php-scripts (used by grunt-shell)
+* html_build.php - simple native-php template engine
+* html_fixpaths.php - fixing relative paths in .html, .css, и .js files
 
 ### Build
-* `grunt` - единоразовая сборка
-* `grunt online` - сборка в watch-режиме
+* `grunt` - one-time build
+* `grunt online` - continuous build in watch-mode
 
-#### Grunt-модули
+#### Grunt-plugins
 * grunt-contrib-less
 * grunt-postcss
 * grunt-autoprefixer
@@ -47,4 +49,4 @@ Front-end Bootstrap System
 * grunt-contrib-copy
 * grunt-contrib-watch
 * grunt-shell
-* grunt-babel (es6)
+* grunt-babel (es6) _(turned off by default)_
