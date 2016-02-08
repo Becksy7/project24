@@ -1,4 +1,4 @@
-![go-off__logo](https://yadi.sk/i/fv4DVGLToX7Bm)
+![go-off__logo](http://i.imgur.com/jU7gG3x.jpg)
 
 # go-off
 Front-end Bootstrap System
