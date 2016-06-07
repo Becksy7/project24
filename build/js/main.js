@@ -14,9 +14,9 @@ $(function() {
      * Calculate page height if vh don't supports
      */
         ,PageHeightCalc = (function(){
-            var recalc = function() {
-                var selectors = ['body','.layout-wrapper','.layout-main'],
-                    wh = $(window).height();
+            var selectors = ['.layout-wrapper'],
+            recalc = function() {
+                var wh = $(window).height();
                 $.each(selectors, function(i, selector) {
                     $(selector).css('height', wh);
                 })
@@ -28,6 +28,16 @@ $(function() {
                         recalc();
                         $(window).on('resize',recalc);
                     }
+                },
+                recalc : function(w, h, disable) {
+                    $.each(selectors, function(i, selector) {
+                        $(selector).css({
+                            'height': h,
+                            'width' : w,
+                            'top': disable ? 'auto' : Math.abs(w - h)/2,
+                            'left': disable ? 'auto' : -Math.abs(w - h)/2
+                        });
+                    })
                 }
             }
         })()
@@ -38,7 +48,7 @@ $(function() {
             var isPortrait = function() {
               var ww = $(window).width(),
                   wh = $(window).height();
-                    console.log(ww,wh);
+
                  if (wh > ww){
                      return true;
                  }
@@ -46,11 +56,25 @@ $(function() {
             },
             rotate = function() {
                 var isportrait = isPortrait();
-                isportrait ? $('body').addClass('rotate-me') : $('body').removeClass('rotate-me');
+                var ww = $(window).width(),
+                    wh = $(window).height();
+
+                if (isportrait) {
+                    $('body').addClass('rotate-me');
+                    if (!Modernizr.cssvhunit) {
+                        PageHeightCalc.recalc(wh, ww, false);
+                    }
+                } else {
+                    $('body').removeClass('rotate-me');
+                    if (!Modernizr.cssvhunit) {
+                        PageHeightCalc.recalc('auto', wh, true);
+                    }
+                }
             };
             return {
                 init : function() {
                     if (isMobile.any){
+
                         rotate();
                         $(window).on('resize orientationchange', rotate);
                     }

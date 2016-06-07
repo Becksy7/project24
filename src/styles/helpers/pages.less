@@ -2,6 +2,21 @@
 // Pages custom styles
 //
 .page-game{
-    background: url("@{public}/images/game_bg.jpg") no-repeat center;
-    .background-size(cover);
+    .layout-main {
+        background: url("@{public}/images/game_bg.jpg") no-repeat center;
+        .background-size(cover);
+    }
+    .footer{
+        .share{
+            .opacity(0);
+            .transition(.5s opacity ease);
+        }
+    }
+    &.go{
+        .footer{
+            .share{
+                .opacity(1);
+            }
+        }
+    }
 }

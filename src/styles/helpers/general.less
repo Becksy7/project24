@@ -21,27 +21,32 @@ html {
 *, *:before, *:after {
     .box-sizing( border-box );
 }
-
+html,
 body,
 .layout-wrapper,
 .layout-main{
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 // container & wrapper
 .container {
     width     : 100%;
+    max-width: @max_width;
+    margin       : 0 auto;
+    position     : relative;
 }
 .wrapper {
-    margin       : 0 auto;
     position     : relative;
     lost-utility : clearfix;
 }
 body.rotate-me{
-    .transform(rotate(90deg));
-    &,
-    .layout-wrapper,
-    .layout-main{
+    overflow: hidden;
 
+    //.transform-origin(~'top left');
+
+    .layout-wrapper{
+        position: relative;
+        .transform(rotate(90deg));
         width: 100vh;
         height: 100vw;
     }

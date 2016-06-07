@@ -306,6 +306,13 @@
     // .preserve-3d();
     // .perspective(@perspective)
 }
+.transform-origin (@origin) {
+    moz-transform-origin: @origin;
+    -o-transform-origin: @origin;
+    -ms-transform-origin: @origin;
+    -webkit-transform-origin: @origin;
+    transform-origin: @origin;
+}
 .transition(@args) {
     -webkit-transition : @args;
        -moz-transition : @args;
