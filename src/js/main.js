@@ -38,6 +38,7 @@ $(function() {
             var isPortrait = function() {
               var ww = $(window).width(),
                   wh = $(window).height();
+                    console.log(ww,wh);
                  if (wh > ww){
                      return true;
                  }
@@ -45,13 +46,13 @@ $(function() {
             },
             rotate = function() {
                 var isportrait = isPortrait();
-                isportrait ? $(body).addClass('rotate-me') : $(body).removeClass('rotate-me');
+                isportrait ? $('body').addClass('rotate-me') : $('body').removeClass('rotate-me');
             };
             return {
                 init : function() {
                     if (isMobile.any){
-                            rotate();
-                        $(window).on('resize', rotate);
+                        rotate();
+                        $(window).on('resize orientationchange', rotate);
                     }
                 }
             }

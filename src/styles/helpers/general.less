@@ -22,6 +22,11 @@ html {
     .box-sizing( border-box );
 }
 
+body,
+.layout-wrapper,
+.layout-main{
+    height: 100vh;
+}
 // container & wrapper
 .container {
     width     : 100%;
@@ -31,6 +36,13 @@ html {
     position     : relative;
     lost-utility : clearfix;
 }
-body.rotate{
+body.rotate-me{
     .transform(rotate(90deg));
+    &,
+    .layout-wrapper,
+    .layout-main{
+
+        width: 100vh;
+        height: 100vw;
+    }
 }

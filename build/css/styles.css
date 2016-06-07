@@ -1535,10 +1535,12 @@ td.visible-print,th.visible-print{display:table-cell!important}
 @font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Bold.eot);src:url(../fonts/GothamPro-Bold.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Bold.woff2) format('woff2'),url(../fonts/GothamPro-Bold.woff) format('woff'),url(../fonts/GothamPro-Bold.ttf) format('truetype'),url(../fonts/GothamPro-Bold.svg#GothamPro-Bold) format('svg');font-weight:700;font-style:normal}
 @font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Medium.eot);src:url(../fonts/GothamPro-Medium.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Medium.woff2) format('woff2'),url(../fonts/GothamPro-Medium.woff) format('woff'),url(../fonts/GothamPro-Medium.ttf) format('truetype'),url(../fonts/GothamPro-Medium.svg#GothamPro-Medium) format('svg');font-weight:500;font-style:normal}
 html body{background:#FFF;min-width:1136px;width:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.layout-main,.layout-wrapper,body{height:100vh}
 .container{width:100%}
 .wrapper{margin:0 auto;position:relative}
 .wrapper:after{clear:both}
-body.rotate{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
+body.rotate-me{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
+body.rotate-me,body.rotate-me .layout-main,body.rotate-me .layout-wrapper{width:100vh;height:100vw}
 .client-style *{font-family:Arial,sans-serif}
 .client-style ul.clean{list-style:none}
 .client-style ul.clean,.client-style ul.clean li{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
@@ -1554,3 +1556,4 @@ body.rotate{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
 .client-style .underline{text-decoration:underline!important}
 .client-style .semistrong,.client-style strong.semi{font-weight:500!important}
 .client-style .cursive{font-style:italic!important}
+.page-game{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover}
