@@ -4,16 +4,12 @@
 html {
     color       : @black;
 
-    // to further use sizes in rem
-    //.media-for(font-size, @main_font_size); // the adaptive way
-    font-size : @main_font_size;
 
     body {
         background : @white;
         min-width  : @min_width;
 
         width      : auto;
-        overflow-x : hidden !important;
 
         // nice fonts Safari
         text-rendering         : optimizeLegibility;
@@ -34,4 +30,7 @@ html {
     margin       : 0 auto;
     position     : relative;
     lost-utility : clearfix;
+}
+body.rotate{
+    .transform(rotate(90deg));
 }

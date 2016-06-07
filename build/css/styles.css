@@ -1,5 +1,4 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-.label,sub,sup{vertical-align:baseline}
 .btn,.btn-group,.btn-group-vertical,.caret,.checkbox-inline,.radio-inline,img{vertical-align:middle}
 hr,img{border:0}
 body,figure{margin:0}
@@ -22,7 +21,7 @@ b,optgroup,strong{font-weight:700}
 dfn{font-style:italic}
 h1{margin:.67em 0}
 mark{background:#ff0;color:#000}
-sub,sup{font-size:75%;line-height:0;position:relative}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sup{top:-.5em}
 sub{bottom:-.25em}
 svg:not(:root){overflow:hidden}
@@ -323,6 +322,7 @@ h2,h3{page-break-after:avoid}
 .glyphicon-menu-down:before{content:"\e259"}
 .glyphicon-menu-up:before{content:"\e260"}
 *,:after,:before{box-sizing:border-box}
+html{font-size:10px;-webkit-tap-highlight-color:transparent}
 body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333}
 button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}
 a{color:#337ab7;text-decoration:none}
@@ -1081,7 +1081,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 .pager .next>a,.pager .next>span{float:right}
 .pager .previous>a,.pager .previous>span{float:left}
 .pager .disabled>a,.pager .disabled>a:focus,.pager .disabled>a:hover,.pager .disabled>span{color:#777;background-color:#fff;cursor:not-allowed}
-.label{display:inline;padding:.2em .6em .3em;font-size:75%;color:#fff;border-radius:.25em}
+.label{display:inline;padding:.2em .6em .3em;font-size:75%;color:#fff;vertical-align:baseline;border-radius:.25em}
 a.label:focus,a.label:hover{color:#fff;text-decoration:none;cursor:pointer}
 .label:empty{display:none}
 .label-default{background-color:#777}
@@ -1522,11 +1522,23 @@ td.visible-print,th.visible-print{display:table-cell!important}
 .btn-group-vertical>.btn-group:after,.btn-toolbar:after,.clearfix:after,.container-fluid:after,.container:after,.dl-horizontal dd:after,.form-horizontal .form-group:after,.modal-footer:after,.modal-header:after,.nav:after,.navbar-collapse:after,.navbar-header:after,.navbar:after,.pager:after,.panel-body:after,.row:after{clear:both}
 .clean-ul-list{list-style:none}
 .clean-ul-list,.clean-ul-list li{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
-html{-webkit-tap-highlight-color:transparent;font-size:14px}
-html body{background:#FFF;min-width:1024px;width:auto;overflow-x:hidden!important;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Italic.eot);src:url(../fonts/GothamPro-Italic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Italic.woff2) format('woff2'),url(../fonts/GothamPro-Italic.woff) format('woff'),url(../fonts/GothamPro-Italic.ttf) format('truetype'),url(../fonts/GothamPro-Italic.svg#GothamPro-Italic) format('svg');font-weight:400;font-style:italic}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-BoldItalic.eot);src:url(../fonts/GothamPro-BoldItalic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-BoldItalic.woff2) format('woff2'),url(../fonts/GothamPro-BoldItalic.woff) format('woff'),url(../fonts/GothamPro-BoldItalic.ttf) format('truetype'),url(../fonts/GothamPro-BoldItalic.svg#GothamPro-BoldItalic) format('svg');font-weight:700;font-style:italic}
+@font-face{font-family:'Gotham Pro Narrow';src:url(../fonts/GothamProNarrow-Medium.eot);src:url(../fonts/GothamProNarrow-Medium.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamProNarrow-Medium.woff2) format('woff2'),url(../fonts/GothamProNarrow-Medium.woff) format('woff'),url(../fonts/GothamProNarrow-Medium.ttf) format('truetype'),url(../fonts/GothamProNarrow-Medium.svg#GothamProNarrow-Medium) format('svg');font-weight:500;font-style:normal}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-BlackItalic.eot);src:url(../fonts/GothamPro-BlackItalic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-BlackItalic.woff2) format('woff2'),url(../fonts/GothamPro-BlackItalic.woff) format('woff'),url(../fonts/GothamPro-BlackItalic.ttf) format('truetype'),url(../fonts/GothamPro-BlackItalic.svg#GothamPro-BlackItalic) format('svg');font-weight:900;font-style:italic}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Light.eot);src:url(../fonts/GothamPro-Light.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Light.woff2) format('woff2'),url(../fonts/GothamPro-Light.woff) format('woff'),url(../fonts/GothamPro-Light.ttf) format('truetype'),url(../fonts/GothamPro-Light.svg#GothamPro-Light) format('svg');font-weight:300;font-style:normal}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-LightItalic.eot);src:url(../fonts/GothamPro-LightItalic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-LightItalic.woff2) format('woff2'),url(../fonts/GothamPro-LightItalic.woff) format('woff'),url(../fonts/GothamPro-LightItalic.ttf) format('truetype'),url(../fonts/GothamPro-LightItalic.svg#GothamPro-LightItalic) format('svg');font-weight:300;font-style:italic}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Black.eot);src:url(../fonts/GothamPro-Black.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Black.woff2) format('woff2'),url(../fonts/GothamPro-Black.woff) format('woff'),url(../fonts/GothamPro-Black.ttf) format('truetype'),url(../fonts/GothamPro-Black.svg#GothamPro-Black) format('svg');font-weight:900;font-style:normal}
+@font-face{font-family:'Gotham Pro Narrow';src:url(../fonts/GothamProNarrow-Bold.eot);src:url(../fonts/GothamProNarrow-Bold.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamProNarrow-Bold.woff2) format('woff2'),url(../fonts/GothamProNarrow-Bold.woff) format('woff'),url(../fonts/GothamProNarrow-Bold.ttf) format('truetype'),url(../fonts/GothamProNarrow-Bold.svg#GothamProNarrow-Bold) format('svg');font-weight:700;font-style:normal}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro.eot);src:url(../fonts/GothamPro.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro.woff2) format('woff2'),url(../fonts/GothamPro.woff) format('woff'),url(../fonts/GothamPro.ttf) format('truetype'),url(../fonts/GothamPro.svg#GothamPro) format('svg');font-weight:400;font-style:normal}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-MediumItalic.eot);src:url(../fonts/GothamPro-MediumItalic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-MediumItalic.woff2) format('woff2'),url(../fonts/GothamPro-MediumItalic.woff) format('woff'),url(../fonts/GothamPro-MediumItalic.ttf) format('truetype'),url(../fonts/GothamPro-MediumItalic.svg#GothamPro-MediumItalic) format('svg');font-weight:500;font-style:italic}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Bold.eot);src:url(../fonts/GothamPro-Bold.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Bold.woff2) format('woff2'),url(../fonts/GothamPro-Bold.woff) format('woff'),url(../fonts/GothamPro-Bold.ttf) format('truetype'),url(../fonts/GothamPro-Bold.svg#GothamPro-Bold) format('svg');font-weight:700;font-style:normal}
+@font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Medium.eot);src:url(../fonts/GothamPro-Medium.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Medium.woff2) format('woff2'),url(../fonts/GothamPro-Medium.woff) format('woff'),url(../fonts/GothamPro-Medium.ttf) format('truetype'),url(../fonts/GothamPro-Medium.svg#GothamPro-Medium) format('svg');font-weight:500;font-style:normal}
+html body{background:#FFF;min-width:1136px;width:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 .container{width:100%}
 .wrapper{margin:0 auto;position:relative}
 .wrapper:after{clear:both}
+body.rotate{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
 .client-style *{font-family:Arial,sans-serif}
 .client-style ul.clean{list-style:none}
 .client-style ul.clean,.client-style ul.clean li{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
