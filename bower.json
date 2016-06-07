@@ -1,13 +1,14 @@
 {
-  "name": "prospekt",
+  "name": "wonderland",
   "authors": [
-    "Larry Cinnabar <larry.cinnabar@gmail.com>"
+    "Tanya Ten <ori.tanya.tem@gmail.com>",
+    "Elena Astashina <helen.astashina@gmail.com>"
   ],
   "description": "website",
   "main": "main.js",
   "moduleType": [],
   "keywords": [
-    "prospekt"
+    "wonderland"
   ],
   "license": "MIT",
   "homepage": "localhost:8000",
@@ -19,5 +20,8 @@
     "tests",
     "demo"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "underscore": "^1.8.3"
+  }
 }

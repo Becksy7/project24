@@ -112,14 +112,16 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         // Copy JS file
         copy: {
             main: {
                 files: [
                     // copy js folder
                     {expand : true, cwd: 'src/js/', src: ['*'], dest: 'build/js/', filter: 'isFile'},
-                ],
+                    {expand: true, cwd: 'bower_components/bootstrap/dist/js/', src: 'bootstrap.min.js', dest: 'build/vendor/'},
+                    {expand: true, cwd: 'bower_components/underscore/', src: 'underscore-min.js', dest: 'build/vendor/'},
+                    {expand: true, cwd: 'bower_components/bootstrap/less/', src: '**', dest: 'src/styles/bootstrap/'},
+                ]
             }
         },
 
