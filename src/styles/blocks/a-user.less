@@ -1,0 +1,118 @@
+.a-user{
+    &-bookmark{
+        position: fixed;
+        right: 0;
+        top: 82px;
+        width: 167px;
+        height: 70px;
+        .border-left-radius(70px);
+        background-color: fade(@black, 70%);
+        cursor: pointer;
+        margin-right: 0;
+        .transition(.5s margin-right ease);
+
+        &--inside{
+            background: @transparent;
+            position: relative;
+            margin-left: -48px;
+            &:before{
+                content: "";
+                width: 48px;
+                height: 70px;
+                background-color: fade(@black, 70%);
+                .border-left-radius(70px);
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 0;
+            }
+        }
+        &.rolled{
+            margin-right: -167px;
+        }
+    }
+    &__soc-network{
+       position: absolute;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        bottom: -2px;
+        right: -1px;
+        .border-radius(100%);
+        .icon;
+        &:before{
+            font-size: 13px;
+            color: @white;
+        }
+        &.facebook{
+            background-color: @fbcolor;
+            .icon-facebook;
+        }
+        &.vk{
+            background-color: @vkcolor;
+            .icon-vkontakte;
+        }
+    }
+    &-pic{
+        display: inline-block;
+        vertical-align: top;
+        margin: 8px;
+        position: relative;
+        &__wrap{
+            width: 54px;
+            height: 54px;
+            .border-radius(100%);
+            border: 4px solid @white;
+            background-color: @lightblue;
+            overflow: hidden;
+        }
+        &__img{
+            font-size: 0;
+            background-color: @lightblue;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    &-info{
+        display: inline-block;
+        vertical-align: top;
+        margin: 14px 0 10px;
+        color: @white;
+        &__points{
+            font-size: 30px;
+            display: block;
+            line-height: 1em;
+        }
+        &__units{
+            display: block;
+            font-size: 16px;
+            line-height: 1em;
+        }
+    }
+    &-panel{
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: (@zindex-navbar+1);
+
+        margin-right: -415px;
+        width: 415px!important;
+        height: 100%!important;
+        .transition(.5s margin-right ease);
+        &__wrap{
+            width: 367px;
+            margin-left: 48px;
+            height: 100%;
+            background-color: fade(@black,70%);
+        }
+        &.in{
+            width: 415px;
+            margin-right: 0;
+        }
+        &.collapsing{
+            width: 415px;
+            margin-right: -415px;
+        }
+    }
+}

@@ -7,6 +7,7 @@ $(function() {
                 //DummyModule.init();
                 PageHeightCalc.init();
                 NoPortraitLayout.init();
+                UserBookmark.init();
             }
         }
     })()
@@ -78,6 +79,21 @@ $(function() {
                         rotate();
                         $(window).on('resize orientationchange', rotate);
                     }
+                }
+            }
+        })()
+        /**
+         * Hide and show user bookmark when panel shows/hides
+         */
+        ,UserBookmark = (function(){
+            return {
+                init : function() {
+                    $('#user-panel').on('show.bs.collapse',function() {
+                            $('#user-bookmark').addClass('rolled');
+                        })
+                        .on('hidden.bs.collapse',function() {
+                            $('#user-bookmark').removeClass('rolled');
+                        });
                 }
             }
         })()
