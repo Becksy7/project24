@@ -1,3 +1,26 @@
-.nav {
-	// &__elem {}
+.nav.navbar-nav {
+	>li{
+        a{
+            color: @white;
+            font-size: 18px;
+            padding: 40px 30px;
+            &:focus{
+                color: @white;
+            }
+            &:hover, &:hover:focus{
+                color: @lightblue;
+            }
+        }
+        &.active{
+            a{
+                color: @lightblue;
+                &:hover, &:focus, &:hover:focus{
+                    color: @lightblue;
+                }
+            }
+        }
+        & + li{
+            border-top: 1px solid @gray-light;
+        }
+    }
 }
