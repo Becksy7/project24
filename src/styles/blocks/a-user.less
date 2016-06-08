@@ -15,6 +15,8 @@
             background: @transparent;
             position: relative;
             margin-left: -48px;
+            width: 415px;
+            top: auto;
             &:before{
                 content: "";
                 width: 48px;
@@ -53,6 +55,12 @@
             background-color: @vkcolor;
             .icon-vkontakte;
         }
+    }
+    &__name{
+        font-size: 24px;
+        font-weight: 600;
+        color: @white;
+        padding: 10px 30px 4px;
     }
     &-pic{
         display: inline-block;
@@ -113,6 +121,52 @@
         &.collapsing{
             width: 415px;
             margin-right: -415px;
+        }
+    }
+    &-rating{
+        display: inline-block;
+        vertical-align: top;
+        margin: 8px 5px 0;
+        width: 54px;
+        height: 54px;
+        text-align: center;
+        .border-radius(100%);
+        background-color: @white;
+        color: @black;
+        &__place{
+            display: block;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1em;
+            margin-bottom: -7px;
+            margin-top: 8px;
+        }
+        &__unit{
+            font-size: 12px;
+            line-height: 1em;
+        }
+    }
+    &__logout{
+        float: right;
+        margin: 13px 30px;
+    }
+    &-supergame{
+        padding: 20px;
+        margin-top: 3px;
+        border-top: 1px solid fade(@white, 20%);
+        border-bottom: 1px solid fade(@white, 20%);
+        text-align: center;
+        &__btn{
+            text-transform: uppercase;
+            color: @lightblue;
+            padding: 10px 46px;
+            background: @white;
+            font-size: 24px;
+            font-weight: bold;
+            &:hover, &:focus, &:hover:focus{
+                color: @lightblue;
+                background: @white;
+            }
         }
     }
 }
