@@ -1,6 +1,6 @@
 <footer class="navbar-fixed-bottom footer" role="contentinfo">
 	<div class="container">
-		<?php if ($page == 'game'): ?>
+		<?php if (strpos($page, 'game') !== false): ?>
 			<?php include "src/views/blocks/footer-share.phtml" ?>
 		<?php endif; ?>
 	</div>
