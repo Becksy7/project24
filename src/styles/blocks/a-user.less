@@ -169,4 +169,84 @@
             }
         }
     }
+    &-traits{
+        padding: 5px 30px 20px;
+        color: @white;
+        border-bottom: 1px solid fade(@white, 20%);
+        &__wrap{
+            width: 100%;
+            height: 204px;
+            overflow: hidden;
+        }
+        &__head{
+            font-size: 24px;
+            color: @white;
+            margin-bottom: 10px;
+        }
+        .nicescroll-rails.nicescroll-rails-vr{
+            background-color: fade(@white, 20%);
+            .border-radius(12px);
+        }
+    }
+    &-agreement{
+        color: @white;
+        padding: 10px 30px;
+        &__text{
+            font-size: 14px;
+            color: @white;
+            line-height: 1.1em;
+            margin-bottom: 8px;
+        }
+        &__btn{
+            display: inline-block;
+            vertical-align: middle;
+            background: @orange;
+            color: @white;
+            &:hover, &:focus, &:hover:focus{
+                background: @orange;
+                color: @white;
+            }
+        }
+        &__success{
+            display: none;
+            text-align: center;
+            .rostelekom-logo-small{
+                height: 60px;
+            }
+            .a-user-agreement__text{
+                font-size: 24px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 10px;
+                color: @orange;
+            }
+        }
+        &__error{
+            display: none;
+            text-align: center;
+            .a-user-agreement__text {
+                color: @state-danger-text;
+            }
+        }
+        &-form{
+            display: none;
+            &__btn{
+                display: inline-block;
+                vertical-align: top;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .input-group{
+                padding-bottom: 20px;
+            }
+            label.has-error{
+                margin-top: -20px;
+            }
+        }
+    }
+}
+.rostelekom-logo-small{
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
 }

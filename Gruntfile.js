@@ -121,7 +121,8 @@ module.exports = function(grunt) {
                     {expand: true, cwd: 'bower_components/bootstrap/dist/js/', src: 'bootstrap.min.js', dest: 'build/vendor/'},
                     {expand: true, cwd: 'bower_components/underscore/', src: 'underscore-min.js', dest: 'build/vendor/'},
                     {expand: true, cwd: 'bower_components/isMobile/', src: 'isMobile.min.js', dest: 'build/vendor/'},
-                    {expand: true, cwd: 'bower_components/bootstrap/less/', src: '**', dest: 'src/styles/bootstrap/'},
+                    {expand: true, cwd: 'bower_components/jquery-validation/dist/', src: 'jquery.validate.min.js', dest: 'build/vendor/'},
+                    {expand: true, cwd: 'bower_components/bootstrap/less/', src: '**', dest: 'src/styles/bootstrap/'}
                 ]
             }
         },

@@ -102,8 +102,8 @@
 @line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:         1.5;
 
-@border-radius-base:        4px;
-@border-radius-large:       6px;
+@border-radius-base:        6px;
+@border-radius-large:       10px;
 @border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
@@ -149,8 +149,8 @@
 @btn-default-border:             @transparent;
 
 @btn-primary-color:              #fff;
-@btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-bg:                 @lightblue;
+@btn-primary-border:             @transparent;
 
 @btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
@@ -219,9 +219,9 @@
 @legend-border-color:            #e5e5e5;
 
 //** Background color for textual input addons
-@input-group-addon-bg:           @gray-lighter;
+@input-group-addon-bg:           @transparent;
 //** Border color for textual input addons
-@input-group-addon-border-color: @input-border;
+@input-group-addon-border-color: @transparent;
 
 //** Disabled cursor for form controls and buttons.
 @cursor-disabled:                not-allowed;
@@ -508,7 +508,7 @@
 @state-warning-bg:               #fcf8e3;
 @state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
 
-@state-danger-text:              #a94442;
+@state-danger-text:              #fe0131;
 @state-danger-bg:                #f2dede;
 @state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
 

@@ -36,6 +36,50 @@
 			<div class="a-user-supergame">
 				<a href="#" class="btn btn-default a-user-supergame__btn">Суперигра</a>
 			</div>
+			<div class="a-user-traits">
+				<div class="a-user-traits__head">Мои 5 черт характера</div>
+				<div class="a-user-traits__wrap" id="user-traits-container">
+					<div style="height: 400px;" id="user-traits-list">
+						тут будет блок с выбором черт характера.....
+					</div>
+				</div>
+			</div>
+			<div class="a-user-agreement">
+				<div class="a-user-agreement__start" id="agreement-start">
+					<div class="a-user-agreement__text">Введите № договора с «Ростелеком»,
+						чтоб получить +20 бонусов</div>
+					<div class="a-user-agreement__enter" id="agreement-offer">
+						<img class="rostelekom-logo-small" src="<?= publicdir('images/rostelekom-logo-small.svg') ?>">
+						<a href="#" class="btn btn-default a-user-agreement__btn" id="enter-agreement-num">Ввести номер договора</a>
+					</div>
+					<form class="form-inline a-user-agreement-form" id="agreement-form" method="POST" action="<?= publicdir('check.php') ?>">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<img class="rostelekom-logo-small" src="<?= publicdir('images/rostelekom-logo-small.svg') ?>">
+								</div>
+								<input class="form-control" type="text" name="number"
+									   data-rule-required="true"
+									   data-msg-required="Заполните поле"
+									   data-rule-minlength="8"
+									   data-msg-minlength="Минимум 8 цифр"
+									   data-rule-digits="true"
+									   data-msg-digits="Допустимы только цифры"
+								>
+							</div>
+							<button type="submit" class="btn btn-primary a-user-agreement-form__btn">OK</button>
+						</div>
+					</form>
+					<div class="a-user-agreement__success" id="agreement-success">
+						<img class="rostelekom-logo-small" src="<?= publicdir('images/rostelekom-logo-small.svg') ?>">
+						<span class="a-user-agreement__text">Поздравляем!</span>
+					</div>
+					<div class="a-user-agreement__error" id="agreement-error">
+						<div class="a-user-agreement__text">Произошла ошибка. Попробовать еще&nbsp;раз?</div>
+						<a href="#" class="btn btn-primary" id="agreement-try-again">Да</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
