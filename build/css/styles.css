@@ -1637,8 +1637,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_facebook .ya-share2__icon{background-color:#496194}
 .ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_facebook .ya-share2__icon:before{content:'\e802'}
 .navbar-toggle .icon-bar{width:52px;height:8px;background-color:#000}
-.authorization{display:block;border:6px solid #FFF;width:425px;height:425px;border-radius:50%;background-clip:padding-box;background-color:rgba(255,255,255,.8)}
-.authorization--body{width:350px;margin:0 auto;margin-top:55px;text-align:center}
-.authorization--body h2{font-size:30px;line-height:40px;font-weight:500;font-style:normal;margin-bottom:25px}
-.authorization--body span{font-size:18px;font-weight:400;font-style:normal}
-.authorization-position{margin:85px auto}
+.authorization{margin:85px auto;display:block;border:6px solid #FFF;width:425px;height:425px;border-radius:50%;background-clip:padding-box;background-color:rgba(255,255,255,.8)}
+.authorization__body{width:350px;margin:0 auto;margin-top:55px;text-align:center}
+.authorization__body h2{font-size:30px;line-height:40px;font-weight:500;font-style:normal;margin-bottom:25px}
+.authorization__body span{font-size:18px;font-weight:400;font-style:normal}
