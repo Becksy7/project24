@@ -21,10 +21,7 @@ html {
 *, *:before, *:after {
     .box-sizing( border-box );
 }
-html,
-body,
-.layout-wrapper,
-.layout-main{
+html{
     width: 100%;
     height: 100%;
 }
@@ -39,6 +36,14 @@ body,
     position     : relative;
     lost-utility : clearfix;
 }
+body.page{
+    .layout-wrapper,
+    .layout-main{
+        width: 100%;
+        height: 100%;
+    }
+}
+
 body.rotate-me{
     overflow: hidden;
 

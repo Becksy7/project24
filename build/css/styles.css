@@ -1521,9 +1521,10 @@ td.visible-print,th.visible-print{display:table-cell!important}
 @font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-MediumItalic.eot);src:url(../fonts/GothamPro-MediumItalic.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-MediumItalic.woff2) format('woff2'),url(../fonts/GothamPro-MediumItalic.woff) format('woff'),url(../fonts/GothamPro-MediumItalic.ttf) format('truetype'),url(../fonts/GothamPro-MediumItalic.svg#GothamPro-MediumItalic) format('svg');font-weight:500;font-style:italic}
 @font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Bold.eot);src:url(../fonts/GothamPro-Bold.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Bold.woff2) format('woff2'),url(../fonts/GothamPro-Bold.woff) format('woff'),url(../fonts/GothamPro-Bold.ttf) format('truetype'),url(../fonts/GothamPro-Bold.svg#GothamPro-Bold) format('svg');font-weight:700;font-style:normal}
 @font-face{font-family:'Gotham Pro';src:url(../fonts/GothamPro-Medium.eot);src:url(../fonts/GothamPro-Medium.eot?#iefix) format('embedded-opentype'),url(../fonts/GothamPro-Medium.woff2) format('woff2'),url(../fonts/GothamPro-Medium.woff) format('woff'),url(../fonts/GothamPro-Medium.ttf) format('truetype'),url(../fonts/GothamPro-Medium.svg#GothamPro-Medium) format('svg');font-weight:500;font-style:normal}
+html{width:100%;height:100%}
 html body{background:#FFF;min-width:1136px;width:auto;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-.layout-main,.layout-wrapper,body,html{width:100%;height:100%}
 .container{width:100%;max-width:1280px;margin:0 auto}
+body.page .layout-main,body.page .layout-wrapper{width:100%;height:100%}
 body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg);transform:rotate(90deg);width:100vh;height:100vw}
 .client-style *{font-family:"Gotham Pro",Arial,sans-serif}
 .client-style ul.clean{list-style:none}
