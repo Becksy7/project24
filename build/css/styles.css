@@ -1,5 +1,4 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-.label,sub,sup{vertical-align:baseline}
 .btn,.btn-group,.btn-group-vertical,.caret,.checkbox-inline,.radio-inline,img{vertical-align:middle}
 hr,img{border:0}
 body,figure{margin:0}
@@ -21,7 +20,7 @@ b,optgroup,strong{font-weight:700}
 dfn{font-style:italic}
 h1{margin:.67em 0}
 mark{background:#ff0;color:#000}
-sub,sup{font-size:75%;line-height:0;position:relative}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sup{top:-.5em}
 sub{bottom:-.25em}
 svg:not(:root){overflow:hidden}
@@ -952,7 +951,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 .navbar-collapse.in{overflow-y:visible}
 .navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse,.navbar-static-top .navbar-collapse{padding-left:0;padding-right:0}
 }
-.carousel-inner,.embed-responsive,.modal,.modal-open,.progress,body.rotate-me{overflow:hidden}
+.embed-responsive,.modal,.modal-open,.progress{overflow:hidden}
 .navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse{max-height:480px}
 @media (max-device-width:480px) and (orientation:landscape){.navbar-fixed-bottom .navbar-collapse,.navbar-fixed-top .navbar-collapse{max-height:200px}
 }
@@ -1086,7 +1085,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 .pager .previous>a,.pager .previous>span{float:left}
 .pager .disabled>a,.pager .disabled>a:focus,.pager .disabled>a:hover,.pager .disabled>span{color:#777;background-color:#fff;cursor:not-allowed}
 a.badge:focus,a.badge:hover,a.label:focus,a.label:hover{color:#fff;cursor:pointer;text-decoration:none}
-.label{display:inline;padding:.2em .6em .3em;font-size:75%;color:#fff;border-radius:.25em}
+.label{display:inline;padding:.2em .6em .3em;font-size:75%;color:#fff;vertical-align:baseline;border-radius:.25em}
 .label:empty{display:none}
 .label-default{background-color:#777}
 .label-default[href]:focus,.label-default[href]:hover{background-color:#5e5e5e}
@@ -1289,20 +1288,20 @@ button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance
 .modal.fade .modal-dialog{-webkit-transform:translate(0,-25%);transform:translate(0,-25%);-webkit-transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out}
 .modal.in .modal-dialog{-webkit-transform:translate(0,0);transform:translate(0,0)}
 .modal-open .modal{overflow-x:hidden;overflow-y:auto}
-.modal-dialog{position:relative;width:auto;margin:10px}
+.modal-dialog{position:relative;margin:10px}
 .modal-content{position:relative;background-color:#fff;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 3px 9px rgba(0,0,0,.5);outline:0}
 .modal-backdrop{position:fixed;z-index:1040;background-color:#000}
 .modal-backdrop.fade{-webkit-opacity:0;-moz-opacity:0;opacity:0;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);filter:alpha(Opacity=0)}
 .modal-backdrop.in{-webkit-opacity:.5;-moz-opacity:.5;opacity:.5;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);filter:alpha(Opacity=50)}
-.modal-header{padding:15px;border-bottom:1px solid #e5e5e5}
-.modal-header .close{margin-top:-2px}
+.modal-header{padding:15px}
 .modal-title{margin:0;line-height:1.42857143}
-.modal-body{position:relative;padding:15px}
+.modal-body{position:relative}
 .modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5}
 .modal-footer .btn+.btn{margin-left:5px;margin-bottom:0}
 .modal-footer .btn-group .btn+.btn{margin-left:-1px}
 .modal-footer .btn-block+.btn-block{margin-left:0}
 .modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}
+.carousel-inner,body.rotate-me{overflow:hidden}
 @media (min-width:768px){.modal-dialog{width:600px;margin:30px auto}
 .modal-content{box-shadow:0 5px 15px rgba(0,0,0,.5)}
 .modal-sm{width:300px}
@@ -1576,7 +1575,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .icon-tick:before{content:'\e806'}
 .icon-minus:before{content:'\e807'}
 .page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover}
-.social-list__lk,.ya-share2__link{border-radius:50%;background-clip:padding-box;overflow:hidden}
+.social-list__lk,.ya-share2__link{border-radius:50%;background-clip:padding-box}
 .page-game .footer .share{-webkit-opacity:0;-moz-opacity:0;opacity:0;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);filter:alpha(Opacity=0);-webkit-transition:.5s opacity ease;transition:.5s opacity ease}
 .page-game.go .footer .share{-webkit-opacity:1;-moz-opacity:1;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(Opacity=100)}
 .social-login{margin:15px auto;text-align:center;max-width:220px}
@@ -1594,7 +1593,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .social-list{list-style:none;padding:0;margin:0}
 .social-list__i{display:inline-block;margin:0 0 0 10px;-webkit-opacity:.9;-moz-opacity:.9;opacity:.9;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=90);filter:alpha(Opacity=90);-webkit-transition:.5s opacity;transition:.5s opacity}
 .social-list__i:hover{-webkit-opacity:1;-moz-opacity:1;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(Opacity=100)}
-.social-list__lk{color:#FFF;height:48px;line-height:48px;display:inline-block;vertical-align:middle;padding:0 5px;text-decoration:none}
+.social-list__lk{color:#FFF;height:48px;line-height:48px;display:inline-block;vertical-align:middle;padding:0 5px;text-decoration:none;overflow:hidden}
 .social-list__lk .icon{font-size:24px}
 .social-list--sharings.social-list{display:inline-block;vertical-align:middle;white-space:nowrap;font-size:0}
 .social-list--sharings.social-list .social-list__lk{padding:0;height:auto;line-height:normal}
@@ -1603,10 +1602,19 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .social-list--sharings .icon:before{line-height:48px;color:#FFF}
 .social-list--sharings .icon.icon-vkontakte{background-color:#6996c7}
 .social-list--sharings .icon.icon-facebook{background-color:#496194}
+.modal-dialog{width:700px}
+.modal-header{margin-bottom:20px;border-bottom:0;margin-right:15px}
+.modal-header .close{margin-top:20px}
+.modal-header .icon{color:#00abe8;font-size:28px}
+.modal-title{font-size:36px;font-weight:500;color:#3b5998;text-align:center;margin-top:35px}
+.modal-title b{font-weight:900;text-transform:uppercase;color:#263945}
+.modal-body{margin-bottom:70px;padding:0}
+.modal-body .text{overflow:scroll;overflow-x:hidden;margin:0 40px;height:435px;color:#000;font-size:20px;line-height:30px;font-weight:400}
 .share{text-align:center;padding:20px 0}
 .share__text{margin-right:10px}
 .ya-share2{height:36px}
 .ya-share2 .ya-share2__list_direction_horizontal>.ya-share2__item{margin-left:5px}
+.ya-share2__link{overflow:hidden}
 .ya-share2 .ya-share2__container_size_m .ya-share2__icon{height:36px;width:36px;line-height:36px;text-align:center;font-size:20px;background:0 0}
 .ya-share2 .ya-share2__container_size_m .ya-share2__icon:before{line-height:36px;color:#FFF}
 .ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_facebook .ya-share2__icon:before,.ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_vkontakte .ya-share2__icon:before{font-family:wland;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:center;font-style:normal}
