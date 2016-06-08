@@ -75,7 +75,7 @@ $(function() {
             return {
                 init : function() {
                     if (isMobile.any){
-
+                        $('body').addClass('mobile');
                         rotate();
                         $(window).on('resize orientationchange', rotate);
                     }
@@ -94,6 +94,12 @@ $(function() {
                         .on('hidden.bs.collapse',function() {
                             $('#user-bookmark').removeClass('rolled');
                         });
+                    // $('#user-panel').find('.a-user__scrollable').niceScroll({
+                    //     cursorcolor: "rgba(255,255,255,0)",
+                    //     background: "rgba(255,255,255,0)",
+                    //     cursorborder: "1px solid transparent",
+                    //     autohidemode:"hidden"
+                    // }).hide();
 
                     $('#user-traits-container').niceScroll('#user-traits-list',{
                         'cursorcolor': '#00abe8',

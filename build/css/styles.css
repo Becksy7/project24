@@ -1602,6 +1602,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user__soc-network.vk:before,.ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_vkontakte .ya-share2__icon:before{content:'\e801'}
 .a-user__soc-network.vk{background-color:#6996c7}
 .a-user__name{font-size:24px;font-weight:600;color:#FFF;padding:10px 30px 4px}
+body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
 .a-user-pic{margin:8px;position:relative}
 .a-user-pic__wrap{width:54px;height:54px;border:4px solid #FFF;background-color:#00abe8}
 .a-user-supergame,.a-user-traits{border-bottom:1px solid rgba(255,255,255,.2)}
@@ -1619,10 +1620,14 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user-rating__unit{font-size:12px;line-height:1em}
 .a-user__logout{float:right;margin:13px 30px}
 .a-user-supergame{padding:20px;margin-top:3px;border-top:1px solid rgba(255,255,255,.2);text-align:center}
+body.mobile .a-user-supergame{padding:10px 20px}
 .a-user-supergame__btn{text-transform:uppercase;padding:10px 46px;font-size:24px;font-weight:700}
+body.mobile .a-user-supergame__btn{font-size:20px;padding:5px 18px}
 .a-user-traits{padding:5px 30px 20px;color:#FFF}
 .a-user-traits__wrap{width:100%;height:204px}
+body.mobile .a-user-traits__wrap{height:100px}
 .a-user-traits__head{font-size:24px;color:#FFF;margin-bottom:10px}
+body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .a-user-traits .nicescroll-rails.nicescroll-rails-vr{background-color:rgba(255,255,255,.2);border-radius:12px;background-clip:padding-box}
 .a-user-agreement__btn,.a-user-agreement__btn:focus,.a-user-agreement__btn:hover,.a-user-agreement__btn:hover:focus{background:#f57b20;color:#FFF}
 .a-user-agreement{color:#FFF;padding:10px 30px}
