@@ -1,0 +1,103 @@
+//base class for all not-100% custom dropdowns
+
+.popup {
+  .clearfix;
+  position: absolute;
+  .box-shadow(0 0 25px fade(@darkgray, 40%));
+  border-radius: 10px;
+  z-index: @zindex-modal;
+  &-body {
+    padding: 0;
+    padding-bottom: 20px;
+    background-color: @white;
+    border-radius: 10px;
+    width: 335px;
+
+  }
+  &-footer {
+    padding-top: 25px;
+    text-align: center;
+  }
+  &-close {
+    .icon;
+    .icon-cross;
+    font-size: 16px;
+    color: @lightblue;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+  &-content {
+    margin: 0 15px;
+    max-height: 270px;
+    overflow-x: hidden;
+    p {
+      font-size: 16px;
+      text-align: center;
+      font-weight: normal;
+      padding: 0 30px;
+
+    }
+  }
+  &-header {
+    .clearfix;
+    height: 145px;
+    padding: 15px;
+    .photo{
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        margin-right: 20px;
+        position: relative;
+        overflow: hidden;
+        width: 115px;
+        height: 115px;
+        .border-radius(100%);
+        border: 5px solid @lightblue;
+        background-color: @white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .name {
+      display: inline-block;
+      margin-top: 40px;
+      font-size: 24px;
+      font-weight: 500;
+      color: @darkblue;
+    }
+  }
+
+  &--heart {
+    left: 115px;
+    top: 0;
+    &:before {
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -15px;
+      top: 105px;
+      border-style: solid;
+      border-width: 20px 15px 20px 0;
+      border-color: transparent @white transparent transparent;
+    }
+  }
+}
+.result {
+  position: absolute;
+  left: 45px;
+  top: 130px;
+  z-index: @zindex-modal;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  .border-radius(50%);
+  background-color: @lightblue;
+  text-align: center;
+  span {
+    font-size: 24px;
+    font-weight: 500;
+    color: @white;
+  }
+}
