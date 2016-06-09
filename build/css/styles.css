@@ -1598,8 +1598,8 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .modal-title b{font-weight:900;text-transform:uppercase;color:#263945}
 .modal-body{margin-bottom:70px;padding:0}
 .modal-body .text{overflow:scroll;overflow-x:hidden;margin:0 40px;height:435px;color:#000;font-size:20px;line-height:30px;font-weight:400}
-.characteristics{width:300px}
 .characteristic{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px}
+.characteristic label{width:100%}
 .characteristic .smile{display:inline-block;margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background-clip:padding-box;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
 .characteristic .smile img{width:33px;height:33px;margin:6px}
 .characteristic .title,.characteristic .value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
@@ -1608,6 +1608,9 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user-bookmark,.a-user-bookmark--inside:before{height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px}
 .characteristic .value .icon-minus{font-size:5px;color:red}
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
+input[type=checkbox],input[type=checkbox]+label span.value{display:none}
+.a-user-info,.a-user-pic,input[type=checkbox]:checked+label span.value{display:inline-block}
+input[type=checkbox]+label span{cursor:pointer}
 .a-user-bookmark{position:fixed;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
 .a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto}
 .a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
@@ -1621,11 +1624,11 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user__soc-network.vk{background-color:#6996c7}
 .a-user__name{font-size:24px;font-weight:600;color:#FFF;padding:10px 30px 4px}
 body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
-.a-user-pic{display:inline-block;vertical-align:top;margin:8px;position:relative}
+.a-user-pic{vertical-align:top;margin:8px;position:relative}
 .a-user-pic__wrap{width:54px;height:54px;border:4px solid #FFF;background-color:#00abe8;overflow:hidden}
 .a-user-supergame,.a-user-traits{border-bottom:1px solid rgba(255,255,255,.2)}
 .a-user-pic__img{font-size:0;background-color:#00abe8;max-width:100%;max-height:100%}
-.a-user-info{display:inline-block;vertical-align:top;margin:14px 0 10px;color:#FFF}
+.a-user-info{vertical-align:top;margin:14px 0 10px;color:#FFF}
 .a-user-info__points{font-size:30px;display:block;line-height:1em}
 .a-user-info__units{display:block;font-size:16px;line-height:1em}
 .a-user-panel{position:fixed;right:0;top:0;z-index:951;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}

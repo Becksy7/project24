@@ -1,0 +1,15 @@
+input[type="checkbox"] {
+  display:none;
+}
+input[type="checkbox"] + label span {
+  &.value {
+    display: none;
+  }
+  cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+  &.value {
+    display: inline-block;
+  }
+}
