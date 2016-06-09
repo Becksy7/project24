@@ -8,6 +8,7 @@ $(function() {
                 PageHeightCalc.init();
                 NoPortraitLayout.init();
                 UserBookmark.init();
+                InterfaceElements.init();
             }
         }
     })()
@@ -179,6 +180,27 @@ $(function() {
                         });
                     });
 
+                }
+            }
+        })()
+        ,InterfaceElements = (function(){
+            return {
+                init : function() {
+                    $(document).on('shown.bs.modal','#text-popup',function() {
+                        var $content = $(this).find('.text');
+
+                            $content.addClass('nicescroll-on').niceScroll('#text-popup p', {
+                                'cursorcolor': '#00abe8',
+                                'cursorwidth': 12,
+                                'cursorborder': '0',
+                                'cursorborderradius': 12,
+                                'autohidemode': false
+                            });
+
+                    }).on('hidden.bs.modal','#text-popup',function() {
+                        var $content = $(this).find('.text');
+                        $content.hasClass('nicescroll-on') && $content.niceScroll().remove();
+                    });
                 }
             }
         })()

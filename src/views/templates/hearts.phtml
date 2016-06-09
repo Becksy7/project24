@@ -1,0 +1,72 @@
+<div id="hearts-target"></div>
+
+<script type="text/template" id="hearts-template">
+	<%
+	// repeat items
+	_.each(items,function(item,key,list){
+	// create variables
+	var f = item.name.split("").shift().toLowerCase();
+	%>
+	<!-- use variables -->
+	<a href="#" class="<%= f %> heart-icon" data-target="<%= id >" data-popover-webui>
+		<img src="/build/images/heart-icon.svg">
+	</a>
+		<!-- use variables -->
+	<div id="<%= id %>" class="popup">
+		<div class="popup-body">
+			<div class="popup-header">
+				<div class="popup-header">
+					<div class="photo">
+						<img src="/build/<%- item.picture %>">
+					</div>
+					<div class="name"><%- item.name %></div>
+				</div>
+			</div>
+			<div class="popup-content personage">
+				<div class="personage__descr" data-personage-descr>
+					<p><%- item.descr %></p>
+					<a class="btn btn-primary" data-goto-choose>Угадать черты характера</a>
+				</div>
+				<div class="personage-choose" data-personage-choose>
+					<!-- checkboxes here-->
+					<div class="traits">
+						<%
+						_.each(trait, function(item,key,list){
+						%>
+						<div class="trait">
+							<div class="trait__smile"><img src="build/<%= -trait.image %>"></div>
+							<div class="trait__title"><%= -trait.name %></div>
+							<div class="trait__value"><%= -trait.mark %></div>
+						</div>
+						<%
+						});
+						%>
+					</div>
+				</div>
+				<div class="personage-result" data-personage-result>
+					<!-- answer will be here -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%
+	});
+	%>
+</script>
+
+<script type="text/template" id="chosen-traits-template">
+	<div class="traits">
+		<%
+			_.each(trait, function(item,key,list){
+		%>
+			<div class="trait">
+				<div class="trait__smile"><img src="build/<%= -trait.image %>"></div>
+				<div class="trait__title"><%= -trait.name %></div>
+				<div class="trait__value"><%= -trait.mark %></div>
+			</div>
+		<%
+			});
+		%>
+	</div>
+</script>

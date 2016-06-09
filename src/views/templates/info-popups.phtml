@@ -1,0 +1,37 @@
+<div id="info-popups-target"></div>
+
+<script type="text/template" id="info-popups-template">
+	<div class="modal fade" id="video-popup" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"><button class="close" type="button" data-dismiss="modal"><i class="icon icon-cross"></i></button>
+					<div class="modal-title">Сцена <%= id %>: <b><%= name %></b></div>
+				</div>
+				<div class="modal-body">
+					<div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="<%= url %>" allowfullscreen=""></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="text-popup" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"><button class="close" type="button" data-dismiss="modal"><i class="icon icon-cross"></i></button>
+					<div class="modal-title">Сцена <%= id %>: <b><%= name %></b></div>
+				</div>
+				<div class="modal-body">
+					<div class="text">
+						<p>
+						<%= text %>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
