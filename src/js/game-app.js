@@ -277,7 +277,7 @@ $(function() {
 						var $checkboxes = $(form).find('input[type="checkbox"]:checked');
 						if ($checkboxes.length) {
 							$checkboxes.each(function(i, checkbox) {
-								userTraits.push(parceInt($(checkbox).val()));
+								userTraits.push(parseInt($(checkbox).val()));
 							});
 						}
 
