@@ -31,7 +31,8 @@ $(function() {
 			scene.urls = {
 				getScene: "api/scene.json",
 				guessCharTraits: "api/guess-character-traits/",
-				userSayHimself: "api/user-set-traits/"
+				userSayHimself: "api/user-set-traits/",
+				extraRoundUsers: "api/extra-round-get-users/"
 			};
 			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
 
@@ -45,6 +46,10 @@ $(function() {
 			scene.$.header = $('#header-target');
 			scene.$.userTraitsTemplate = $('#user-traits-template');
 			scene.$.userTraits = $('#user-traits-container');
+			scene.$.extraRoundTemplate = $('#extraround-template');
+			scene.$.extraRound = $('#extraround-target');
+			scene.$.extraUserPopupTemplate = $('#extraround-user-template');
+			scene.$.extraUserPopup = $('#extraround-user-popup-target')
 
 			var load = function() {
 				$.ajax({
@@ -61,10 +66,10 @@ $(function() {
 				scene.firstStep(info);
 				scene.loadCurrentState(info);
 
-				$(document).on('click', '[data-to-step]', function() {
-					var step = $(this).attr('data-to-step');
-					step == 2 ? scene.secondStep(info) : (step == 3 ? scene.thirdStep(info) : '');
+				$(document).on('click', '[data-to-step="2"]', function() {
+					scene.secondStep(info);
 				});
+				scene.goExtraRound(info);
 			};
 			/**
 			 * Загрузка текущего состояния, если таковое имеется
@@ -87,6 +92,15 @@ $(function() {
 					UserPlace.set(player.currentPlace);
 				}
 
+				if (player.traits.length){
+					$('[data-self-start]').hide();
+
+					var $selfResult = $('[data-self-result]');
+
+					scene.displayUserTraits($selfResult.find('form'),false, player.traits);
+					$selfResult.show();
+				}
+
 				if (characters.length){
 					scene.secondStep(info);
 					var i = 0;
@@ -94,7 +108,7 @@ $(function() {
 						if (characters.hasOwnProperty(index)) {
 							var character = characters[index];
 							var guessed = character.guessedTraitsByPlayer;
-							console.log(character);
+
 							if (guessed) {
 								var id = character.code + '-' + i++,
 									correct = guessed.correct,
@@ -104,7 +118,6 @@ $(function() {
 									rightAnswers = correct.length,
 									$badge = $('[data-target="#' + id + '"]').find('[data-heart-badge]').text(rightAnswers).show();
 
-								console.log(id, $badge.length, rightAnswers);
 
 								$traits.each(function(i, trait) {
 									var id = parseInt($(trait).attr('data-trait-id')),
@@ -177,7 +190,6 @@ $(function() {
 					rightAnswers = correct.length,
 					blockId = $(form).parents('.popover-ui').attr('id'),
 					$badge = $('.heart[data-target="#' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers);
-				console.log($badge.length);
 
 				UserScore.set(score);
 
@@ -412,6 +424,20 @@ $(function() {
 				});
 			};
 			/**
+			 * Создаем попапы для суперигры
+			 * @param data - пришедшие данные
+			 */
+			scene.makeExtraUsers = function(data, info) {
+				//make users
+				var tmpl = scene.$.extraRoundTemplate.html(),
+					users = {};
+				scene.$.extraRound.append(_.template(tmpl)(users));
+				//make users popups
+				var tmpl2 = scene.$.extraUserPopupTemplate.html(),
+					popups = {};
+				scene.$.extraRound.append(_.template(tmpl2)(popups));
+			};
+			/**
 			 * Первый шаг игры
 			 * @param info - массив сцены
 			 */
@@ -444,8 +470,21 @@ $(function() {
 					scene.$.header.find('.explain').eq(1).fadeIn(200).addClass('active');
 				});
 			};
-			scene.thirdStep = function() {
-
+			scene.getExtraUsers = function() {
+				$.ajax({
+					url     : scene.urls.extraRoundUsers,
+					method  : 'POST',
+					success : function(data) {
+						console.log(data);
+						//scene.makeExtraUsers(data, info);
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+			};
+			scene.goExtraRound = function(info) {
+				scene.getExtraUsers();
 			};
 
 			return {
@@ -516,8 +555,9 @@ $(function() {
 
 			return{
 				set : function(){
-						// $('.a-user-agreement__text, #agreement-offer').hide();
-						// $('#agreement-success').show();
+					$('.a-user-agreement__text').eq(0).hide();
+						$('#agreement-offer').hide();
+						$('#agreement-success').show();
 				},
 				init: function() {
 

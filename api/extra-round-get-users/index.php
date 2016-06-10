@@ -19,8 +19,8 @@ $answer = array(
 			"name" => "Константин Константинопольский")
 	)
 );
-$answer = array(
-	"error"=>true,
-	"message"=> "Произошла ошибка"
-);
+//$answer = array(
+//	"error"=>true,
+//	"message"=> "Произошла ошибка"
+//);
 echo json_encode($answer);
