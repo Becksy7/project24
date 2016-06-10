@@ -1,5 +1,27 @@
 .traits{
+    margin: 20px 0 30px;
+    height: 190px;
+    input[type="checkbox"] {
+        position: absolute;
+        left: -1000px;
+    }
+    input[type="checkbox"] + label span {
+        &.trait__value {
+            display: inline-block;
+            .opacity(0);
+        }
+        cursor:pointer;
+    }
 
+    input[type="checkbox"]:checked + label span {
+        &.trait__value {
+            .opacity(1);
+        }
+    }
+    &--result{
+        height: 250px;
+        margin-bottom: 10px;
+    }
 }
 .trait {
     width: 100%;
@@ -7,9 +29,12 @@
     margin-bottom: 2px;
     background-color: @lightgray;
     padding: 0 15px;
+    position: relative;
+    overflow: hidden;
     label {
         width: 100%;
         font-weight: normal;
+        cursor: pointer;
     }
     &__smile {
         display: inline-block;

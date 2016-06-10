@@ -1654,13 +1654,13 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .characteristic .smile img{width:33px;height:33px;margin:6px}
 .characteristic .title,.characteristic .value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
 .characteristic .title{display:inline-block;text-align:left}
+.characteristic input[type=checkbox],.characteristic input[type=checkbox]+label span.value{display:none}
 .characteristic .value{width:50px;margin:0;float:right;text-align:center}
 .a-user-bookmark,.a-user-bookmark--inside:before{height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px}
 .characteristic .value .icon-minus{font-size:5px;color:red}
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
-input[type=checkbox],input[type=checkbox]+label span.value{display:none}
-.a-user-info,.a-user-pic,input[type=checkbox]:checked+label span.value{display:inline-block}
-input[type=checkbox]+label span{cursor:pointer}
+.characteristic input[type=checkbox]+label span{cursor:pointer}
+.a-user-info,.a-user-pic,.characteristic input[type=checkbox]:checked+label span.value{display:inline-block}
 .a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
 .a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto;z-index:10}
 .a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
@@ -1757,6 +1757,7 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .popup,.popup-body{border-radius:10px}
 .scene-links .icon.icon-video{font-size:34px;background:#f68938;background:-webkit-gradient(linear,left bottom,left top,color-stop(0,#f57b20),color-stop(1,#f79851));background:-webkit-linear-gradient(top,#f79851 0,#f57b20 100%);background:linear-gradient(to bottom,#f79851 0,#f57b20 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f79851', endColorstr='#f57b20', GradientType=0)}
 .scene-links .icon.icon-info{background:#0eb7f4;background:-webkit-gradient(linear,left bottom,left top,color-stop(0,#00abe8),color-stop(1,#1cc3ff));background:-webkit-linear-gradient(top,#1cc3ff 0,#00abe8 100%);background:linear-gradient(to bottom,#1cc3ff 0,#00abe8 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1cc3ff', endColorstr='#00abe8', GradientType=0)}
+.popup-header .photo,.result,.trait__smile{background-clip:padding-box}
 .rostelekom-logo{height:50px;display:inline-block;margin-bottom:10px}
 .heart-block{width:460px;height:500px;top:0;left:0;z-index:1000;background-color:transparent}
 .heart-block .heart-icon{position:absolute;top:100px;left:0}
@@ -1771,15 +1772,21 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .popup-header{height:145px;padding:15px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
 .personage__name,.personage__photo,.popup-header .name,.popup-header .photo,.trait__smile,.trait__title{display:inline-block}
-.popup-header .photo{vertical-align:top;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.popup-header .photo{vertical-align:top;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
 .popup-header .name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
-.result{position:absolute;left:45px;top:130px;z-index:1050;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;text-align:center}
+.result{position:absolute;left:45px;top:130px;z-index:1050;width:45px;height:45px;line-height:45px;border-radius:50%;background-color:#00abe8;text-align:center}
 .result span{font-size:24px;font-weight:500;color:#FFF}
-.trait{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px}
-.trait label{width:100%;font-weight:400}
-.trait__smile{margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background-clip:padding-box;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
+.traits{margin:20px 0 30px;height:190px}
+.traits input[type=checkbox]{position:absolute;left:-1000px}
+.traits input[type=checkbox]+label span{cursor:pointer}
+.traits input[type=checkbox]+label span.trait__value{display:inline-block;-webkit-opacity:0;-moz-opacity:0;opacity:0;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);filter:alpha(Opacity=0)}
+.traits input[type=checkbox]:checked+label span.trait__value{-webkit-opacity:1;-moz-opacity:1;opacity:1;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);filter:alpha(Opacity=100)}
+.traits--result{height:250px;margin-bottom:10px}
+.trait{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px;position:relative;overflow:hidden}
+.trait label{width:100%;font-weight:400;cursor:pointer}
+.trait__smile{margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
 .trait__smile img{width:33px;height:33px;margin:6px}
 .trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
 .trait__title{text-align:left}

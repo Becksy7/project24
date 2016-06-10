@@ -1,23 +1,23 @@
 $(function() {
 
-	var App = (function(){
+	var App = (function() {
 
-		return {
-			init : function() {
-				//DummyModule.init();
-				Popovers.init();
-				Scene.init();
+			return {
+				init: function() {
+					//DummyModule.init();
+					Popovers.init();
+					Scene.init();
+				}
 			}
-		}
-	})()
+		})()
 	/**
 	 * popover show initalization
 	 *
 	 */
-		,Popovers = (function(){
+		, Popovers = (function() {
 			var $popovers = $('[data-webiu-popover]');
 			return {
-				init : function() {
+				init: function() {
 					$popovers.each(function(i, popover) {
 						var id = $(popover).attr('data-webiu-popover');
 						$(popover).webuiPopover({url: id});
@@ -25,9 +25,13 @@ $(function() {
 				}
 			}
 		})()
-		,Scene = (function(){
+		, Scene = (function() {
 			var scene = {};
-			scene.url ="api/scene1.json";
+			scene.urls = {
+				getScene: "api/scene1.json",
+				guessCharTraits: "api/guess-character-traits/"
+			};
+
 			scene.$ = {};
 			scene.$.infoPopupsTemplate = $('#info-popups-template');
 			scene.$.infoPopups = $('#info-popups-target');
@@ -38,13 +42,13 @@ $(function() {
 
 			var load = function() {
 				$.ajax({
-					url     : scene.url,
-					method  : 'POST',
-					data    : {
-						id : 1
+					url: scene.urls.getScene,
+					method: 'POST',
+					data: {
+						id: 1
 					},
 					success: scene.success
-				});	
+				});
 			};
 			scene.success = function(data) {
 				//console.log('data:',data);
@@ -59,17 +63,16 @@ $(function() {
 				scene.name = info.name;
 
 				scene.sharings = {
-					vkimg : info.shareImageVk,
-					fbimg : info.shareImageFb,
-					descr : info.description
+					vkimg: info.shareImageVk,
+					fbimg: info.shareImageFb,
+					descr: info.description
 				};
-
 
 
 				//
 				scene.firstStep(info);
 
-				$(document).on('click','[data-to-step]', function() {
+				$(document).on('click', '[data-to-step]', function() {
 					var step = $(this).attr('data-to-step');
 					step == 2 ? scene.secondStep(info) : (step == 3 ? scene.thirdStep(info) : '');
 				});
@@ -77,27 +80,136 @@ $(function() {
 			scene.makeInfoPopups = function(info) {
 				var tmpl = scene.$.infoPopupsTemplate.html(),
 					infopopupsdata = {
-						name : info.name,
-						id : info.id,
-						url : info.video,
+						name: info.name,
+						id: info.id,
+						url: info.video,
 						text: info.description
 					};
-				scene.$.infoPopups.html(_.template(tmpl)( infopopupsdata ));
+				scene.$.infoPopups.html(_.template(tmpl)(infopopupsdata));
 			};
 			scene.makeHearts = function(users) {
 				var tmpl = scene.$.heartsTemplate.html();
 
-				scene.$.hearts.html(_.template(tmpl)( users ));
+				scene.$.hearts.html(_.template(tmpl)(users));
+
+				scene.makePopoverHandlers(users);
 			};
+			/**
+			 * Построение заголовка игры(шаблонизация)
+			 * @param data - инфо для заголо
+			 */
 			scene.makeHeaders = function(data) {
 				var tmpl = scene.$.headerTemplate.html();
 
-				scene.$.header.html(_.template(tmpl)( data ));
+				scene.$.header.html(_.template(tmpl)(data));
+			};
+			/**
+			 * Скрытие формы и вывод результатов ответа пользователя после запроса
+			 * @param form - форма ответов
+			 * @param data - данные, пришедшие из формы
+			 */
+			scene.makeTraitsResult = function(form, data) {
+				var $results = $(form).parent().siblings('[data-personage-result]'),
+					$traits = $results.find('.trait'),
+					incorrect = data.incorrectTraitIds,
+					correct = data.correctTraitIds;
+
+				$(form).parent().fadeOut(500, function() {
+					$results.fadeIn(200);
+				});
+
+				$traits.each(function(i, trait) {
+					var id = parseInt($(trait).attr('data-trait-id')),
+						$placeholder = $(trait).find('[data-trait-result]'),
+						resultHtml = "";
+
+					if ( ($.inArray(id, incorrect) + 1)){
+						//means this value is incorrect
+						resultHtml = '<i class="icon icon-minus"></i>';
+						
+					} else if (($.inArray(id, correct) + 1)){
+						//means this value is correct
+						resultHtml = '+1'; //if some else value requred, change here!!!!
+					}
+					$placeholder.html(resultHtml);
+				});
+			};
+			scene.makePopoverHandlers = function(users) {
+
+				$('[data-popover-webui]').each(function(i, link) {
+					var $link = $(link),
+						id = $link.attr('data-target');
+					$link.webuiPopover({
+						url: id,
+						placement: 'auto-right',
+						onShow: function($element) {
+
+							var $content = $element.find('[data-nicescroll-block]');
+							$content.addClass('nicescroll-on').niceScroll(/*'.nicescroll-on p',*/ {
+								'cursorcolor': '#00abe8',
+								'cursorwidth': 12,
+								'cursorborder': '0',
+								'cursorborderradius': 12,
+								'autohidemode': false
+							});
+						},
+						onHide: function($element) {
+
+							var $content = $element.find('[data-nicescroll-block]');
+							$content.hasClass('nicescroll-on') && $content.niceScroll().remove();
+						}
+					});
+				});
+				$(document).on('click', '[data-goto-choose]', function() {
+					var $this = $(this),
+						$startContent = $this.parent();//.find('[data-start-content]'),
+					$form = $startContent.siblings('[data-personage-choose]');
+					$startContent.fadeOut(500, function() {
+						$form.fadeIn(200);
+					});
+				});
+				$('[data-personage-choose]').each(function(i, element) {
+					$(element).find('form').validate({
+						submitHandler: function(form) {
+							var dd = $.Deferred();
+
+							var guessedTraits = [];
+							var characterId = $(form).find('input[name="characterid"]').val();
+							var $checkboxes = $(form).find('input[type="checkbox"]:checked');
+							if ($checkboxes.length) {
+								$checkboxes.each(function(i, checkbox) {
+									guessedTraits.push($(checkbox).val());
+								});
+							}
+
+							guessedTraits = guessedTraits.join(',');
+
+
+							$.ajax({
+								url: scene.urls.guessCharTraits,
+								method: 'POST',
+								data: {
+									"character-id": characterId,
+									"trait-ids": guessedTraits
+								},
+								dataType: 'json',
+								success: function(data) {
+									scene.makeTraitsResult(form, data);
+								},
+								error: function(data) {
+									console.log(data);
+								}
+							});
+							return false;
+						}
+					})
+				})
+
 			};
 
 			scene.firstStep = function(info) {
 				var headers = {
-					id : info.id,
+					id: info.id,
 					name: info.name
 				};
 				scene.makeHeaders(headers);
@@ -105,7 +217,7 @@ $(function() {
 			};
 			scene.secondStep = function(info) {
 				var data = {
-					scene : info.code,
+					scene: info.code,
 					users: info.characters
 				};
 
@@ -115,33 +227,9 @@ $(function() {
 						trait.image = window.TRAITS[trait.id].image;
 					})
 				});
-				console.log(data);
-				
-				scene.makeHearts(data);
-				$('[data-popover-webui]').each(function(i, link) {
-					var $link = $(link),
-						id = $link.attr('data-target');
-					$link.webuiPopover({
-						url: id,
-						placement:'auto-right',
-						onShow: function($element) {
 
-							var $content = $element.find('[data-nicescroll-block]');
-							$content.addClass('nicescroll-on').niceScroll( /*'.nicescroll-on p',*/ {
-								'cursorcolor': '#00abe8',
-								'cursorwidth': 12,
-								'cursorborder': '0',
-								'cursorborderradius': 12,
-								'autohidemode': false
-							});
-						},
-						onHide: function($element) {
-							console.log($element, 'hidden');
-							var $content = $element.find('[data-nicescroll-block]');
-							$content.hasClass('nicescroll-on') && $content.niceScroll().remove();
-						}
-					});
-				});
+				scene.makeHearts(data);
+
 
 				//show next explain block
 				scene.$.header.find('.explain.active').fadeOut(500, function() {
@@ -152,9 +240,9 @@ $(function() {
 			scene.thirdStep = function() {
 
 			};
-		
+
 			return {
-				init : function() {
+				init: function() {
 					load();
 
 				}
@@ -163,15 +251,16 @@ $(function() {
 	/**
 	 * Dummy Module Example
 	 */
-		,DummyModule = (function(){
+		, DummyModule = (function() {
 			return {
-				init : function() {
+				init: function() {
 					// do something
 				}
 			}
 		})()
 
-		;App.init();
+		;
+	App.init();
 
 });
 
