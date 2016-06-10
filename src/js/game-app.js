@@ -6,6 +6,7 @@ $(function() {
 				init: function() {
 					//DummyModule.init();
 					Popovers.init();
+					Rostelekom.init();
 					Scene.init();
 				}
 			}
@@ -28,12 +29,12 @@ $(function() {
 		, Scene = (function() {
 			var scene = {};
 			scene.urls = {
-				getScene: "api/scene1.json",
+				getScene: "api/scene.json",
 				guessCharTraits: "api/guess-character-traits/",
 				userSayHimself: "api/user-set-traits/"
 			};
 			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
-			scene.USERID = 1;//сюда пишем id юзера
+
 
 			scene.$ = {};
 			scene.$.infoPopupsTemplate = $('#info-popups-template');
@@ -49,38 +50,33 @@ $(function() {
 				$.ajax({
 					url: scene.urls.getScene,
 					method: 'POST',
-					data: {
-						id: 1
-					},
 					success: scene.success
 				});
 			};
 			scene.success = function(data) {
 				//console.log('data:',data);
 				var info = $.parseJSON(data).scene;
-				//console.log(info);
-				scene.background = info.image;
 
-
-				scene.characters = info.characters;
-				scene.code = info.code;
-				scene.name = info.name;
-
-				scene.sharings = {
-					vkimg: info.shareImageVk,
-					fbimg: info.shareImageFb,
-					descr: info.description
-				};
-
-
-				//
 				scene.makeUserTraits(info);
 				scene.firstStep(info);
+				scene.loadCurrentState(info);
 
 				$(document).on('click', '[data-to-step]', function() {
 					var step = $(this).attr('data-to-step');
 					step == 2 ? scene.secondStep(info) : (step == 3 ? scene.thirdStep(info) : '');
 				});
+			};
+			/**
+			 * Загрузка текущего состояния, если таковое имеется
+			 * @param info - массив сцены
+			 */
+			scene.loadCurrentState = function(info) {
+				var player = info.player,
+					hasContract = player.hasContract;
+				if (hasContract) {
+					// скрываем форму ростелекома
+					Rostelekom.set();
+				}
 			};
 			/**
 			 * Создание попапов с видео и текстом для сцены
@@ -117,7 +113,7 @@ $(function() {
 				scene.$.header.html(_.template(tmpl)(data));
 			};
 			/**
-			 * Скрытие формы и вывод результатов ответа пользователя после запроса
+			 * Скрытие формы выбора черт персонажа и вывод результатов ответа пользователя после запроса
 			 * @param form - форма ответов
 			 * @param data - данные, пришедшие из формы
 			 */
@@ -125,7 +121,10 @@ $(function() {
 				var $results = $(form).parent().siblings('[data-personage-result]'),
 					$traits = $results.find('.trait'),
 					incorrect = data.incorrectTraitIds,
-					correct = data.correctTraitIds;
+					correct = data.correctTraitIds,
+					score = data.userScore;
+				
+				UserScore.set(score);
 
 				$(form).parent().fadeOut(500, function() {
 					$(form).find('[data-nicescroll-block]').niceScroll().remove();
@@ -187,11 +186,8 @@ $(function() {
 					});
 				});
 
-				$(document).on('click','[data-personage-choose] input[type=checkbox]', function() {
-					var $checked = $('[data-personage-choose] input[type="checkbox"]:checked');
-					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
-					$("[data-personage-choose] input[type=checkbox]").not(":checked").attr("disabled",bol);
-				});
+				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]');
+
 
 				$('[data-personage-choose]').each(function(i, element) {
 					$(element).find('form').validate({
@@ -222,7 +218,7 @@ $(function() {
 									scene.makeTraitsResult(form, data);
 								},
 								error: function(data) {
-									console.log(data);
+									scene.sayError(data, '[data-personage-choose]', '[data-personage-error]');
 								}
 							});
 							return false;
@@ -238,9 +234,9 @@ $(function() {
 			scene.makeUserTraits = function(info) {
 				var tmpl = scene.$.userTraitsTemplate.html(),
 					data = {
-						traits: window.TRAITS
+						traits: info.traits
 					};
-
+					console.log(data);
 				scene.$.userTraits.html(_.template(tmpl)(data));
 				$('#user-panel').on('shown.bs.collapse',function() {
 					$('.a-user-choose .traits').addClass('nicescroll-on').niceScroll({
@@ -261,11 +257,7 @@ $(function() {
 					});
 				});
 
-				$(document).on('click','[data-self-choose] input[type=checkbox]', function() {
-					var $checked = $('[data-self-choose] input[type="checkbox"]:checked');
-					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
-					$("[data-self-choose] input[type=checkbox]").not(":checked").attr("disabled",bol);
-				});
+				scene.checkboxLimiting('[data-self-choose] input[type=checkbox]');
 
 				$('[data-self-choose]').find('form').validate({
 					submitHandler: function(form) {
@@ -273,7 +265,7 @@ $(function() {
 
 						var userTraits = [],
 							userTraitsData = "";
-						var characterId = scene.USERID;
+
 						var $checkboxes = $(form).find('input[type="checkbox"]:checked');
 						if ($checkboxes.length) {
 							$checkboxes.each(function(i, checkbox) {
@@ -288,20 +280,56 @@ $(function() {
 							url: scene.urls.userSayHimself,
 							method: 'POST',
 							data: {
-								//"user-id": characterId,
 								"trait-ids":userTraitsData
 							},
 							dataType: 'json',
 							success: function(data) {
-								console.log(data);
+								
 								scene.displayUserTraits(form, data, userTraits);
 							},
 							error: function(data) {
-								console.log(data);
+								scene.sayError(data, '[data-self-choose]', '[data-self-error]');
 							}
 						});
 						return false;
 					}
+				});
+			};
+			/**
+			 * Вывод ошибки
+			 * @param data - данные ошибки
+			 * @param formblock - блок который надо будет скрыть и открыть еще раз
+			 * @param errorblock - блок c ошибкой
+			 */
+			scene.sayError = function(data, formblock, errorblock) {
+
+				var error = data.error ? data.error : 'Произошла ошибка!';
+
+				$(formblock).fadeOut(500, function() {
+					$(errorblock).find('data-head').text(error);
+					$(errorblock).fadeIn(200);
+				});
+				$(document).on('click', '[data-again]', function(e) {
+					e.preventDefault();
+					$(errorblock).fadeOut(500,function() {
+						$(formblock).fadeIn(200);
+					});
+				});
+			};
+			/**
+			 * Отслеживание чекбоксов, чтобы было выбрано 5, не больше
+			 * @param checkbox - строка с селектором чекбокса
+			 */
+			scene.checkboxLimiting = function(checkbox) {
+				var $form = $(checkbox).parents('form'),
+					$submit = $form.find('[type="submit"]');
+				$submit.attr('disabled',true);
+				$(document).on('click', checkbox, function() {
+					var $checked = $(checkbox + ':checked');
+					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+					$(checkbox).not(":checked").attr("disabled", bol);
+
+					$submit.attr('disabled', ($checked.length < scene.MAXCHECKEDTRAITS) );
 				});
 			};
 			/**
@@ -313,13 +341,9 @@ $(function() {
 			scene.displayUserTraits = function(form, data, userTraits){
 				var $userResult = $('[data-self-result]');
 
-				$('.a-user-info__points').text(data.userScore);
-
 				var $traits = $userResult.find('.trait');
 				$traits.each(function(i, trait) {
 					var id = parseInt($(trait).attr('data-trait-id'));
-
-					console.log(id, typeof (id), typeof(userTraits[0]), $.inArray(id, userTraits));
 
 					if ( !($.inArray(id, userTraits) + 1)){
 						//means this value was chosen
@@ -351,15 +375,9 @@ $(function() {
 				var data = {
 					scene: info.code,
 					users: info.characters,
-					traits: window.TRAITS
+					traits: info.traits
 				};
 
-				data.users.forEach(function(item, i) {
-					item.traits.forEach(function(trait, i) {
-
-						trait.image = window.TRAITS[trait.id].image;
-					})
-				});
 
 				scene.makeHearts(data);
 
@@ -379,6 +397,99 @@ $(function() {
 					load();
 
 				}
+			}
+		})()
+		,Rostelekom = (function() {
+			var F = {};
+			F.errorMsg="Произошла ошибка. Попробуйте заполнить поле еще раз.";
+			F.sayError = function(data) {
+				var errorHTML = (data.errorMessage ? data.errorMessage : F.errorMsg);
+				$('#agreement-form').fadeOut(500, function() {
+					$('#agreement-error').find('.a-user-agreement__text')
+						.html(errorHTML);
+					$('#agreement-error').fadeIn(200);
+				});
+			};
+			F.success = function(data) {
+				if (data.error ) {
+					F.sayError(data);
+				} else {
+					var score = $.parseJSON(data).userScore;
+					UserScore.set(score);
+
+					$('#agreement-form').fadeOut(500, function() {
+						$('#agreement-success').fadeIn(200);
+					});
+				}
+			};
+			F.error = function(data) {
+				F.sayError(data);
+			};
+			$('#agreement-form').validate({
+				errorClass:'has-error',
+				errorPlacement: function(error, element) {
+					var $parent = $(element).parent();
+					if ($parent.hasClass('input-group')) {
+						error.insertAfter($parent);
+					} else {
+						error.insertAfter(element);
+					}
+				},
+				highlight: function(element, errorClass) {
+					$(element).parents('.form-group').addClass(errorClass);
+				},
+				unhighlight: function(element, errorClass) {
+					$(element).parents('.form-group').removeClass(errorClass);
+				},
+				submitHandler: function(form) {
+
+					var data = $(form).serialize();
+
+					$.ajax({
+						url     : $(form).attr('action'),
+						method  : $(form).attr('method'),
+						data    : data,
+						success : F.success,
+						error   : F.error
+					});
+
+					return false;
+				}
+			});
+
+
+			return{
+				set : function(){
+						// $('.a-user-agreement__text, #agreement-offer').hide();
+						// $('#agreement-success').show();
+				},
+				init: function() {
+
+					$('#enter-agreement-num').on('click',function() {
+						$('#agreement-offer').fadeOut(500, function(){
+							$('#agreement-form').fadeIn(200);
+						});
+					});
+					$('#enter-agreement-num').on('click',function() {
+						$('#agreement-offer').fadeOut(500, function(){
+							$('#agreement-form').fadeIn(200);
+						});
+					});
+					$('#agreement-try-again').on('click',function() {
+						$('#agreement-error').fadeOut(500, function(){
+							$('#agreement-form').fadeIn(200);
+						});
+					});
+				}
+			}
+		})()
+		, UserScore = (function() {
+			var set = function(n) {
+				console.log(n);
+				$('.a-user-info__points').text(n);
+			};
+			return {
+				set: set
 			}
 		})()
 	/**
