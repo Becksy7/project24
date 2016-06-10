@@ -72,10 +72,61 @@ $(function() {
 			 */
 			scene.loadCurrentState = function(info) {
 				var player = info.player,
-					hasContract = player.hasContract;
+					hasContract = player.hasContract,
+					characters = info.characters;
+
 				if (hasContract) {
-					// скрываем форму ростелекома
+					// скрываем форму ростелекома, если уже ввели договор
 					Rostelekom.set();
+				}
+				if (player.currentScore){
+					// выводим набранные уже очки
+					UserScore.set(player.currentScore);
+				}
+				if (player.currentPlace){
+					UserPlace.set(player.currentPlace);
+				}
+
+				if (characters.length){
+					scene.secondStep(info);
+					var i = 0;
+					for(var index in characters) {
+						if (characters.hasOwnProperty(index)) {
+							var character = characters[index];
+							var guessed = character.guessedTraitsByPlayer;
+							console.log(character);
+							if (guessed) {
+								var id = character.code + '-' + i++,
+									correct = guessed.correct,
+									incorrect = guessed.incorrect,
+									$result = $('#' + id).find('[data-personage-result]'),
+									$traits = $result.find('.trait'),
+									rightAnswers = correct.length,
+									$badge = $('[data-target="#' + id + '"]').find('[data-heart-badge]').text(rightAnswers).show();
+
+								console.log(id, $badge.length, rightAnswers);
+
+								$traits.each(function(i, trait) {
+									var id = parseInt($(trait).attr('data-trait-id')),
+										$placeholder = $(trait).find('[data-trait-result]'),
+										resultHtml = "";
+
+									if (($.inArray(id, incorrect) + 1)) {
+										//means this value is incorrect
+										resultHtml = '<i class="icon icon-minus"></i>';
+
+									} else if (($.inArray(id, correct) + 1)) {
+										//means this value is correct
+										resultHtml = '+1'; //if some else value requred, change here!!!!
+									}
+									$placeholder.html(resultHtml);
+								});
+								//show chosen block:
+								$('#'+id).find('.popover-ui-content').hide();
+								$result.show();
+							}
+						}
+					};
 				}
 			};
 			/**
@@ -122,13 +173,18 @@ $(function() {
 					$traits = $results.find('.trait'),
 					incorrect = data.incorrectTraitIds,
 					correct = data.correctTraitIds,
-					score = data.userScore;
-				
+					score = data.userScore,
+					rightAnswers = correct.length,
+					blockId = $(form).parents('.popover-ui').attr('id'),
+					$badge = $('.heart[data-target="#' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers);
+				console.log($badge.length);
+
 				UserScore.set(score);
 
 				$(form).parent().fadeOut(500, function() {
 					$(form).find('[data-nicescroll-block]').niceScroll().remove();
 					$results.fadeIn(200);
+					$badge.fadeIn(200);
 				});
 
 				$traits.each(function(i, trait) {
@@ -236,7 +292,7 @@ $(function() {
 					data = {
 						traits: info.traits
 					};
-					console.log(data);
+					//console.log(data);
 				scene.$.userTraits.html(_.template(tmpl)(data));
 				$('#user-panel').on('shown.bs.collapse',function() {
 					$('.a-user-choose .traits').addClass('nicescroll-on').niceScroll({
@@ -280,7 +336,7 @@ $(function() {
 							url: scene.urls.userSayHimself,
 							method: 'POST',
 							data: {
-								"trait-ids":userTraitsData
+								"trait-ids" : userTraitsData
 							},
 							dataType: 'json',
 							success: function(data) {
@@ -485,8 +541,15 @@ $(function() {
 		})()
 		, UserScore = (function() {
 			var set = function(n) {
-				console.log(n);
 				$('.a-user-info__points').text(n);
+			};
+			return {
+				set: set
+			}
+		})()
+		, UserPlace = (function() {
+			var set = function(n) {
+				$('.a-user-rating__place').text(n);
 			};
 			return {
 				set: set

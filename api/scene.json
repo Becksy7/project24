@@ -35,7 +35,9 @@
     ],
     "player": {
       "hasContract": true,
-      "traits": [0, 2, 3, 6, 7]
+      "traits": [0, 2, 3, 6, 7],
+      "currentScore": 67,
+      "currentPlace": 37
     },
     "traits": [
         { "id":0,"name": "добрый", "image":"faces/face1.svg"},

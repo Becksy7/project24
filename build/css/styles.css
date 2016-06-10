@@ -1637,6 +1637,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .social-list__lk{color:#FFF;height:48px;line-height:48px;display:inline-block;vertical-align:middle;padding:0 5px;text-decoration:none;border-radius:50%;background-clip:padding-box;overflow:hidden}
 .social-list__lk .icon{font-size:24px}
 .social-list--sharings.social-list{display:inline-block;vertical-align:middle;white-space:nowrap;font-size:0}
+.a-user-info,.a-user-pic{vertical-align:top;display:inline-block}
 .social-list--sharings.social-list .social-list__lk{padding:0;height:auto;line-height:normal}
 .social-list--sharings .icon{display:block;width:48px;height:48px;line-height:48px;text-align:center;color:#FFF}
 .social-list--sharings .icon:before{line-height:48px;color:#FFF}
@@ -1667,7 +1668,8 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
 .characteristic input[type=checkbox]+label{font-weight:500}
 .characteristic input[type=checkbox]+label span{cursor:pointer}
-.a-user-info,.a-user-pic,.characteristic input[type=checkbox]:checked+label span.value{display:inline-block}
+.characteristic input[type=checkbox]:checked+label span.value{display:inline-block}
+.a-user.unautorized{display:none!important}
 .a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:2}
 .a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto;z-index:10}
 .a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
@@ -1681,11 +1683,11 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user__soc-network.vk{background-color:#6996c7}
 .a-user__name{font-size:24px;font-weight:600;color:#FFF;padding:10px 30px 4px}
 body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
-.a-user-pic{vertical-align:top;margin:8px;position:relative}
+.a-user-pic{margin:8px;position:relative}
 .a-user-pic__wrap{width:54px;height:54px;border:4px solid #FFF;background-color:#00abe8;overflow:hidden}
 .a-user-supergame,.a-user-traits{border-bottom:1px solid rgba(255,255,255,.2)}
 .a-user-pic__img{font-size:0;background-color:#00abe8;max-width:100%;max-height:100%}
-.a-user-info{vertical-align:top;margin:14px 0 10px;color:#FFF}
+.a-user-info{margin:14px 0 10px;color:#FFF}
 .a-user-info__points{font-size:30px;display:block;line-height:1em}
 .a-user-info__units{display:block;font-size:16px;line-height:1em}
 .a-user-panel{position:fixed;right:0;top:0;z-index:951;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
@@ -1727,6 +1729,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .share{text-align:center;padding:20px 0}
 .share__text{margin-right:10px}
 .ya-share2{height:36px}
+.personage__photo,.user,.user__name,.user__option{vertical-align:top}
 .ya-share2 .ya-share2__list_direction_horizontal>.ya-share2__item{margin-left:5px}
 .ya-share2__link{border-radius:50%;background-clip:padding-box;overflow:hidden}
 .ya-share2 .ya-share2__container_size_m .ya-share2__icon{height:36px;width:36px;line-height:36px;text-align:center;font-size:20px;background:0 0}
@@ -1773,7 +1776,6 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popup{box-shadow:0 0 25px rgba(150,150,150,.4);z-index:1050}
 .popup:after,.popup:before{content:" ";display:table}
 .popup-body{padding:0;padding-bottom:20px;background-color:#FFF;width:335px}
-.personage__photo,.popup-header .photo{border-radius:100%;overflow:hidden;vertical-align:top}
 .popup-footer{padding-top:25px;text-align:center}
 .popup-close{font-size:16px;color:#00abe8;top:15px;right:15px;cursor:pointer}
 .popup-close:before{font-family:wland;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\e805'}
@@ -1782,7 +1784,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popup-header{height:145px;padding:15px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
 .personage__name,.personage__photo,.popup-header .name,.popup-header .photo,.trait__smile,.trait__title{display:inline-block}
-.popup-header .photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.popup-header .photo{vertical-align:top;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
 .popup-header .name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
@@ -1797,7 +1799,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .trait{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px;position:relative;overflow:hidden}
 .trait label{width:100%;font-weight:400;cursor:pointer}
 .trait__smile{margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
-.personage__photo,.user__image{background-clip:padding-box;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.personage__photo,.user__image{background-clip:padding-box;background-position:center;background-repeat:no-repeat;background-size:cover}
 .trait__smile img{width:33px;height:33px;margin:6px}
 .trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
 .trait__title{text-align:left}
@@ -1806,8 +1808,8 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .trait__value .icon-tick{font-size:18px;color:#969696}
 .personage.popup{position:static}
 .personage.popover-ui{max-width:335px;border:0}
-.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border:5px solid #00abe8}
-.heart,.user__btn{position:absolute}
+.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;overflow:hidden}
+.heart,.heart__result,.user__btn{position:absolute}
 .personage__photo img{max-width:100%}
 .personage__name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .personage__descr{font-size:16px;text-align:center;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
@@ -1822,12 +1824,13 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-pers2-beach{left:37%;top:36%}
 .heart-karlos-beach{right:38%;top:35%}
-.user{padding:15px;vertical-align:top}
-.user__image{margin-right:15px;overflow:hidden;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8}
-.user__name{vertical-align:top;text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
+.heart__result{left:44px;top:29px;padding:0;margin:0;z-index:1050;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;text-align:center;font-size:24px;font-weight:500;color:#FFF}
+.user{padding:15px}
+.user__image{margin-right:15px;overflow:hidden;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8;background-color:#FFF}
+.user__name{text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
 .user__header{max-width:300px;margin:0 auto;margin-bottom:20px;text-align:left}
 .user__content{width:300px;max-height:325px;overflow-x:hidden}
-.user__option{vertical-align:top;width:300px;margin:0 15px;text-align:left}
+.user__option{width:300px;margin:0 15px;text-align:left}
 .error-page,.error-page__text,.error-page__title{text-align:center}
 .user__btn{bottom:-85px;left:420px;padding:10px 70px}
 .error-page{margin-top:180px}

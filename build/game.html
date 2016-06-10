@@ -100,23 +100,22 @@
                                     <div class="a-user-choose__head">Мои 5 черт
                                         <br>характера:</div>
                                     <form>
-                                        <% console.log(traits) %>
-                                            <div class="traits">
-                                                <% _.each(traits, function(trait, key, list){
+                                        <div class="traits">
+                                            <% _.each(traits, function(trait, key, list){
 				var uid = 'user' + key;
 				%>
-                                                    <div class="trait">
-                                                        <input type="checkbox" id="ch_<%= uid %>" name="traits" value="<%= key %>">
-                                                        <label for="ch_<%= uid %>">
-                                                            <div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
-                                                            <div class="trait__title">
-                                                                <%= trait.name %>
-                                                            </div>
-                                                            <span class="trait__value"><i class="icon icon-tick"></i></span>
-                                                    </div>
-                                                    <% }); %>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-fullwidth">Подтвердить</button>
+                                                <div class="trait">
+                                                    <input type="checkbox" id="ch_<%= uid %>" name="traits" value="<%= key %>">
+                                                    <label for="ch_<%= uid %>">
+                                                        <div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
+                                                        <div class="trait__title">
+                                                            <%= trait.name %>
+                                                        </div>
+                                                        <span class="trait__value"><i class="icon icon-tick"></i></span>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-fullwidth">Подтвердить</button>
                                     </form>
                                 </div>
                                 <div class="a-user-choose" data-self-result style="display:none;">
