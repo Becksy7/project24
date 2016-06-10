@@ -1,4 +1,19 @@
 <?php // example of including a block:
-     // include "src/views/blocks/block-name.phtml" ?>
+// include "src/views/blocks/block-name.phtml" ?>
 
-<div>Index page</div>
+<section class="caption">
+    <img class="caption_logo" src="<?= publicdir('images/logo_1.png') ?>"/>
+    <div class="caption__text">
+        <span>Лето любви на <b>FOX Life</b></span>
+    </div>
+    <div class="caption__promo">
+        <img src="<?= publicdir('images/rostelekom-logo.svg') ?>">
+        <a class="btn btn-primary">Подключить</a>
+        <p>Смотри сериал Wonderland в интерактивном<br>ТВ «Ростелеком»</p>
+    </div>
+</section>
+
+<section class="input-block">
+    <p>Смотри сериал <b>Wonderland</b>, угадывай эмоции персонажей и выигрывай летние призы от FOX Life!</p>
+    <a href="#" class="btn btn-primary input-block__btn">Играть</a>
+</section>
