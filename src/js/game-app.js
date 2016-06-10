@@ -29,8 +29,11 @@ $(function() {
 			var scene = {};
 			scene.urls = {
 				getScene: "api/scene1.json",
-				guessCharTraits: "api/guess-character-traits/"
+				guessCharTraits: "api/guess-character-traits/",
+				userSayHimself: "api/user-set-traits/"
 			};
+			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
+			scene.USERID = 1;//сюда пишем id юзера
 
 			scene.$ = {};
 			scene.$.infoPopupsTemplate = $('#info-popups-template');
@@ -39,6 +42,8 @@ $(function() {
 			scene.$.hearts = $('#hearts-target');
 			scene.$.headerTemplate = $('#header-template');
 			scene.$.header = $('#header-target');
+			scene.$.userTraitsTemplate = $('#user-traits-template');
+			scene.$.userTraits = $('#user-traits-container');
 
 			var load = function() {
 				$.ajax({
@@ -54,7 +59,6 @@ $(function() {
 				//console.log('data:',data);
 				var info = $.parseJSON(data).scene;
 				//console.log(info);
-				scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
 				scene.background = info.image;
 
 
@@ -70,6 +74,7 @@ $(function() {
 
 
 				//
+				scene.makeUserTraits(info);
 				scene.firstStep(info);
 
 				$(document).on('click', '[data-to-step]', function() {
@@ -186,7 +191,6 @@ $(function() {
 					var $checked = $('[data-personage-choose] input[type="checkbox"]:checked');
 					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
 					$("[data-personage-choose] input[type=checkbox]").not(":checked").attr("disabled",bol);
-
 				});
 
 				$('[data-personage-choose]').each(function(i, element) {
@@ -226,6 +230,106 @@ $(function() {
 					})
 				})
 
+			};
+			/**
+			 * Построение блока выбора черт пользователя
+			 ** @param info - данные сцены
+			 */
+			scene.makeUserTraits = function(info) {
+				var tmpl = scene.$.userTraitsTemplate.html(),
+					data = {
+						traits: window.TRAITS
+					};
+
+				scene.$.userTraits.html(_.template(tmpl)(data));
+				$('#user-panel').on('shown.bs.collapse',function() {
+					$('.a-user-choose .traits').addClass('nicescroll-on').niceScroll({
+						'cursorcolor': '#00abe8',
+						'cursorwidth': 12,
+						'cursorborder': '0',
+						'cursorborderradius': 12,
+						'autohidemode': false
+					});
+				}).on('hidden.bs.collapse',function() {
+					$('.a-user-choose .traits').niceScroll().remove();
+				});
+
+				$(document).on('click','[data-goto-selfchose]',function(e) {
+					e.preventDefault();
+					$('[data-self-start]').fadeOut(500, function() {
+						$('[data-self-choose]').fadeIn(200);
+					});
+				});
+
+				$(document).on('click','[data-self-choose] input[type=checkbox]', function() {
+					var $checked = $('[data-self-choose] input[type="checkbox"]:checked');
+					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+					$("[data-self-choose] input[type=checkbox]").not(":checked").attr("disabled",bol);
+				});
+
+				$('[data-self-choose]').find('form').validate({
+					submitHandler: function(form) {
+						//var dd = $.Deferred();
+
+						var userTraits = [],
+							userTraitsData = "";
+						var characterId = scene.USERID;
+						var $checkboxes = $(form).find('input[type="checkbox"]:checked');
+						if ($checkboxes.length) {
+							$checkboxes.each(function(i, checkbox) {
+								userTraits.push(parceInt($(checkbox).val()));
+							});
+						}
+
+						userTraitsData = userTraits.join(',');
+
+
+						$.ajax({
+							url: scene.urls.userSayHimself,
+							method: 'POST',
+							data: {
+								//"user-id": characterId,
+								"trait-ids":userTraitsData
+							},
+							dataType: 'json',
+							success: function(data) {
+								console.log(data);
+								scene.displayUserTraits(form, data, userTraits);
+							},
+							error: function(data) {
+								console.log(data);
+							}
+						});
+						return false;
+					}
+				});
+			};
+			/**
+			 * Вывод и отображение характеристик юзера после отправки
+			 * @param form - форма
+			 * @param data - данные ответа
+			 * @param userTraits - выбранные пользователем черты
+			 */
+			scene.displayUserTraits = function(form, data, userTraits){
+				var $userResult = $('[data-self-result]');
+
+				$('.a-user-info__points').text(data.userScore);
+
+				var $traits = $userResult.find('.trait');
+				$traits.each(function(i, trait) {
+					var id = parseInt($(trait).attr('data-trait-id'));
+
+					console.log(id, typeof (id), typeof(userTraits[0]), $.inArray(id, userTraits));
+
+					if ( !($.inArray(id, userTraits) + 1)){
+						//means this value was chosen
+						$(trait).hide();
+					}
+				});
+
+				$(form).parent().fadeOut(500, function() {
+					$userResult.fadeIn(200);
+				});
 			};
 			/**
 			 * Первый шаг игры

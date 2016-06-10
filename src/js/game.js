@@ -102,13 +102,13 @@ $(function() {
                     //     autohidemode:"hidden"
                     // }).hide();
 
-                    $('#user-traits-container').niceScroll('#user-traits-list',{
-                        'cursorcolor': '#00abe8',
-                        'cursorwidth': 12,
-                        'cursorborder': '0',
-                        'cursorborderradius': 12,
-                        'autohidemode': false
-                    });
+                    // $('#user-traits-container').niceScroll('#user-traits-list',{
+                    //     'cursorcolor': '#00abe8',
+                    //     'cursorwidth': 12,
+                    //     'cursorborder': '0',
+                    //     'cursorborderradius': 12,
+                    //     'autohidemode': false
+                    // });
 
                     //form Rostelekom settings:
                     var F = {};

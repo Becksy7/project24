@@ -8,11 +8,17 @@
     }
 }
 .page-game-scene1{
-    .layout-main {
-        background: url("@{public}/images/scene1_bg.jpg") no-repeat center;
-        .background-size(cover);
+    background-color: lighten(@lightblue, 5%);
+    .layout-wrapper{
         position: relative;
         overflow: hidden;
+    }
+    .layout-main {
+        background: url("@{public}/images/scene1_bg.jpg") no-repeat center;
+        .background-size(100% auto);
+        position: relative;
+        max-width: @min_width;
+        margin: 0 auto;
     }
 }
 .page-lego {

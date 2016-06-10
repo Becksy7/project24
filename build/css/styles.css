@@ -1614,7 +1614,9 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .icon-tick:before{content:'\e806'}
 .icon-minus:before{content:'\e807'}
 .page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover}
-.page-game-scene1 .layout-main{background:url(..//images/scene1_bg.jpg) center no-repeat;background-size:cover;position:relative;overflow:hidden}
+.page-game-scene1{background-color:#02bdff}
+.page-game-scene1 .layout-wrapper{position:relative;overflow:hidden}
+.page-game-scene1 .layout-main{background:url(..//images/scene1_bg.jpg) center no-repeat;background-size:100% auto;position:relative;max-width:1136px;margin:0 auto}
 .page-lego .layout-main{background:url(..//images/game_bg2.jpg) center no-repeat;background-size:cover}
 .social-login{margin:15px auto;text-align:center;max-width:220px}
 .social-login__txt{font-size:23px;line-height:48px;display:inline-block;vertical-align:middle;font-weight:400;font-style:normal}
@@ -1665,7 +1667,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .characteristic input[type=checkbox]+label{font-weight:500}
 .characteristic input[type=checkbox]+label span{cursor:pointer}
 .a-user-info,.a-user-pic,.characteristic input[type=checkbox]:checked+label span.value{display:inline-block}
-.a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
+.a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:2}
 .a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto;z-index:10}
 .a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
 .a-user-pic__wrap,.a-user__soc-network{border-radius:100%;background-clip:padding-box}
@@ -1699,8 +1701,6 @@ body.mobile .a-user-supergame{padding:10px 20px}
 .a-user-supergame__btn{text-transform:uppercase;padding:10px 46px;font-size:24px;font-weight:700}
 body.mobile .a-user-supergame__btn{font-size:20px;padding:5px 18px}
 .a-user-traits{padding:5px 30px 20px;color:#FFF}
-.a-user-traits__wrap{width:100%;height:204px;overflow:hidden}
-body.mobile .a-user-traits__wrap{height:100px}
 .a-user-traits__head{font-size:24px;color:#FFF;margin-bottom:10px}
 body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .a-user-traits .nicescroll-rails.nicescroll-rails-vr{background-color:rgba(255,255,255,.2);border-radius:12px;background-clip:padding-box}
@@ -1718,6 +1718,10 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .rostelekom-logo-small,.share__text,.ya-share2{display:inline-block;vertical-align:middle}
 .a-user-agreement-form .input-group{padding-bottom:20px}
 .a-user-agreement-form label.has-error{margin-top:-20px}
+.a-user-choose__head{text-align:center;font-size:24px;color:#FFF;margin-bottom:10px}
+body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
+.a-user-choose .trait{background-color:transparent}
+.a-user-choose .trait .icon-tick,.a-user-choose .trait__title{color:#FFF}
 .rostelekom-logo-small{height:40px}
 .share{text-align:center;padding:20px 0}
 .share__text{margin-right:10px}
@@ -1815,7 +1819,7 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .user,.user__image,.user__name,.user__option{display:inline-block}
 .heart,.heart:focus,.heart:hover,.heart:hover:focus{text-decoration:none}
 .heart img{margin-right:-20px;margin-bottom:-40px}
-.heart-pers2-beach{left:35%;top:36%}
+.heart-pers2-beach{left:37%;top:36%}
 .heart-karlos-beach{right:38%;top:35%}
 .user{padding:15px;vertical-align:top}
 .user__image{margin-right:15px;overflow:hidden;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8}
