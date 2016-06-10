@@ -1,0 +1,53 @@
+.user {
+  padding: 15px;
+  display: inline-block;
+  vertical-align: top;
+
+  &__image {
+    display: inline-block;
+    margin-right: 15px;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    .border-radius(100%);
+    border: 3px solid @lightblue;
+    background-color: @white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__name {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: @darkblue;
+    max-width: 210px;
+  }
+  &__header {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: left;
+
+  }
+  &__content {
+    width: 300px;
+    max-height: 325px;
+    overflow-x: hidden;
+  }
+  &__option {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    margin: 0 15px;
+    text-align: left;
+  }
+  &__btn {
+    position: absolute;
+    bottom: -85px;
+    left: 420px;
+    padding: 10px 70px;
+  }
+}

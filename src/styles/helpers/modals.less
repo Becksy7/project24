@@ -1,25 +1,43 @@
+.modal {
+  &__btn {
+    position: absolute;
+    bottom: -25px;
+    left: 420px;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 70px;
+
+  }
+}
 .modal-dialog {
   width: 700px;
   height: 600px;
+  &.modal-lg {
+    width: 1090px;
+  }
 }
 .modal-header {
   margin-bottom: 20px;
   border-bottom: 0;
   margin-right: 15px;
   .close {
-    margin-top: 20px;
+    margin-top: 5px;
   }
   .icon {
     color: @lightblue;
     font-size: 28px;
   }
 }
+.modal-content {
+  height: 600px;
+}
 .modal-title {
   font-size: 36px;
   font-weight: 500;
   color: @darkblue;
   text-align: center;
-  margin-top: 35px;
+  margin-top: 15px;
   b {
     font-weight: 900;
     text-transform: uppercase;
@@ -29,6 +47,7 @@
 .modal-body {
   margin-bottom: 70px;
   padding: 0;
+  text-align: center;
   .text {
     overflow: scroll;
     overflow-x: hidden;
