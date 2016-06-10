@@ -1857,3 +1857,14 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .input-block p{font-size:20px}
 .input-block p b{font-weight:700}
 .input-block__btn{position:absolute;border-radius:10px;bottom:-35px;left:85px;font-size:48px;line-height:80px;font-weight:500;padding:0 50px}
+.copyright{position:absolute;bottom:0;width:100%}
+.copyright:after,.copyright:before{content:" ";display:table}
+.copyright__in,.copyright__social{height:40px;display:inline-block;border-radius:5px 5px 0 0;background-color:#5c7d7f}
+.copyright:after{clear:both}
+.copyright__in{float:left;padding:0 30px}
+.copyright__in span{line-height:40px;color:#FFF;font-size:12px}
+.copyright__in span:first-of-type{margin-right:10px}
+.copyright__in span:last-of-type{margin-left:25px}
+.copyright__social{float:right;width:125px;text-align:center}
+.copyright__social .icon{color:#FFF;line-height:40px;font-size:23px}
+.copyright__social .icon:first-of-type{margin-right:15px}
