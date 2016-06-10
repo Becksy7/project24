@@ -54,7 +54,7 @@ $(function() {
 				//console.log('data:',data);
 				var info = $.parseJSON(data).scene;
 				//console.log(info);
-
+				scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
 				scene.background = info.image;
 
 
@@ -181,6 +181,14 @@ $(function() {
 						$form.fadeIn(200);
 					});
 				});
+
+				$(document).on('click','[data-personage-choose] input[type=checkbox]', function() {
+					var $checked = $('[data-personage-choose] input[type="checkbox"]:checked');
+					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+					$("[data-personage-choose] input[type=checkbox]").not(":checked").attr("disabled",bol);
+
+				});
+
 				$('[data-personage-choose]').each(function(i, element) {
 					$(element).find('form').validate({
 						submitHandler: function(form) {
