@@ -47,16 +47,22 @@
 .modal-body {
   margin-bottom: 70px;
   padding: 0;
-  text-align: center;
   .text {
-    overflow: scroll;
-    overflow-x: hidden;
     margin: 0 40px;
     height: 435px;
+    overflow: hidden;
     color: @black;
     font-size: 20px;
     line-height: 30px;
     font-weight: normal;
+    p{
+      padding-right: 10px;
+    }
+    .nicescroll-rails.nicescroll-rails-vr{
+      background-color: fade(@gray, 20%);
+      .border-radius(12px);
+    }
+
   }
 
 }

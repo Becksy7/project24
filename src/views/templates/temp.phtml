@@ -1,0 +1,64 @@
+<div id="hearts-target"></div>
+
+<script type="text/template" id="hearts-template">
+	<% _.each(users, function(item, key, list){
+		var target = item.code + '-' + key, prop = 'heart-' + item.code + '-' + scene;
+	%>
+		<a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
+			<img src="/build/images/heart-icon.svg">
+		</a>
+		<div id="<%= target %>" class="popover-ui personage">
+			<div class="popover-ui-body">
+				<div class="popover-ui-header">
+					<div class="popover-ui-header">
+						<div class="personage__photo">
+							<img src="/build/<%= item.image %>">
+						</div>
+						<div class="personage__name"><%= item.name %></div>
+					</div>
+				</div>
+				<div class="popover-ui-content personage" data-start-content>
+					<div class="personage__descr" data-personage-descr data-nicescroll-block>
+						<p><%= item.description %></p>
+					</div>
+					<a class="btn btn-primary btn-fullwidth" data-goto-choose>Угадать черты характера</a>
+				<!-- -->
+				</div>
+				<div class="popover-ui-content personage" data-personage-choose style="display:none;">
+						<!-- checkboxes here-->
+						<form>
+							<input type="text" style="display: none;" name="characterid" value="<%=item.id%>">
+							<div class="traits" data-nicescroll-block>
+								<% _.each(traits, function(trait, key, list){
+									var uid = item.code + key;
+								%>
+								
+									<div class="trait">
+										<input type="checkbox" id="ch_<%= uid %>" name="traits" value="<%= key %>">
+										<label for="ch_<%= uid %>">
+											<div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
+											<div class="trait__title"><%= trait.name %></div>
+											<span class="trait__value"><i class="icon icon-tick"></i></span>
+									</div>
+								<% }); %>
+							</div>
+							<button type="submit" class="btn btn-primary btn-fullwidth">Подтвердить</button>
+						</form>
+				</div>
+				<div class="popover-ui-content personage" data-personage-result style="display: none;">
+					<!-- answer will be here -->
+					<div class="traits traits--result" data-nicescroll-block>
+						<% _.each(traits, function(trait,key,list){ %>
+							<div class="trait" data-trait-id="<%= key %>">
+								<div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
+								<div class="trait__title"><%= trait.name %></div>
+								<div class="trait__value" data-trait-result></div>
+							</div>
+						<% }); %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% }); %>
+</script>
+

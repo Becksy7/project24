@@ -31,6 +31,11 @@
         <?php include "helpers/header.phtml" ?>
         <!-- .layout-header -->
 
+        <?php if (strpos($page, 'game') !== false): ?>
+            <?php include "src/views/blocks/authorised-user.phtml" ?>
+            <?php include "src/views/blocks/scene-aside.phtml" ?>
+        <?php endif; ?>
+        <!-- .blocs for game pages -->
         <main class="layout-main content-<?= $page; ?>">
             <?php include "pages/" . $page . ".phtml" ; ?>
         </main><!-- .layout-main -->
