@@ -1281,6 +1281,7 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}
 .modal-content,.popover,.webui-popover{background-clip:padding-box}
 .modal{display:none;position:fixed;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}
+.modal-content,.modal-dialog{position:relative;height:600px}
 .modal.fade .modal-dialog{-webkit-transform:translate(0,-25%);transform:translate(0,-25%);-webkit-transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out}
 .modal.in .modal-dialog{-webkit-transform:translate(0,0);transform:translate(0,0)}
 .modal-open .modal{overflow-x:hidden;overflow-y:auto}
@@ -1638,11 +1639,13 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .social-list--sharings .icon:before{line-height:48px;color:#FFF}
 .social-list--sharings .icon.icon-vkontakte{background-color:#6996c7}
 .social-list--sharings .icon.icon-facebook{background-color:#496194}
-.modal-dialog{width:700px;height:600px}
+.modal__btn{position:absolute;bottom:-25px;left:420px;font-size:24px;font-weight:500;text-transform:uppercase;padding:10px 70px}
+.modal-dialog{width:700px}
+.modal-dialog.modal-lg{width:1090px}
 .modal-header{margin-bottom:20px;border-bottom:0;margin-right:15px}
-.modal-header .close{margin-top:20px}
+.modal-header .close{margin-top:5px}
 .modal-header .icon{color:#00abe8;font-size:28px}
-.modal-title{font-size:36px;font-weight:500;color:#3b5998;text-align:center;margin-top:35px}
+.modal-title{font-size:36px;font-weight:500;color:#3b5998;text-align:center;margin-top:15px}
 .modal-title b{font-weight:900;text-transform:uppercase;color:#263945}
 .modal-body{margin-bottom:70px;padding:0}
 .modal-body .text{margin:0 40px;height:435px;overflow:hidden;color:#000;font-size:20px;line-height:30px;font-weight:400}
@@ -1659,6 +1662,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .a-user-bookmark,.a-user-bookmark--inside:before{height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px}
 .characteristic .value .icon-minus{font-size:5px;color:red}
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
+.characteristic input[type=checkbox]+label{font-weight:500}
 .characteristic input[type=checkbox]+label span{cursor:pointer}
 .a-user-info,.a-user-pic,.characteristic input[type=checkbox]:checked+label span.value{display:inline-block}
 .a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
@@ -1764,6 +1768,7 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .popup{box-shadow:0 0 25px rgba(150,150,150,.4);z-index:1050}
 .popup:after,.popup:before{content:" ";display:table}
 .popup-body{padding:0;padding-bottom:20px;background-color:#FFF;width:335px}
+.personage__photo,.popup-header .photo{border-radius:100%;overflow:hidden;vertical-align:top}
 .popup-footer{padding-top:25px;text-align:center}
 .popup-close{font-size:16px;color:#00abe8;top:15px;right:15px;cursor:pointer}
 .popup-close:before{font-family:wland;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\e805'}
@@ -1772,7 +1777,7 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .popup-header{height:145px;padding:15px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
 .personage__name,.personage__photo,.popup-header .name,.popup-header .photo,.trait__smile,.trait__title{display:inline-block}
-.popup-header .photo{vertical-align:top;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.popup-header .photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
 .popup-header .name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
@@ -1787,6 +1792,7 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .trait{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px;position:relative;overflow:hidden}
 .trait label{width:100%;font-weight:400;cursor:pointer}
 .trait__smile{margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
+.personage__photo,.user__image{background-clip:padding-box;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
 .trait__smile img{width:33px;height:33px;margin:6px}
 .trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
 .trait__title{text-align:left}
@@ -1795,7 +1801,8 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .trait__value .icon-tick{font-size:18px;color:#969696}
 .personage.popup{position:static}
 .personage.popover-ui{max-width:335px;border:0}
-.personage__photo{vertical-align:top;margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover;overflow:hidden}
+.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border:5px solid #00abe8}
+.heart,.user__btn{position:absolute}
 .personage__photo img{max-width:100%}
 .personage__name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .personage__descr{font-size:16px;text-align:center;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
@@ -1805,8 +1812,15 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .popover-ui-content{margin:0 15px}
 .popover-ui-body{padding:0 0 20px;background-color:#FFF;width:335px}
 .webui-popover .webui-popover-content{padding:0}
-.heart{position:absolute}
+.user,.user__image,.user__name,.user__option{display:inline-block}
 .heart,.heart:focus,.heart:hover,.heart:hover:focus{text-decoration:none}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-pers2-beach{left:35%;top:36%}
 .heart-karlos-beach{right:38%;top:35%}
+.user{padding:15px;vertical-align:top}
+.user__image{margin-right:15px;overflow:hidden;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8}
+.user__name{vertical-align:top;text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
+.user__header{max-width:300px;margin:0 auto;margin-bottom:20px;text-align:left}
+.user__content{width:300px;max-height:325px;overflow-x:hidden}
+.user__option{vertical-align:top;width:300px;margin:0 15px;text-align:left}
+.user__btn{bottom:-85px;left:420px;padding:10px 70px}
