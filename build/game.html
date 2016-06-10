@@ -83,7 +83,7 @@
                     </div>
                     <div class="a-user__scrollable">
                         <div class="a-user-supergame">
-                            <a href="#" class="btn btn-default a-user-supergame__btn">Суперигра</a>
+                            <a href="#" class="btn btn-default a-user-supergame__btn" data-target="#superGame" data-toggle="modal">Суперигра</a>
                         </div>
                         <div class="a-user-traits">
                             <div class="a-user-traits__wrap">
@@ -133,6 +133,10 @@
                                             <% }); %>
                                     </div>
                                 </div>
+                                <div class="a-user-choose" data-self-error style="display:none;">
+                                    <div class="a-user-choose__head" data-head>Произошла ошибка.</div>
+                                    <a href="#" class="btn btn-primary btn-fullwidth" data-again>Заполнить еще раз</a>
+                                </div>
                             </script>
                         </div>
                         <div class="a-user-agreement">
@@ -142,7 +146,7 @@
                                     <img class="rostelekom-logo-small" src="images/rostelekom-logo-small.svg">
                                     <a href="#" class="btn btn-default a-user-agreement__btn" id="enter-agreement-num">Ввести номер договора</a>
                                 </div>
-                                <form class="form-inline a-user-agreement-form" id="agreement-form" method="POST" action="check.php">
+                                <form class="form-inline a-user-agreement-form" id="agreement-form" method="POST" action="/api/user-set-contract/">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">
@@ -234,7 +238,6 @@
     <script src="vendor/jquery.mask.min.js"></script>
     <script src="vendor/jquery.validate.min.js"></script>
     <script src="vendor/jquery.webui-popover.min.js"></script>
-    <script src="js/traits.js"></script>
     <script src="js/game.js"></script>
     <script src="js/game-app.js"></script>
     <script src="js/main.js"></script>
