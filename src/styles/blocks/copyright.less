@@ -1,0 +1,42 @@
+.copyright {
+  .clearfix;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  &__in {
+    display: inline-block;
+    float: left;
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+    padding: 0 30px;
+    background-color: @dirtygreen;
+    span {
+      line-height: 40px;
+      color: @white;
+      font-size: 12px;
+      &:first-of-type {
+        margin-right: 10px;
+      }
+      &:last-of-type {
+        margin-left: 25px;
+      }
+    }
+  }
+  &__social {
+    height: 40px;
+    display: inline-block;
+    float: right;
+    width: 125px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    background-color: @dirtygreen;
+    .icon {
+      color: @white;
+      line-height: 40px;
+      font-size: 23px;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+}
