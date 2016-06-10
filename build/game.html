@@ -46,6 +46,149 @@
                 </nav>
             </div>
         </header>
+        <div class="a-user">
+            <div class="a-user-bookmark" data-toggle="collapse" data-target="#user-panel" id="user-bookmark">
+                <div class="a-user-pic">
+                    <div class="a-user-pic__wrap">
+                        <img class="a-user-pic__img" src="">
+                    </div>
+                    <span class="a-user__soc-network facebook"></span>
+                </div>
+                <div class="a-user-info">
+                    <span class="a-user-info__points">0</span>
+                    <span class="a-user-info__units">баллов</span>
+                </div>
+            </div>
+            <div class="a-user-panel collapse width" id="user-panel">
+                <div class="a-user-panel__wrap">
+                    <div class="a-user__name">Константин Константинопольский</div>
+                    <div class="a-user-bookmark a-user-bookmark--inside" data-toggle="collapse" data-target="#user-panel">
+                        <div class="a-user-pic">
+                            <div class="a-user-pic__wrap">
+                                <img class="a-user-pic__img" src="">
+                            </div>
+                            <span class="a-user__soc-network facebook"></span>
+                        </div>
+                        <div class="a-user-info">
+                            <span class="a-user-info__points">0</span>
+                            <span class="a-user-info__units">баллов</span>
+                        </div>
+                        <div class="a-user-rating">
+                            <span class="a-user-rating__place">37</span>
+                            <span class="a-user-rating__unit">место</span>
+                        </div>
+                        <div class="a-user__logout">
+                            <a href="#" class="btn btn-default">Выйти</a>
+                        </div>
+                    </div>
+                    <div class="a-user__scrollable">
+                        <div class="a-user-supergame">
+                            <a href="#" class="btn btn-default a-user-supergame__btn">Суперигра</a>
+                        </div>
+                        <div class="a-user-traits">
+                            <div class="a-user-traits__wrap">
+                                <div id="user-traits-container"></div>
+                            </div>
+                            <script type="text/template" id="user-traits-template">
+                                <!-- checkboxes here-->
+                                <div class="a-user-choose" data-self-start>
+                                    <div class="a-user-choose__head">Выбрать мои 5 черт
+                                        <br>характера</div>
+                                    <a href="#" class="btn btn-primary btn-fullwidth" data-goto-selfchose>Выбрать</a>
+                                </div>
+                                <div class="a-user-choose" data-self-choose style="display:none;">
+                                    <div class="a-user-choose__head">Мои 5 черт
+                                        <br>характера:</div>
+                                    <form>
+                                        <div class="traits">
+                                            <% _.each(traits, function(trait, key, list){
+				var uid = 'user' + key;
+				%>
+                                                <div class="trait">
+                                                    <input type="checkbox" id="ch_<%= uid %>" name="traits" value="<%= key %>">
+                                                    <label for="ch_<%= uid %>">
+                                                        <div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
+                                                        <div class="trait__title">
+                                                            <%= trait.name %>
+                                                        </div>
+                                                        <span class="trait__value"><i class="icon icon-tick"></i></span>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-fullwidth">Подтвердить</button>
+                                    </form>
+                                </div>
+                                <div class="a-user-choose" data-self-result style="display:none;">
+                                    <div class="a-user-choose__head">Мои 5 черт
+                                        <br>характера</div>
+                                    <!-- answer will be here -->
+                                    <div class="traits traits--result">
+                                        <% _.each(traits, function(trait,key,list){ %>
+                                            <div class="trait" data-trait-id="<%= key %>">
+                                                <div class="trait__smile"><img src="build/images/<%= trait.image %>"></div>
+                                                <div class="trait__title">
+                                                    <%= trait.name %>
+                                                </div>
+                                            </div>
+                                            <% }); %>
+                                    </div>
+                                </div>
+                            </script>
+                        </div>
+                        <div class="a-user-agreement">
+                            <div class="a-user-agreement__start" id="agreement-start">
+                                <div class="a-user-agreement__text">Введите № договора с «Ростелеком», чтоб получить +20 бонусов</div>
+                                <div class="a-user-agreement__enter" id="agreement-offer">
+                                    <img class="rostelekom-logo-small" src="images/rostelekom-logo-small.svg">
+                                    <a href="#" class="btn btn-default a-user-agreement__btn" id="enter-agreement-num">Ввести номер договора</a>
+                                </div>
+                                <form class="form-inline a-user-agreement-form" id="agreement-form" method="POST" action="check.php">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <img class="rostelekom-logo-small" src="images/rostelekom-logo-small.svg">
+                                            </div>
+                                            <input class="form-control" type="text" name="number" data-rule-required="true" data-msg-required="Заполните поле" data-rule-minlength="8" data-msg-minlength="Минимум 8 цифр" data-rule-digits="true" data-msg-digits="Допустимы только цифры">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary a-user-agreement-form__btn">OK</button>
+                                    </div>
+                                </form>
+                                <div class="a-user-agreement__success" id="agreement-success">
+                                    <img class="rostelekom-logo-small" src="images/rostelekom-logo-small.svg">
+                                    <span class="a-user-agreement__text">Поздравляем!</span>
+                                </div>
+                                <div class="a-user-agreement__error" id="agreement-error">
+                                    <div class="a-user-agreement__text">Произошла ошибка. Попробовать еще&nbsp;раз?</div>
+                                    <a href="#" class="btn btn-primary" id="agreement-try-again">Да</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="scene-aside">
+            <nav class="scene-navs">
+                <ul class="scene-links">
+                    <li class="scene-links__i">
+                        <a href="#" class="scene-links__lk" data-toggle="modal" data-target="#text-popup">
+                            <i class="icon icon-info"></i>
+                            <span class="scene-links__text">Прочитать<br>текст</span>
+                        </a>
+                    </li>
+                    <li class="scene-links__i">
+                        <a href="#" class="scene-links__lk" data-toggle="modal" data-target="#video-popup">
+                            <i class="icon icon-video"></i>
+                            <span class="scene-links__text">Посмотреть<br>видео</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="rostelekom scene-aside__partner">
+                <img class="rostelekom-logo" src="images/rostelekom-logo-big.svg">
+                <a href="#" class="btn btn-primary rostelekom__btn">Подключить</a>
+            </div>
+        </aside>
         <main class="layout-main content-game">
             <div class="authorization">
                 <div class="authorization__body">
@@ -79,7 +222,10 @@
     <script src="vendor/jquery.nicescroll.min.js"></script>
     <script src="vendor/jquery.mask.min.js"></script>
     <script src="vendor/jquery.validate.min.js"></script>
+    <script src="vendor/jquery.webui-popover.min.js"></script>
+    <script src="js/traits.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/game-app.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

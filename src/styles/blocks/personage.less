@@ -1,0 +1,69 @@
+.personage{
+    &.popup{
+        position: static;
+    }
+    &.popover-ui{
+        max-width: 335px;
+        border: 0;
+    }
+    &__photo{
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        margin-right: 20px;
+        position: relative;
+        overflow: hidden;
+        width: 115px;
+        height: 115px;
+        .border-radius(100%);
+        border: 5px solid @lightblue;
+        background-color: @white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        img{
+            max-width: 100%;
+        }
+    }
+    &__name {
+        display: inline-block;
+        margin-top: 40px;
+        font-size: 24px;
+        font-weight: 500;
+        color: @darkblue;
+    }
+    &__descr{
+        font-size: 16px;
+        text-align: center;
+        font-weight: 400;
+        padding: 0 30px;
+        margin: 20px 0 30px;
+        height: 190px;
+        overflow: auto;
+    }
+    &__result{
+
+    }
+}
+.popover-ui{
+    display: none;
+    &-header{
+        padding: 15px;
+        height: 145px;
+    }
+    &-content{
+        margin: 0 15px;
+    }
+    &-body{
+        padding: 0 0 20px;
+        background-color: #FFF;
+        width: 335px;
+    }
+}
+.webui-popover .webui-popover-content{
+ padding: 0;
+    .popover-ui{
+        display: block;
+    }
+}
