@@ -3,45 +3,52 @@
 <script type="text/template" id="hearts-template">
 	<%
 	// repeat items
-	_.each(items,function(item,key,list){
-	// create variables
-	var f = item.name.split("").shift().toLowerCase();
+	_.each(users, function(item, key, list){
+
 	%>
 	<!-- use variables -->
-	<a href="#" class="<%= f %> heart-icon" data-target="<%= id >" data-popover-webui>
+	<a href="#" class="heart_<%= name %>_<%= code%> heart-icon" data-target="<%= id >" data-popover-webui>
 		<img src="/build/images/heart-icon.svg">
 	</a>
 		<!-- use variables -->
-	<div id="<%= id %>" class="popup">
+	<div id="<%= id %>" class="popover">
 		<div class="popup-body">
 			<div class="popup-header">
 				<div class="popup-header">
 					<div class="photo">
-						<img src="/build/<%- item.picture %>">
+						<img src="/build/<%= item.image %>">
 					</div>
-					<div class="name"><%- item.name %></div>
+					<div class="name"><%= item.name %></div>
 				</div>
 			</div>
 			<div class="popup-content personage">
 				<div class="personage__descr" data-personage-descr>
-					<p><%- item.descr %></p>
+					<p><%= item.descr %></p>
 					<a class="btn btn-primary" data-goto-choose>Угадать черты характера</a>
 				</div>
 				<div class="personage-choose" data-personage-choose>
 					<!-- checkboxes here-->
-					<div class="traits">
-						<%
-						_.each(trait, function(item,key,list){
-						%>
-						<div class="trait">
-							<div class="trait__smile"><img src="build/<%= -trait.image %>"></div>
-							<div class="trait__title"><%= -trait.name %></div>
-							<div class="trait__value"><%= -trait.mark %></div>
-						</div>
-						<%
-						});
-						%>
-					</div>
+					<form>
+<!--						<div class="traits">-->
+<!--							<%-->
+<!--							_.each(traits, function(trait,key,list){-->
+<!--							%>-->
+<!---->
+<!--							<div class="trait">-->
+<!--								<input type="checkbox" id="ch_<%= key %>" name="traits"/>-->
+<!--								<label for="ch_<%= key %>">-->
+<!--									<div class="trait__smile"><img src="build/<%= trait.image %>"></div>-->
+<!--									<div class="trait__title"><%= trait.name %></div>-->
+<!--									<div class="trait__value"><%= trait.mark %></div>-->
+<!--								</label>-->
+<!---->
+<!--							</div>-->
+<!--							<%-->
+<!--							});-->
+<!--							%>-->
+<!--						</div>-->
+						<button type="submit" class="btn btn-primary">Подтвердить</button>
+					</form>
 				</div>
 				<div class="personage-result" data-personage-result>
 					<!-- answer will be here -->

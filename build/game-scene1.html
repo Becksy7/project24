@@ -47,6 +47,15 @@
             </div>
         </header>
         <main class="layout-main content-game-scene1">
+            <div id="header-target"></div>
+            <script type="text/template" id="header-template">
+                <header class="scene-header">
+                    <div class="caption">Сцена
+                        <%=id%>: <b><%=name%></b></div>
+                    <div class="explain active">Изучите сцену. <a href="#" data-to-step="2">Дальше</a></div>
+                    <div class="explain">Угадайте эмоции персонажа из этой сцены. <a href="#" data-to-step="3">Дальше</a></div>
+                </header>
+            </script>
             <div class="a-user">
                 <div class="a-user-bookmark" data-toggle="collapse" data-target="#user-panel" id="user-bookmark">
                     <div class="a-user-pic">
@@ -187,6 +196,39 @@
                     </div>
                 </div>
             </script>
+            <div id="hearts-target"></div>
+            <script type="text/template" id="hearts-template">
+                <% _.each(users, function(item, key, list){
+		var target = item.code + '-' + key, prop = 'heart-' + item.code + '-' + scene;
+	%>
+                    <a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
+                        <img src="images/heart-icon.svg">
+                    </a>
+                    <div id="<%= target %>" class="popover-ui personage">
+                        <div class="popover-ui-body">
+                            <div class="popover-ui-header">
+                                <div class="popover-ui-header">
+                                    <div class="personage__photo">
+                                        <img src="<%= item.image %>">
+                                    </div>
+                                    <div class="personage__name">
+                                        <%= item.name %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popover-ui-content personage">
+                                <div class="personage__descr" data-personage-descr data-nicescroll-block>
+                                    <p>
+                                        <%= item.description %>
+                                    </p>
+                                </div>
+                                <a class="btn btn-primary btn-fullwidth" data-goto-choose>Угадать черты характера</a>
+                                <!-- -->
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </script>
         </main>
         <footer class="navbar-fixed-bottom footer" role="contentinfo">
             <div class="container">
@@ -208,6 +250,7 @@
     <script src="vendor/jquery.mask.min.js"></script>
     <script src="vendor/jquery.validate.min.js"></script>
     <script src="vendor/jquery.webui-popover.min.js"></script>
+    <script src="js/traits.js"></script>
     <script src="js/game.js"></script>
     <script src="js/game-app.js"></script>
     <script src="js/main.js"></script>

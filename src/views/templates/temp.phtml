@@ -1,0 +1,31 @@
+<div id="hearts-target"></div>
+
+<script type="text/template" id="hearts-template">
+	<% _.each(users, function(item, key, list){
+		var target = item.code + '-' + key, prop = 'heart-' + item.code + '-' + scene;
+	%>
+		<a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
+			<img src="/build/images/heart-icon.svg">
+		</a>
+		<div id="<%= target %>" class="popover-ui personage">
+			<div class="popover-ui-body">
+				<div class="popover-ui-header">
+					<div class="popover-ui-header">
+						<div class="personage__photo">
+							<img src="/build/<%= item.image %>">
+						</div>
+						<div class="personage__name"><%= item.name %></div>
+					</div>
+				</div>
+				<div class="popover-ui-content personage">
+					<div class="personage__descr" data-personage-descr data-nicescroll-block>
+						<p><%= item.description %></p>
+
+					</div>
+					<a class="btn btn-primary btn-fullwidth" data-goto-choose>Угадать черты характера</a>
+				<!-- -->
+				</div>
+			</div>
+		</div>
+	<% }); %>
+</script>

@@ -14,10 +14,14 @@
     }
   }
   .explain {
-    display: inline-block;
+    display: block;
     width: 370px;
     font-size: 24px;
     color: @black;
+    margin: 0 auto;
+    &:not(.active){
+      display: none;
+    }
     a {
       color: @white;
       border-bottom: 1px solid @white;
