@@ -131,6 +131,19 @@ $(function() {
                     }).on('hidden.bs.modal','#text-popup',function() {
                         var $content = $(this).find('.text');
                         $content.hasClass('nicescroll-on') && $content.niceScroll().remove();
+                    }).on('shown.bs.modal','.modal',function(){
+
+                            var $content = $(this).find('[data-nicescroll-block]');
+                            $content.addClass('nicescroll-on').niceScroll(/*'.nicescroll-on p',*/ {
+                                'cursorcolor': '#00abe8',
+                                'cursorwidth': 12,
+                                'cursorborder': '0',
+                                'cursorborderradius': 12,
+                                'autohidemode': false
+                            });
+                    }).on('hidden.bs.modal','.modal',function() {
+                        var $content = $(this).find('[data-nicescroll-block]');
+                        $content.hasClass('nicescroll-on') && $content.niceScroll().remove();
                     });
                 }
             }

@@ -3,7 +3,7 @@ $answer = array(
 	"users" => array(
 		array(
 			"id" => 123,
-			"image" => "/path/to/user/image.jpg",
+			"image" => "photo_1.jpg",
 			"name" => "Иван Иваныч",
 			"guessedTraits" => array(
 				"correct" => array(1, 2, 6),
@@ -11,12 +11,12 @@ $answer = array(
 		),
 		array(
 			"id" => 123,
-			"image" => "/path/to/user/image.jpg",
+			"image" => "photo_1.jpg",
 			"name" => "Константин Константинопольский"),
 		array(
 			"id" => 123,
-			"image" => "/path/to/user/image.jpg",
-			"name" => "Константин Константинопольский")
+			"image" => "photo_1.jpg",
+			"name" => "Мария Петровна Петрова")
 	)
 );
 //$answer = array(

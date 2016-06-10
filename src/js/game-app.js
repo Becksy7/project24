@@ -430,12 +430,41 @@ $(function() {
 			scene.makeExtraUsers = function(data, info) {
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
-					users = {};
-				scene.$.extraRound.append(_.template(tmpl)(users));
+					d = $.parseJSON(data);
+					usersInfo = {
+						users : d.users
+					};
+
+				$.each(usersInfo.users, function(index, value) {
+					var user = usersInfo.users[index];
+					usersInfo.users[index].traits = info.traits;
+					if (user.guessedTraits){
+						usersInfo.users[index].nopopup = true;
+						var correct = user.guessedTraits.correct,
+							incorrect = user.guessedTraits.incorrect;
+
+						usersInfo.users[index].traits.forEach(function(item, i, arr) {
+								var id = item.id;
+							if (($.inArray(id, incorrect) + 1)) {
+								//means this value is incorrect
+								item.state = 'incorrect';
+
+							} else if (($.inArray(id, correct) + 1)) {
+								//means this value is correct
+								item.state = 'correct';
+							}
+						});
+					} else {
+						usersInfo.users[index].nopopup = false;
+					}
+				});
+
+				scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
-				var tmpl2 = scene.$.extraUserPopupTemplate.html(),
-					popups = {};
-				scene.$.extraRound.append(_.template(tmpl2)(popups));
+				var tmpl2 = scene.$.extraUserPopupTemplate.html();
+
+				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
+
 			};
 			/**
 			 * Первый шаг игры
@@ -470,13 +499,13 @@ $(function() {
 					scene.$.header.find('.explain').eq(1).fadeIn(200).addClass('active');
 				});
 			};
-			scene.getExtraUsers = function() {
+			scene.getExtraUsers = function(info) {
 				$.ajax({
 					url     : scene.urls.extraRoundUsers,
 					method  : 'POST',
 					success : function(data) {
-						console.log(data);
-						//scene.makeExtraUsers(data, info);
+
+						scene.makeExtraUsers(data, info);
 					},
 					error: function(data) {
 						console.log(data);
@@ -484,7 +513,8 @@ $(function() {
 				});
 			};
 			scene.goExtraRound = function(info) {
-				scene.getExtraUsers();
+				scene.getExtraUsers(info);
+				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
 			};
 
 			return {
