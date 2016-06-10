@@ -1570,6 +1570,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 .page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover}
 .page-game-scene1 .layout-main{background:url(..//images/scene1_bg.jpg) center no-repeat;background-size:cover}
 .page-lego .layout-main{background:url(..//images/game_bg2.jpg) center no-repeat;background-size:cover}
+.page-404 .layout-main{background:url(..//images/fon.jpg) center no-repeat;background-size:cover}
 .social-login{margin:15px auto;text-align:center;max-width:220px}
 .social-login__txt{font-size:23px;line-height:48px;display:inline-block;vertical-align:middle;font-weight:400;font-style:normal}
 @media (max-width:1200px){.social-login__txt{font-size:18.33px}
@@ -1741,4 +1742,11 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .user__header{max-width:300px;margin:0 auto;margin-bottom:20px;text-align:left}
 .user__content{width:300px;max-height:325px;overflow-x:hidden}
 .user__option{width:300px;margin:0 15px;text-align:left}
+.error-page,.error-page__text,.error-page__title{text-align:center}
 .user__btn{position:absolute;bottom:-85px;left:420px;padding:10px 70px}
+.error-page{margin-top:180px}
+.error-page__title h1{font-size:62px;font-weight:500;color:#084194}
+.error-page__text{color:#000;font-weight:500}
+.error-page__text h2{font-size:18px}
+.error-page__text span{font-size:16px;font-weight:400}
+.error-page__text a{color:#00abe8;font-weight:500;text-decoration:underline}
