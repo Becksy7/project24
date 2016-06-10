@@ -77,6 +77,10 @@ $(function() {
 					step == 2 ? scene.secondStep(info) : (step == 3 ? scene.thirdStep(info) : '');
 				});
 			};
+			/**
+			 * Создание попапов с видео и текстом для сцены
+			 * @param info - массив сцены
+			 */
 			scene.makeInfoPopups = function(info) {
 				var tmpl = scene.$.infoPopupsTemplate.html(),
 					infopopupsdata = {
@@ -87,6 +91,10 @@ $(function() {
 					};
 				scene.$.infoPopups.html(_.template(tmpl)(infopopupsdata));
 			};
+			/**
+			 * Построение сердечек с попапами
+			 * @param users - данные о персонажах
+			 */
 			scene.makeHearts = function(users) {
 				var tmpl = scene.$.heartsTemplate.html();
 
@@ -115,6 +123,7 @@ $(function() {
 					correct = data.correctTraitIds;
 
 				$(form).parent().fadeOut(500, function() {
+					$(form).find('[data-nicescroll-block]').niceScroll().remove();
 					$results.fadeIn(200);
 				});
 
@@ -134,6 +143,10 @@ $(function() {
 					$placeholder.html(resultHtml);
 				});
 			};
+			/**
+			 * Построение маленьких поповеров у сердечек
+			 * @param users
+			 */
 			scene.makePopoverHandlers = function(users) {
 
 				$('[data-popover-webui]').each(function(i, link) {
@@ -171,7 +184,7 @@ $(function() {
 				$('[data-personage-choose]').each(function(i, element) {
 					$(element).find('form').validate({
 						submitHandler: function(form) {
-							var dd = $.Deferred();
+							//var dd = $.Deferred();
 
 							var guessedTraits = [];
 							var characterId = $(form).find('input[name="characterid"]').val();
@@ -206,7 +219,10 @@ $(function() {
 				})
 
 			};
-
+			/**
+			 * Первый шаг игры
+			 * @param info - массив сцены
+			 */
 			scene.firstStep = function(info) {
 				var headers = {
 					id: info.id,
@@ -215,10 +231,15 @@ $(function() {
 				scene.makeHeaders(headers);
 				scene.makeInfoPopups(info);
 			};
+			/**
+			 * Второй шаг игры
+			 * @param info - массив сцены
+			 */
 			scene.secondStep = function(info) {
 				var data = {
 					scene: info.code,
-					users: info.characters
+					users: info.characters,
+					traits: window.TRAITS
 				};
 
 				data.users.forEach(function(item, i) {
