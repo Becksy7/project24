@@ -1854,7 +1854,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .user__content .traits{height:250px}
 .user__content .traits--result{margin-top:0}
 .user__option{width:300px;margin:0 15px;text-align:left}
-.copyright__social,.error,.error__text,.error__title,.input-block,.page-content,.scene-arrow:before{text-align:center}
+.copyright__social,.error,.error__text,.error__title,.input-block,.page-caption__promo,.page-caption__text,.page-content,.scene-arrow:before{text-align:center}
 .user__btn{bottom:-85px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);padding:10px 70px}
 .scene-arrow{font-size:35px;color:#00abe8;top:50%;margin-top:-18px;z-index:2}
 .scene-arrow:before{font-weight:400;text-decoration:inherit;line-height:1em}
@@ -1868,15 +1868,17 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .error__text h2{font-size:18px}
 .error__text span{font-size:16px;font-weight:400}
 .error__text a{color:#00abe8;text-decoration:underline}
-.page-caption{width:100%}
+.page-caption{width:100%;text-align:center}
 .page-caption:after,.page-caption:before{content:" ";display:table}
 .page-caption:after{clear:both}
 .page-caption__logo{display:inline-block;float:left;width:225px}
 .page-caption__text{margin:0 auto;display:inline-block;padding-left:70px}
+.page-caption__text:after,.page-caption__text:before{content:" ";display:table}
+.page-caption__text:after{clear:both}
 .page-caption__text span{text-transform:uppercase;font-size:32px;color:#000}
 .page-caption__text span b{color:#520860;font-weight:900}
-.page-caption__text h2{color:#FFF;font-size:36px;font-weight:500;margin-top:50px;position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
-.page-caption__promo{margin-right:35px;display:inline-block;width:220px;float:right;text-align:center}
+.page-caption__text h2{color:#FFF;font-size:36px;font-weight:500;margin-top:50px}
+.page-caption__promo{margin-right:35px;display:inline-block;width:220px;float:right}
 .page-caption__promo img{width:100px;margin-bottom:15px}
 .page-caption__promo p{margin-top:10px;font-size:14px;color:#000}
 .input-block{position:relative;width:450px;margin:0 auto;margin-top:180px;margin-bottom:40px;padding:25px;padding-bottom:55px;border-radius:15px}
