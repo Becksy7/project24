@@ -6,6 +6,7 @@
 	%>
 		<a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
 			<img src="/build/images/heart-icon.svg">
+			<span class="badge heart__result" data-heart-badge style="display: none;"></span>
 		</a>
 		<div id="<%= target %>" class="popover-ui personage">
 			<div class="popover-ui-body">
@@ -56,6 +57,10 @@
 							</div>
 						<% }); %>
 					</div>
+				</div>
+				<div class="popover-ui-content personage" data-personage-error style="display:none;">
+					<div class="a-user-choose__head" data-head>Произошла ошибка.</div>
+					<a href="#" class="btn btn-primary btn-fullwidth" data-again>Заполнить еще раз</a>
 				</div>
 			</div>
 		</div>
