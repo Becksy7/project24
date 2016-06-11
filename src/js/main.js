@@ -5,11 +5,19 @@ $(function() {
         return {
             init : function() {
                 //DummyModule.init();
-
+                AddDesktopClass.init();
             }
         }
     })()
-    
+        ,AddDesktopClass = (function(){
+            return {
+                init : function() {
+                    if (!isMobile.any){
+                        $('body').addClass('desktop');
+                    }
+                }
+            }
+        })()
     /**
      * Dummy Module Example
      */
