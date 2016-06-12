@@ -52,58 +52,74 @@
   }
 }
 
-.header {
-  text-align: center;
-
-nav.navbar-default {
-  margin: 0;
-  display: inline-block;
-  box-shadow: none;
-&--header {
-  .nav.navbar-nav {
-    border: 0;
-    > li {
-      margin-right: 20px;
-      a {
-        border-bottom: 0;
-        border-top: 0;
-        padding: 0 15px;
-        border-radius: 25px;
-
-      }
-    }
-    > li > a {
-      color: @white;
-      font-size: 16px;
-      line-height: 40px;
-      text-transform: uppercase;
-      &:hover,
-      &:focus {
-        background-color: @cyan;
-      }
-    }
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: @cyan;
-      }
-    }
+body:not([class*="game"]) {
+  .navbar-brand {
+    display: none;
   }
-  //anti-collapse
-  .navbar-nav {
-    @media (max-width: @grid-float-breakpoint-max) {
-      float: left;
-      margin: 0;
-
-      > li {
-        float: left;
-        > a {
-          padding: 0;
+}
+body.desktop {
+  &.page-index,
+  &.page-about{
+    .navbar-brand {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      .navbar-fixed-top {
+        margin: 0 auto;
+        padding-top: 40px;
+        display: block;
+        min-width: @min_width;
+        position: relative;
+        min-height: 100px;
+        .navbar-collapse {
+          width: 100% !important;
+          float: none;
+          text-align: center;
+          position: static;
+          .nav {
+            width: auto;
+            margin: 0;
+            background-color: @transparent;
+          }
+          .nav-close {
+            display: none;
+          }
+        }
+        .nav.navbar-nav {
+          display: inline-block;
+          float: none;
+          >li{
+            a{
+              color: @white;
+              font-size: 16px;
+              line-height: 40px;
+              text-transform: uppercase;
+              padding: 0 15px;
+              .border-radius(25px);
+              &:focus{
+                color: @white;
+                background-color: @cyan;
+              }
+              &:hover, &:hover:focus{
+                color: @white;
+                background-color: @cyan;
+              }
+            }
+            &.active{
+              a{
+                color: @white;
+                background-color: @cyan;
+                &:hover, &:focus, &:hover:focus{
+                  color: @white;
+                  background-color: @cyan;
+                }
+              }
+            }
+            & + li{
+              border-top: 0;
+            }
+          }
         }
       }
-    }
   }
-}
-}
-}
+}}

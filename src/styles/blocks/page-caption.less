@@ -1,19 +1,18 @@
 .page-caption {
   .clearfix;
   width: 100%;
-  //text-align: center;
+  text-align: center;
   &__logo {
     display: inline-block;
     float: left;
+    img {
     width: 225px;
+    }
   }
   &__text {
-    .clearfix;
     margin: 0 auto;
     display: inline-block;
     vertical-align: top;
-    padding-left: 70px;
-    text-align: center;
     span {
       text-transform: uppercase;
       font-size: 32px;
@@ -27,10 +26,7 @@
       color: @white;
       font-size: 36px;
       font-weight: 500;
-      margin-top: 50px;
-      /*position: absolute;
-      left: 50%;
-      .transform(translateX(-50%));*/
+      margin-top: 65px;
     }
   }
   &__promo {
@@ -40,8 +36,16 @@
     float: right;
     text-align: center;
     img {
-      width: 100px;
+      width: 45px;
+    }
+    span {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
       margin-bottom: 15px;
+      &.white {
+        color: @white;
+      }
     }
     p {
       margin-top: 10px;

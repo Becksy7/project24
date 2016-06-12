@@ -41,16 +41,24 @@
     }
 }
 .page-index {
+    min-height: 100%;
+    .layout-wrapper{
+        min-height: 100%;
+    }
     .layout-main {
         background: url("@{public}/images/index_bg.jpg") no-repeat top;
         .background-size(cover);
         width: @min_width;
         margin: 0 auto;
         padding: 25px 35px;
-        box-shadow: 0 30px 50px @shadowcolor;
+        .box-shadow(0 30px 50px @shadowcolor);
+        position: relative;
     }
 }
 .page-about {
+    .layout-wrapper{
+        min-height: 100%;
+    }
     .layout-main {
         width: @min_width;
         margin: 0 auto;
