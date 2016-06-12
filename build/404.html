@@ -23,11 +23,21 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <header class="header">
+        <header class="navbar navbar-fixed-top" id="header" role="banner">
             <div class="container">
-                <nav class="navbar navbar-default navbar-default--header" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand"><img src="images/logo.png"></a>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse width">
+                    <a class="nav-close" data-target="#bs-navbar" data-toggle="collapse"><i class="icon icon-cross"></i></a>
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Главная</a></li>
+                        <li class="active"><a href="/">Главная</a></li>
                         <li><a href="#">О проекте</a></li>
                         <li><a href="#">Как смотреть</a></li>
                         <li><a href="#">Играть</a></li>
@@ -38,7 +48,12 @@
             </div>
         </header>
         <main class="layout-main content-404">
-            <div class="error">
+            <section class="page-caption">
+                <div class="page-caption__logo">
+                    <img src="images/logo_1.png">
+                </div>
+            </section>
+            <section class="error">
                 <div class="error__logo"><img src="images/logo_2.png"></div>
                 <div class="error__title">
                     <h1>404</h1>
@@ -47,9 +62,15 @@
                     <h2>Такой страницы не существует.</h2>
                     <span>Лучше поучаствуй в <a href="#">нашем конкурсе</a></span>
                 </div>
-            </div>
+            </section>
         </main>
-        <footer class="navbar-fixed-bottom footer" role="contentinfo">
+        <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+        <div class="share">
+            <span class="share__text">Поделиться:</span>
+            <div class="ya-share2" data-services="vkontakte,facebook"></div>
+        </div>
+        <footer class="footer-simple">
             <div class="container">
                 <div class="copyright">
                     <div class="copyright__in">
@@ -58,8 +79,8 @@
                         <span>Создание сайта — Articul Media</span>
                     </div>
                     <div class="copyright__social">
-                        <i class="icon icon-facebook"></i>
-                        <i class="icon icon-vkontakte"></i>
+                        <a href="#"><i class="icon icon-facebook"></i></a>
+                        <a href="#"><i class="icon icon-vkontakte"></i></a>
                     </div>
                 </div>
             </div>

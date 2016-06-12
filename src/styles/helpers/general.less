@@ -12,7 +12,6 @@ html {
         min-width  : @min_width;
 
         width      : auto;
-
         // nice fonts Safari
         text-rendering         : optimizeLegibility;
         -webkit-font-smoothing : antialiased;
@@ -25,6 +24,7 @@ html {
 }
 html{
     width: 100%;
+    min-height: 100%;
     height: 100%;
 }
 // container & wrapper
@@ -38,12 +38,20 @@ html{
     position     : relative;
     lost-utility : clearfix;
 }
-body{
+body[class*="game"]{
     .layout-wrapper,
     .layout-main{
         width: 100%;
         height: 100%;
         min-height: 640px;
+    }
+}
+body{
+    .layout-wrapper,
+    .layout-main{
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
     }
 }
 
@@ -57,5 +65,25 @@ body.rotate-me{
         .transform(rotate(90deg));
         width: 100vh;
         height: 100vw;
+    }
+}
+body:not([class*="game"]){
+    .layout-wrapper {
+        min-height: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+        position: relative;
+    }
+}
+body.page-index:not([class*="desktop"]) {
+    footer,
+    .share {
+        display: none;
+    }
+    .layout-main {
+        .box-shadow(none);
+        .share.share--desktop {
+            display: block;
+        }
     }
 }

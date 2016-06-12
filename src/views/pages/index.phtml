@@ -2,12 +2,15 @@
 // include "src/views/blocks/block-name.phtml" ?>
 
 <section class="page-caption">
-    <img class="page-caption_logo" src="<?= publicdir('images/logo_1.png') ?>"/>
+    <div class="page-caption__logo">
+        <img src="<?= publicdir('images/logo_1.png') ?>"/>
+    </div>
     <div class="page-caption__text">
         <span>Лето любви на <b>FOX Life</b></span>
     </div>
     <div class="page-caption__promo">
-        <img src="<?= publicdir('images/rostelekom-logo.svg') ?>">
+        <img src="<?= publicdir('images/rostelekom-logo-small.svg') ?>"><br>
+        <span>Ростелеком</span>
         <a class="btn btn-primary">Подключить</a>
         <p>Смотри сериал Wonderland в интерактивном<br>ТВ «Ростелеком»</p>
     </div>
@@ -16,3 +19,7 @@
     <p>Смотри сериал <b>Wonderland</b>, угадывай эмоции персонажей и выигрывай летние призы от FOX Life!</p>
     <a href="#" class="btn btn-primary input-block__btn">Играть</a>
 </section>
+<div class="share share--desktop">
+    <span class="share__text">Поделиться:</span>
+    <div class="ya-share2" data-services="vkontakte,facebook"></div>
+</div>
