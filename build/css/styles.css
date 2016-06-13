@@ -1575,9 +1575,9 @@ body.rotate-me{overflow:hidden}
 body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg);transform:rotate(90deg);width:100vh;height:100vw}
 .footer-simple,.user__btn{-webkit-transform:translateX(-50%)}
 body:not([class*=game]) .layout-wrapper{min-height:100%;min-height:100vh;height:100%;padding-bottom:50px;position:relative}
-body.page-index:not([class=desktop]) .share,body.page-index:not([class=desktop]) footer{display:none}
-body.page-index:not([class=desktop]) .layout-main{box-shadow:none}
-body.page-index:not([class=desktop]) .layout-main .share.share--desktop{display:block}
+body.page-index:not([class*=desktop]) .share,body.page-index:not([class*=desktop]) footer{display:none}
+body.page-index:not([class*=desktop]) .layout-main{box-shadow:none}
+body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display:block}
 .client-style *{font-family:"Gotham Pro",Arial,sans-serif}
 .client-style ul.clean{list-style:none}
 .client-style ul.clean,.client-style ul.clean li{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
