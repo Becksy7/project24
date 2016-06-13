@@ -2,12 +2,14 @@
   border: 0;
   .box-shadow(none);
 }
+
 .panel-heading {
-  padding: 5px;
+  padding: 0;
   display: inline-block;
   vertical-align: top;
-  max-width: 580px;
+  max-width: 600px;
 }
+
 .panel-title {
   font-size: 24px;
   color: @lightblue;
@@ -17,9 +19,18 @@
   > .small,
   > small > a,
   > .small > a {
-    border-bottom: 1px dotted;
+    padding: 5px 15px;
+    min-height: 45px;
+    span {
+      vertical-align: middle;
+      font-size: 24px;
+      color: @lightblue;
+      font-weight: normal;
+      border-bottom: 2px dotted;
+    }
     &:hover, &:focus, &:hover:focus {
       text-decoration: none;
     }
   }
 }
+

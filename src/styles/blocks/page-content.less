@@ -70,12 +70,20 @@
       padding: 0;
       counter-reset: li;
       text-align: left;
+
       li {
         font-size: 24px;
         color: @lightblue;
         font-weight: normal;
         margin-bottom: 15px;
+        a{
+          display: inline-block;
+          padding-left: 45px;
+          position: relative;
         &:before {
+          position: absolute;
+          left: 5px;
+          top: 8px;
           display: inline-block;
           width: 35px;
           text-align: left;
@@ -86,7 +94,16 @@
           font-size: 24px;
           font-weight: 500;
         }
-
+        }
+        a[aria-expanded='true'] {
+          background-color: @lightblue;
+          span {
+            color: @white;
+          }
+          &:before {
+            color: @white;
+          }
+        }
         }
       }
     ol ol {
@@ -104,6 +121,7 @@
         margin-bottom: 15px;
         &:before {
           display: inline-block;
+
           text-align: left;
           vertical-align: middle;
           content: counter(li) '.' counter(num) '. ';

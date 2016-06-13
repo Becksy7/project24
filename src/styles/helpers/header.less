@@ -56,7 +56,9 @@ body:not([class*="game"]) {
   .navbar-brand {
     display: none;
   }
+
 }
+
 body.desktop {
   &.page-index,
   &.page-about,
@@ -90,38 +92,60 @@ body.desktop {
         .nav.navbar-nav {
           display: inline-block;
           float: none;
-          >li{
-            a{
+          > li {
+            a {
               color: @white;
               font-size: 16px;
               line-height: 40px;
               text-transform: uppercase;
               padding: 0 15px;
               .border-radius(25px);
-              &:focus{
+              &:focus {
                 color: @white;
                 background-color: @cyan;
               }
-              &:hover, &:hover:focus{
+              &:hover, &:hover:focus {
                 color: @white;
                 background-color: @cyan;
               }
             }
-            &.active{
-              a{
+            &.active {
+              a {
                 color: @white;
                 background-color: @cyan;
-                &:hover, &:focus, &:hover:focus{
+                &:hover, &:focus, &:hover:focus {
                   color: @white;
                   background-color: @cyan;
                 }
               }
             }
-            & + li{
+            & + li {
               border-top: 0;
             }
           }
         }
       }
+    }
   }
-}}
+}
+
+body:not([class*='desktop']) {
+  &.page-index,
+  &.page-about,
+  &.page-rules,
+  &.page-rating {
+    header {
+      .container {
+        width: 1136px;
+      }
+    }
+    .navbar-header {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+  }
+}
