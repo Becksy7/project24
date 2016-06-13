@@ -2,12 +2,14 @@
   border: 0;
   .box-shadow(none);
 }
+
 .panel-heading {
   padding: 5px;
   display: inline-block;
   vertical-align: top;
   max-width: 580px;
 }
+
 .panel-title {
   font-size: 24px;
   color: @lightblue;
@@ -17,9 +19,31 @@
   > .small,
   > small > a,
   > .small > a {
-    border-bottom: 1px dotted;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    height: 45px;
+    padding-left: 55px;
+    padding-right: 15px;
+    margin-left: -55px;
+    margin-top: -5px;
+    padding-top: 5px;
+    span {
+      font-size: 24px;
+      color: @lightblue;
+      font-weight: normal;
+      border-bottom: 1px dotted;
+    }
+
     &:hover, &:focus, &:hover:focus {
       text-decoration: none;
     }
+  }
+}
+
+a[aria-expanded='true'] {
+  background-color: @lightblue;
+  span {
+    color: @white;
   }
 }

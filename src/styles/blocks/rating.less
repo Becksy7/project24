@@ -1,0 +1,96 @@
+.rating {
+  max-width: 600px;
+  margin-top: 40px;
+}
+
+.content-table {
+  width: 100%;
+  display: table;
+  background-color: @transparent;
+  color: @black;
+  border-collapse: collapse;
+  &__row {
+    display: table-row;
+    &:last-child {
+      border: 0;
+    }
+    &:first-child {
+      border: 0;
+    }
+    &.on-top {
+      .content-table__cell:first-child {
+        width: 45px;
+        height: 45px;
+        background-image: url('@{public}images/heart-bg.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        .background-size(contain);
+      }
+      .content-table__cell:last-child {
+        font-weight: 500;
+      }
+      .content-table__cell:nth-child(2) {
+        span {
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+
+    }
+    .content-table__img {
+      display: inline-block;
+      float: left;
+      vertical-align: top;
+      margin: 0;
+      margin-right: 20px;
+      position: relative;
+      overflow: hidden;
+      width: 55px;
+      height: 55px;
+      .border-radius(100%);
+      border: 3px solid @white;
+      background-color: @lightblue;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .content-table__cell {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 4px 5px;
+      font-weight: bold;
+      font-size: 16px;
+      background: @transparent;
+
+      > * {
+        .inline-block(middle);
+      }
+
+      &:first-child {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        width: 45px;
+      }
+      &:nth-child(2) {
+        padding-left: 10px;
+        vertical-align: middle;
+        text-align: left;
+        span {
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 55px;
+        }
+      }
+      &:last-child {
+        text-align: right;
+        float: right;
+        width: 45px;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 55px;
+      }
+    }
+  }
+}
