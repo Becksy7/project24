@@ -1,5 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 hr,img{border:0}
+.a-user__soc-network:before,.icon:before,[class*=" icon-"]:before,[class^=icon-]:before{-moz-osx-font-smoothing:grayscale;font-family:wland;font-variant:normal;-webkit-font-smoothing:antialiased;font-style:normal}
 body,figure{margin:0}
 .btn-group>.btn-group,.btn-toolbar .btn,.btn-toolbar .btn-group,.btn-toolbar .input-group,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.dropdown-menu{float:left}
 /*!
@@ -1574,7 +1575,6 @@ body.rotate-me{overflow:hidden}
 body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg);transform:rotate(90deg);width:100vh;height:100vw}
 .footer-simple,.user__btn{-webkit-transform:translateX(-50%)}
 body:not([class*=game]) .layout-wrapper{min-height:100%;min-height:100vh;height:100%;padding-bottom:50px;position:relative}
-body:not([class*=game]) header{z-index:10000}
 body.page-index:not([class*=desktop]) .share,body.page-index:not([class*=desktop]) footer{display:none}
 body.page-index:not([class*=desktop]) .layout-main{box-shadow:none}
 body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display:block}
@@ -1614,13 +1614,16 @@ body.desktop.page-about .navbar-fixed-top .nav.navbar-nav>li a:focus,body.deskto
 body.desktop.page-about .navbar-fixed-top .nav.navbar-nav>li+li,body.desktop.page-index .navbar-fixed-top .nav.navbar-nav>li+li,body.desktop.page-rating .navbar-fixed-top .nav.navbar-nav>li+li,body.desktop.page-rules .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 }
 .page-about .layout-wrapper,.page-index,.page-index .layout-wrapper,.page-rating .layout-wrapper,.page-rules .layout-wrapper{min-height:100%}
+body:not([class*=desktop]).page-about header .container,body:not([class*=desktop]).page-index header .container,body:not([class*=desktop]).page-rating header .container,body:not([class*=desktop]).page-rules header .container{width:1136px}
+body:not([class*=desktop]).page-about .navbar-header,body:not([class*=desktop]).page-index .navbar-header,body:not([class*=desktop]).page-rating .navbar-header,body:not([class*=desktop]).page-rules .navbar-header{position:absolute;right:0;top:0}
+body:not([class*=desktop]).page-about .navbar-toggle,body:not([class*=desktop]).page-index .navbar-toggle,body:not([class*=desktop]).page-rating .navbar-toggle,body:not([class*=desktop]).page-rules .navbar-toggle{display:block}
 .nav.navbar-nav>li a{color:#FFF;font-size:18px;padding:40px 30px}
 .nav.navbar-nav>li a:hover,.nav.navbar-nav>li a:hover:focus,.nav.navbar-nav>li.active a,.nav.navbar-nav>li.active a:focus,.nav.navbar-nav>li.active a:hover,.nav.navbar-nav>li.active a:hover:focus{color:#00abe8}
 .nav.navbar-nav>li+li{border-top:1px solid #777}
 .footer.navbar-fixed-bottom{z-index:1;position:absolute}
 .footer-simple{position:absolute;bottom:0;left:50%;transform:translateX(-50%)}
 @font-face{font-family:wland;src:url(..//fonts/icons/wland.eot);src:url(..//fonts/icons/wland.eot#iefix) format('embedded-opentype'),url(..//fonts/icons/wland.woff2) format('woff2'),url(..//fonts/icons/wland.woff) format('woff'),url(..//fonts/icons/wland.ttf) format('truetype'),url(..//fonts/icons/wland.svg#wland) format('svg');font-weight:400;font-style:normal}
-.icon:before,[class*=" icon-"]:before,[class^=icon-]:before{font-family:wland;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.icon:before,[class*=" icon-"]:before,[class^=icon-]:before{font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;text-transform:none;line-height:1em}
 .panel-title>.small:focus,.panel-title>.small:hover,.panel-title>.small:hover:focus,.panel-title>.small>a:focus,.panel-title>.small>a:hover,.panel-title>.small>a:hover:focus,.panel-title>a:focus,.panel-title>a:hover,.panel-title>a:hover:focus,.panel-title>small:focus,.panel-title>small:hover,.panel-title>small:hover:focus,.panel-title>small>a:focus,.panel-title>small>a:hover,.panel-title>small>a:hover:focus,.social-list__lk{text-decoration:none}
 .icon-heart:before{content:'\e800'}
 .icon-vkontakte:before{content:'\e801'}
@@ -1703,7 +1706,7 @@ body.desktop.page-about .navbar-fixed-top .nav.navbar-nav>li+li,body.desktop.pag
 .a-user-pic__wrap,.a-user__soc-network{border-radius:100%;background-clip:padding-box}
 .a-user-bookmark.rolled{margin-right:-167px}
 .a-user__soc-network{position:absolute;width:20px;height:20px;text-align:center;line-height:20px;bottom:-2px;right:-1px}
-.a-user__soc-network:before{font-family:wland;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:13px;color:#FFF}
+.a-user__soc-network:before{font-weight:400;speak:none;display:inline-block;text-decoration:inherit;text-align:center;text-transform:none;line-height:1em;font-size:13px;color:#FFF}
 .a-user__soc-network.facebook{background-color:#496194}
 .a-user__soc-network.facebook:before{content:'\e802'}
 .a-user__soc-network.vk:before,.ya-share2 .ya-share2 .ya-share2__container_size_m .ya-share2__item_service_vkontakte .ya-share2__icon:before{content:'\e801'}
