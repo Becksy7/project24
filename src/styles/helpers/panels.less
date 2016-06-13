@@ -1,0 +1,25 @@
+.panel {
+  border: 0;
+  .box-shadow(none);
+}
+.panel-heading {
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 580px;
+}
+.panel-title {
+  font-size: 24px;
+  color: @lightblue;
+  font-weight: normal;
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    border-bottom: 1px dotted;
+    &:hover, &:focus, &:hover:focus {
+      text-decoration: none;
+    }
+  }
+}

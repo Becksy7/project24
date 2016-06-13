@@ -70,9 +70,13 @@ body.rotate-me{
 body:not([class*="game"]){
     .layout-wrapper {
         min-height: 100%;
+        min-height: 100vh;
         height: 100%;
         padding-bottom: 50px;
         position: relative;
+    }
+    header {
+        z-index: 10000;
     }
 }
 body.page-index:not([class*="desktop"]) {
