@@ -4,10 +4,10 @@
 }
 
 .panel-heading {
-  padding: 5px;
+  padding: 0;
   display: inline-block;
   vertical-align: top;
-  max-width: 580px;
+  max-width: 600px;
 }
 
 .panel-title {
@@ -19,31 +19,18 @@
   > .small,
   > small > a,
   > .small > a {
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    height: 45px;
-    padding-left: 55px;
-    padding-right: 15px;
-    margin-left: -55px;
-    margin-top: -5px;
-    padding-top: 5px;
+    padding: 5px 15px;
+    min-height: 45px;
     span {
+      vertical-align: middle;
       font-size: 24px;
       color: @lightblue;
       font-weight: normal;
-      border-bottom: 1px dotted;
+      border-bottom: 2px dotted;
     }
-
     &:hover, &:focus, &:hover:focus {
       text-decoration: none;
     }
   }
 }
 
-a[aria-expanded='true'] {
-  background-color: @lightblue;
-  span {
-    color: @white;
-  }
-}
