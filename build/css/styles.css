@@ -1635,7 +1635,7 @@ body:not([class*=desktop]).page-about .navbar-toggle,body:not([class*=desktop]).
 .icon-minus:before{content:'\e807'}
 .icon-arrow-left:before{content:'\e808'}
 .icon-arrow-right:before{content:'\e809'}
-.page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover;max-width:1136px}
+.page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover;max-width:1136px;margin:0 auto}
 .page-game-scene1{background-color:#02bdff}
 .page-game-scene1 .layout-wrapper{position:relative;overflow:hidden}
 .page-game-scene1 .layout-main{background:url(..//images/scene1_bg.jpg) center no-repeat;background-size:100% auto;position:relative;max-width:1136px;margin:0 auto}

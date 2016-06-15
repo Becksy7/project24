@@ -39,8 +39,11 @@
         <main class="layout-main content-<?= $page; ?>">
             <?php include "pages/" . $page . ".phtml" ; ?>
         </main><!-- .layout-main -->
-        
-        <?php include "src/views/blocks/footer-share.phtml" ?>
+
+        <?php if (strpos($page, 'game') === false): ?>
+            <?php include "src/views/blocks/footer-share.phtml" ?>
+        <?php endif; ?>
+
 
         <?php include "helpers/footer.phtml" ?>
         <!-- .layout-footer -->
