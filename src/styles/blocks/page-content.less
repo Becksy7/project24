@@ -121,14 +121,13 @@
         margin-bottom: 15px;
         &:before {
           display: inline-block;
-
           text-align: left;
-          vertical-align: middle;
+          vertical-align: top;
           content: counter(li) '.' counter(num) '. ';
           counter-increment: num;
           font-size: 14px;
+          font-weight: 500;
           color: @black;
-          font-weight: normal;
         }
       }
     }
