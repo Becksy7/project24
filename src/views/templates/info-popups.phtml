@@ -4,13 +4,13 @@
 	<div class="modal fade" id="video-popup" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header"><button class="close" type="button" data-dismiss="modal"><i class="icon icon-cross"></i></button>
+				<div class="modal-header"><button class="close" type="button" onClick="toggleVideo('hide');" data-dismiss="modal"><i class="icon icon-cross"></i></button>
 					<div class="modal-title">Сцена <%= id %>: <b><%= name %></b></div>
 				</div>
 				<div class="modal-body">
 					<div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe class="embed-responsive-item" src="<%= url %>" allowfullscreen=""></iframe>
+						<div class="embed-responsive embed-responsive-16by9" id="bla">
+							<iframe class="embed-responsive-item" src="<%= url %>?enablejsapi=1" allowfullscreen="" id="player"></iframe>
 						</div>
 					</div>
 				</div> 
@@ -34,4 +34,14 @@
 			</div>
 		</div>
 	</div>
+</script>
+<script>
+	function toggleVideo(state) {
+		// if state == 'hide', hide. Else: show video
+		var div = document.getElementById("bla");
+		var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+		div.style.display = state == 'hide' ? 'none' : '';
+		func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+		iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*');
+	}
 </script>
