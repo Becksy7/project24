@@ -1,5 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 hr,img{border:0}
+.content-table,table{border-collapse:collapse}
 body,figure{margin:0}
 .btn-group>.btn-group,.btn-toolbar .btn,.btn-toolbar .btn-group,.btn-toolbar .input-group,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.dropdown-menu{float:left}
 /*!
@@ -37,7 +38,7 @@ button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}
 input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
-table{border-collapse:collapse;border-spacing:0}
+table{border-spacing:0}
 td,th{padding:0}
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print{blockquote,img,pre,tr{page-break-inside:avoid}
@@ -1896,7 +1897,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .page-caption__text h2{color:#FFF;font-size:36px;font-weight:500;margin-top:65px}
 .page-caption__text h2 span{color:#FFF;font-size:16px;line-height:24px;font-weight:500}
 .page-caption__promo{margin-right:35px;display:inline-block;width:220px;float:right;text-align:center}
-.page-caption__promo img{width:45px}
+.page-caption__promo img{width:45px;height:auto}
 .page-caption__promo span{display:inline-block;font-size:16px;font-weight:500;margin-bottom:15px}
 .page-caption__promo span.white{color:#FFF}
 .page-caption__promo p{margin-top:10px;font-size:14px;color:#000}
@@ -1920,8 +1921,8 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .page-content__btn{margin-top:25px;padding:0 90px;line-height:45px}
 .page-content__instruction{list-style-type:none;padding:0;counter-reset:num;text-align:left;margin-bottom:60px}
 .page-content__instruction li{margin-bottom:5px}
-.page-content__instruction li:before{display:inline-block;vertical-align:middle;margin-right:10px;width:45px;height:45px;border-radius:50%;background-clip:padding-box;background-color:#000;border:3px solid #FFF;content:counter(num) ' ';counter-increment:num;color:#FFF;font-size:24px;font-weight:500;line-height:40px;text-align:center}
-.page-content__instruction li>span{vertical-align:top;display:inline-block;font-size:18px;font-weight:400;max-width:580px}
+.page-content__instruction li:before{display:inline-block;vertical-align:top;margin-right:10px;width:45px;height:45px;border-radius:50%;background-clip:padding-box;background-color:#000;border:3px solid #FFF;content:counter(num) ' ';counter-increment:num;color:#FFF;font-size:24px;font-weight:500;line-height:40px;text-align:center}
+.page-content__instruction li>span{padding-top:6px;vertical-align:middle;display:inline-block;font-size:18px;line-height:28px;font-weight:400;max-width:580px}
 .page-content__instruction li>span>a{font-size:24px;font-weight:500;color:#000;border-bottom:1px solid rgba(0,0,0,.3)}
 .page-content__information{text-align:left;padding-left:5px}
 .page-content__information ol{list-style-type:none;padding:0;counter-reset:li;text-align:left}
@@ -1947,7 +1948,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .paging__ctrl--next:before{content:'\e809'}
 .paging-wrap{text-align:center}
 .rating{max-width:600px;margin-top:40px}
-.content-table{width:100%;display:table;background-color:transparent;color:#000;border-collapse:collapse}
+.content-table{width:100%;display:table;background-color:transparent;color:#000}
 .content-table__row{display:table-row}
 .content-table__row:first-child,.content-table__row:last-child{border:0}
 .content-table__row.on-top .content-table__cell:first-child{width:45px;height:45px;background-image:url(../images/heart-bg.svg);background-position:center;background-repeat:no-repeat;background-size:contain}
