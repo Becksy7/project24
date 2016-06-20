@@ -55,12 +55,13 @@ $(function() {
 				$.ajax({
 					url: scene.urls.getScene,
 					method: 'POST',
-					success: scene.success
+					success: scene.success,
+					dataType: 'json'
 				});
 			};
 			scene.success = function(data) {
 				//console.log('data:',data);
-				var info = $.parseJSON(data).scene;
+				var info = data.scene;
 
 				scene.makeUserTraits(info);
 				scene.firstStep(info);
@@ -655,7 +656,7 @@ $(function() {
 				if (data.error ) {
 					F.sayError(data);
 				} else {
-					var score = $.parseJSON(data).userScore;
+					var score = data.userScore;
 					UserScore.set(score);
 
 					$('#agreement-form').fadeOut(500, function() {
