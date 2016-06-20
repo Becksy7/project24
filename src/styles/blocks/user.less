@@ -10,6 +10,13 @@
     display: block;
     margin: 0 auto;
   }
+  &.slick-slide{
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    padding: 0;
+    width: 300px;
+  }
 
   &__image {
     display: inline-block;
@@ -37,7 +44,7 @@
     max-width: 210px;
   }
   &__header {
-    max-width: 300px;
+    width: 300px;
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: left;
@@ -67,5 +74,8 @@
     left: 50%;
     .transform(translateX(-50%));
     padding: 10px 70px;
+  }
+  &s-slider{
+    padding: 0 40px;
   }
 }

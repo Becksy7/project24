@@ -6,7 +6,9 @@
 				<div class="modal-title">Расставь черты характера по аватару</div>
 			</div>
 			<div class="modal-body">
-				<div id="extraround-target"></div>
+				<a href="#" data-user-arrow="left" class="scene-arrow scene-arrow__left"></a>
+				<a href="#" data-user-arrow="right" class="scene-arrow scene-arrow__right"></a>
+				<div id="extraround-target" class="users-slider"></div>
 			</div>
 			<a class="btn btn-primary modal__btn">Готово</a>
 		</div>
@@ -17,11 +19,11 @@
 
 
 <script type="text/template" id="extraround-template">
-	<div class="users-slider">
+
 	<% _.each(users, function(user, key, list){
 	var target = '#sg-'+user.id;
 	%>
-	<div class="user">
+	<div class="user" data-id="<%= target %>">
 		<div class="user__header">
 			<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 			<span class="user__name"><%= user.name %></span>
@@ -58,14 +60,14 @@
 		</div>
 	</div>
 	<% }); %>
-	</div>
+
 </script>
 <script type="text/template" id="extraround-user-template">
 	<!-- modals for users here: -->
 	<% _.each(users, function(user, key, list){
 	var target = 'sg-'+user.id;
 	%>
-	<% if (user.nopopup) { %>
+	<% if (!user.nopopup) { %>
 
 	<div class="modal fade" id="<%= target %>" tabindex="-1" role="dialog" data-modal-user-choose>
 		<div class="modal-dialog modal-lg">
@@ -80,8 +82,8 @@
 							<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 							<span class="user__name"><%= user.name %></span>
 						</div>
-						<div class="user__traits">
-							<form>
+						<div class="user__traits" data-user-traits-choose>
+							<form class="user__form">
 								<input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
 								<div class="traits traits--tall" data-nicescroll-block>
 									<% _.each(user.traits, function(trait, key, list){
@@ -97,8 +99,12 @@
 									<% }); %>
 								</div>
 
-								<input class="btn btn-primary user__btn" type="submit" value="Подтвердить">
+								<button class="btn btn-primary user__btn" type="submit">Подтвердить</button>
 							</form>
+						</div>
+						<div class="user__traits" data-user-traits-error style="display:none;">
+							<div class="a-user-choose__head" data-head>Произошла ошибка.</div>
+							<a href="#" class="btn btn-primary btn-fullwidth" data-again>Заполнить еще раз</a>
 						</div>
 					</div>
 				</div>
@@ -108,3 +114,19 @@
 			<% } %>
 			<% }); %>
 </script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Произошла ошибка</h4>
+			</div>
+			<div class="modal-body">
+				Произошла ошибка. Перезагрузите стараницу и попробуйте еще раз.
+			</div>
+		</div>
+	</div>
+</div>
