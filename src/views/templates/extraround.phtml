@@ -35,13 +35,13 @@
 			<% } %>
 			>Угадать черты характера</a>
 		</div>
-		<div class="user__content" data-user-result
+		<div class="user__content" data-user-result data-nicescroll-block
 			<% if (!user.nopopup) { %>
 				style="display:none;"
 			<% } %>
 		>
 			<!-- answered -->
-			<div class="traits traits--result" data-nicescroll-block>
+			<div class="traits traits--result" data-nicescroll-inner>
 				<% _.each(user.traits, function(trait,key,list){ %>
 				<div class="trait" data-trait-id="<%= key %>"
 				>

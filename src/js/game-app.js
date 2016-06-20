@@ -70,6 +70,7 @@ $(function() {
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
 				});
+
 				scene.goExtraRound(info);
 			};
 			/**
@@ -85,16 +86,18 @@ $(function() {
 					// скрываем форму ростелекома, если уже ввели договор
 					Rostelekom.set();
 				}
-				if (player.currentScore){
-					// выводим набранные уже очки
-					UserScore.set(player.currentScore);
-				}
-				if (player.currentPlace){
-					UserPlace.set(player.currentPlace);
-				}
+				// if (player.currentScore){
+				// 	// выводим набранные уже очки
+				// 	UserScore.set(player.currentScore);
+				// }
+				// if (player.currentPlace){
+				// 	UserPlace.set(player.currentPlace);
+				// }
 
 				if (player.traits.length){
 					$('[data-self-start]').hide();
+					$('.a-user-supergame').show();
+					$('a[href="#superGame"]').show();
 
 					var $selfResult = $('[data-self-result]');
 
@@ -103,7 +106,7 @@ $(function() {
 				}
 
 				if (characters.length){
-					scene.secondStep(info);
+					var isGuessed = false;
 					var i = 0;
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
@@ -111,6 +114,7 @@ $(function() {
 							var guessed = character.guessedTraitsByPlayer;
 
 							if (guessed) {
+								isGuessed = true;
 								var id = character.code + '-' + i++,
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
@@ -141,6 +145,8 @@ $(function() {
 							}
 						}
 					};
+
+					isGuessed ? scene.secondStep(info) : '';
 				}
 			};
 			/**
@@ -422,6 +428,8 @@ $(function() {
 
 				$(form).parent().fadeOut(500, function() {
 					$userResult.fadeIn(200);
+					$('.a-user-supergame').show();
+					$('a[href="#superGame"]').show();
 				});
 			};
 			
@@ -463,6 +471,15 @@ $(function() {
 				});
 				var slides = _.template(tmpl)(usersInfo);
 				$.each($(slides), function(i, slide) {
+					var $content = $(slide).find('[data-nicescroll-block]'),
+						$inner = $content.find('[data-nicescroll-inner]');
+					$content.addClass('nicescroll-on').niceScroll($inner, {
+						'cursorcolor': '#00abe8',
+						'cursorwidth': 12,
+						'cursorborder': '0',
+						'cursorborderradius': 12,
+						'autohidemode': false
+					});
 					$('.users-slider').slick('slickAdd', slide);
 				});
 
@@ -563,21 +580,32 @@ $(function() {
 				};
 				scene.makeHeaders(headers);
 				scene.makeInfoPopups(info);
-			};
-			/**
-			 * Второй шаг игры
-			 * @param info - массив сцены
-			 */
-			scene.secondStep = function(info) {
+
 				var data = {
 					scene: info.code,
 					users: info.characters,
 					traits: info.traits
 				};
 
-
 				scene.makeHearts(data);
+			};
+			/**
+			 * Второй шаг игры
+			 * @param info - массив сцены
+			 */
+			scene.secondStep = function(info) {
 
+				//show choose section in heart popups
+				var $heartPopups = $('.popover-ui.personage');
+
+				$.each($heartPopups, function(i, elem) {
+					var $this = $(elem),
+						$startContent = $this.find('[data-start-content]'),
+					$form = $startContent.siblings('[data-personage-choose]');
+					$startContent.fadeOut(500, function() {
+						$form.fadeIn(200);
+					});
+				});
 
 				//show next explain block
 				scene.$.header.find('.explain.active').fadeOut(500, function() {

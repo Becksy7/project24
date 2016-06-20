@@ -89,12 +89,17 @@ $(function() {
         ,UserBookmark = (function(){
             return {
                 init : function() {
+
                     $('#user-panel').on('show.bs.collapse',function() {
                             $('#user-bookmark').addClass('rolled');
                         })
                         .on('hidden.bs.collapse',function() {
                             $('#user-bookmark').removeClass('rolled');
                         });
+                    $('#user-panel a.btn-default').on('click',function(e) {
+                       e.stopPropagation();
+                    });
+
                     // $('#user-panel').find('.a-user__scrollable').niceScroll({
                     //     cursorcolor: "rgba(255,255,255,0)",
                     //     background: "rgba(255,255,255,0)",
