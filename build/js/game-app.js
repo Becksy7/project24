@@ -97,6 +97,7 @@ $(function() {
 				if (player.traits.length){
 					$('[data-self-start]').hide();
 					$('.a-user-supergame').show();
+					$('a[href="#superGame"]').show();
 
 					var $selfResult = $('[data-self-result]');
 
@@ -105,7 +106,7 @@ $(function() {
 				}
 
 				if (characters.length){
-					scene.secondStep(info);
+					var isGuessed = false;
 					var i = 0;
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
@@ -113,6 +114,7 @@ $(function() {
 							var guessed = character.guessedTraitsByPlayer;
 
 							if (guessed) {
+								isGuessed = true;
 								var id = character.code + '-' + i++,
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
@@ -143,6 +145,8 @@ $(function() {
 							}
 						}
 					};
+
+					isGuessed ? scene.secondStep(info) : '';
 				}
 			};
 			/**
@@ -425,6 +429,7 @@ $(function() {
 				$(form).parent().fadeOut(500, function() {
 					$userResult.fadeIn(200);
 					$('.a-user-supergame').show();
+					$('a[href="#superGame"]').show();
 				});
 			};
 			
@@ -575,21 +580,32 @@ $(function() {
 				};
 				scene.makeHeaders(headers);
 				scene.makeInfoPopups(info);
-			};
-			/**
-			 * Второй шаг игры
-			 * @param info - массив сцены
-			 */
-			scene.secondStep = function(info) {
+
 				var data = {
 					scene: info.code,
 					users: info.characters,
 					traits: info.traits
 				};
 
-
 				scene.makeHearts(data);
+			};
+			/**
+			 * Второй шаг игры
+			 * @param info - массив сцены
+			 */
+			scene.secondStep = function(info) {
 
+				//show choose section in heart popups
+				var $heartPopups = $('.popover-ui.personage');
+
+				$.each($heartPopups, function(i, elem) {
+					var $this = $(elem),
+						$startContent = $this.find('[data-start-content]'),
+					$form = $startContent.siblings('[data-personage-choose]');
+					$startContent.fadeOut(500, function() {
+						$form.fadeIn(200);
+					});
+				});
 
 				//show next explain block
 				scene.$.header.find('.explain.active').fadeOut(500, function() {
