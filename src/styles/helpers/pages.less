@@ -23,13 +23,9 @@
         margin: 0 auto;
     }
 }
-.page-lego {
-    .layout-main {
-        background: url("@{public}/images/game_bg2.jpg") no-repeat center;
-        .background-size(cover);
-    }
-}
-.page-404 {
+
+.page-404,
+.page-404.desktop {
     .layout-main {
         width: @min_width;
         margin: 0 auto;
@@ -41,6 +37,8 @@
         display: none;
     }
 }
+
+.page-index.desktop,
 .page-index {
     min-height: 100%;
     .layout-wrapper{
