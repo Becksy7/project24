@@ -86,13 +86,13 @@ $(function() {
 					// скрываем форму ростелекома, если уже ввели договор
 					Rostelekom.set();
 				}
-				if (player.currentScore){
-					// выводим набранные уже очки
-					UserScore.set(player.currentScore);
-				}
-				if (player.currentPlace){
-					UserPlace.set(player.currentPlace);
-				}
+				// if (player.currentScore){
+				// 	// выводим набранные уже очки
+				// 	UserScore.set(player.currentScore);
+				// }
+				// if (player.currentPlace){
+				// 	UserPlace.set(player.currentPlace);
+				// }
 
 				if (player.traits.length){
 					$('[data-self-start]').hide();
