@@ -149,10 +149,21 @@ $(function() {
                     }).on('hidden.bs.modal','.modal',function() {
                         var $content = $(this).find('[data-nicescroll-block]');
                         $content.hasClass('nicescroll-on') && $content.niceScroll().remove();
+                    }).on('show.bs.modal','#video-popup',function(){
+                        var $iframe = $(this).find('iframe');
+                        if (!$iframe.attr('data-url')){
+                            $iframe.attr('data-url',$iframe.attr('src'));
+                        }
+                        if ($iframe.attr('src') == ''){
+                            $iframe.attr('src',$iframe.attr('data-url'));
+                        }
+
                     }).on('hide.bs.modal','#video-popup',function(){
                         var $iframe = $(this).find('iframe');
-                        $iframe[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-
+                        if (!$iframe.attr('data-url')){
+                            $iframe.attr('data-url',$iframe.attr('src'));
+                        }
+                        $iframe.attr('src','');
                     }).on('click','.popover-ui-close', function(){
                         var parent = $(this).parents('.webui-popover');
                         var id = parent.attr('id'),
