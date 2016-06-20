@@ -21,7 +21,7 @@
 	<% _.each(users, function(user, key, list){
 	var target = '#sg-'+user.id;
 	%>
-	<div class="user">
+	<div class="user" data-id="<%= target %>">
 		<div class="user__header">
 			<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 			<span class="user__name"><%= user.name %></span>
@@ -65,7 +65,7 @@
 	<% _.each(users, function(user, key, list){
 	var target = 'sg-'+user.id;
 	%>
-	<% if (user.nopopup) { %>
+	<% if (!user.nopopup) { %>
 
 	<div class="modal fade" id="<%= target %>" tabindex="-1" role="dialog" data-modal-user-choose>
 		<div class="modal-dialog modal-lg">
@@ -80,8 +80,8 @@
 							<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 							<span class="user__name"><%= user.name %></span>
 						</div>
-						<div class="user__traits">
-							<form>
+						<div class="user__traits" data-user-traits-choose>
+							<form class="user__form">
 								<input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
 								<div class="traits traits--tall" data-nicescroll-block>
 									<% _.each(user.traits, function(trait, key, list){
@@ -97,8 +97,12 @@
 									<% }); %>
 								</div>
 
-								<input class="btn btn-primary user__btn" type="submit" value="Подтвердить">
+								<button class="btn btn-primary user__btn" type="submit">Подтвердить</button>
 							</form>
+						</div>
+						<div class="user__traits" data-user-traits-error style="display:none;">
+							<div class="a-user-choose__head" data-head>Произошла ошибка.</div>
+							<a href="#" class="btn btn-primary btn-fullwidth" data-again>Заполнить еще раз</a>
 						</div>
 					</div>
 				</div>

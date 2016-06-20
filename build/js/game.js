@@ -144,22 +144,20 @@ $(function() {
                     }).on('hidden.bs.modal','.modal',function() {
                         var $content = $(this).find('[data-nicescroll-block]');
                         $content.hasClass('nicescroll-on') && $content.niceScroll().remove();
-                    });
-
-
-                    $(document).on('hide.bs.modal','#video-popup',function(){
+                    }).on('hide.bs.modal','#video-popup',function(){
                         var $iframe = $(this).find('iframe');
                         $iframe[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 
-                    });
-
-
-                    $(document).on('click','.popover-ui-close', function(){
+                    }).on('click','.popover-ui-close', function(){
                         var parent = $(this).parents('.webui-popover');
                         var id = parent.attr('id'),
                             $link = $('[data-target="' + id + '"]');
                         $link.webuiPopover('hide');
-                    });
+                    }).on('shown.bs.modal','[data-modal-user-choose]',function() {
+                        $('#superGame').fadeOut();
+                    }).on('hide.bs.modal','[data-modal-user-choose]',function() {
+                        $('#superGame').fadeIn();
+                    })
                 }
 
             }

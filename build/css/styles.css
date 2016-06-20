@@ -1795,7 +1795,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .scene-links__i{display:block;margin:0 30px 30px 20px}
 .scene-links__lk{display:block;position:relative;padding:10px 10px 10px 70px;background-color:rgba(0,0,0,.7)}
 .heart-block,.popup,.popup-close,.scene-links .icon{position:absolute}
-.popover-ui-close:before,.popup-close:before{text-decoration:inherit;text-transform:none;font-family:wland;font-style:normal;speak:none;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.popover-ui-close:before,.popup-close:before,.scene-arrow:before{text-decoration:inherit;text-transform:none;font-family:wland;font-style:normal;speak:none;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .scene-links__text{color:#FFF;font-size:20px}
 .scene-links .icon{color:#FFF;font-size:48px;width:70px;height:70px;line-height:70px;text-align:center;left:-20px;top:-15px}
 .popup,.popup-body{border-radius:10px}
@@ -1851,11 +1851,11 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popover-ui-close{font-size:16px;color:#00abe8;top:15px;right:15px;cursor:pointer}
 .popover-ui-close:before{font-weight:400;display:inline-block;text-align:center;line-height:1em;content:'\e805'}
 .heart,.webui-popover .webui-popover-content .popover-ui{display:block}
-.heart,.heart:focus,.heart:hover,.heart:hover:focus,.scene-arrow{text-decoration:none}
 .popover-ui-header{padding:15px;height:145px}
 .popover-ui-content{margin:0 15px}
 .popover-ui-body{padding:0 0 20px;background-color:#FFF;width:335px}
 .webui-popover .webui-popover-content{padding:0}
+.heart,.heart:focus,.heart:hover,.heart:hover:focus{text-decoration:none}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-pers2-beach{left:24%;top:30%}
 .heart-karlos-beach{right:32%;top:30%}
@@ -1874,7 +1874,8 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .copyright__social,.error,.error__text,.error__title,.input-block,.page-caption,.page-content,.scene-arrow:before{text-align:center}
 .user__btn{bottom:-85px;left:50%;transform:translateX(-50%);padding:10px 70px}
 .scene-arrow{font-size:35px;color:#00abe8;top:50%;margin-top:-18px;z-index:2}
-.scene-arrow:before{font-family:wland;font-style:normal;font-weight:400;speak:none;text-decoration:inherit;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.scene-arrow:before{font-weight:400;line-height:1em}
+.scene-arrow,.scene-arrow:hover{text-decoration:none}
 .scene-arrow__left{left:10px}
 .scene-arrow__left:before{content:'\e808'}
 .scene-arrow__right{right:10px}

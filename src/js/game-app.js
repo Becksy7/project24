@@ -430,10 +430,11 @@ $(function() {
 			scene.makeExtraUsers = function(data, info) {
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
-					d = $.parseJSON(data);
+					d = data;//$.parseJSON(data),
 					usersInfo = {
 						users : d.users
 					};
+				console.log(d, usersInfo);
 
 				$.each(usersInfo.users, function(index, value) {
 					var user = usersInfo.users[index];
@@ -464,6 +465,10 @@ $(function() {
 				var tmpl2 = scene.$.extraUserPopupTemplate.html();
 
 				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
+
+				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
+
+
 
 			};
 			/**
@@ -514,7 +519,6 @@ $(function() {
 			};
 			scene.goExtraRound = function(info) {
 				scene.getExtraUsers(info);
-				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
 			};
 
 			return {

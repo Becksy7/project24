@@ -11,7 +11,7 @@
     "shareText": "bla bla bla",
     "characters": [
       {
-      "id": 123,
+      "id": 120,
       "name": "Карлос",
       "code": "karlos",
       "image": "images/photo_1.jpg",
@@ -22,7 +22,7 @@
         }
       },
       {
-      "id": 124,
+      "id": 119,
       "name": "Перс2",
       "code": "pers2",
       "image": "images/photo_1.jpg",
