@@ -59,7 +59,7 @@ body:not([class*="game"]) {
 
 }
 
-body.desktop {
+body.desktop{
   &.page-index,
   &.page-about,
   &.page-rules,
@@ -68,8 +68,12 @@ body.desktop {
       display: none;
     }
     @media (min-width: 1024px) {
+      .navbar-toggle{
+        display: none;
+      }
       .navbar-fixed-top {
         margin: 0 auto;
+        width: auto!important;
         padding-top: 40px;
         display: block;
         min-width: @min_width;
@@ -78,8 +82,12 @@ body.desktop {
         .navbar-collapse {
           width: 100% !important;
           float: none;
+          margin: 0;
           text-align: center;
           position: static;
+          display: block;
+          border: 0;
+          .box-shadow(none);
           .nav {
             width: auto;
             margin: 0;
@@ -93,6 +101,7 @@ body.desktop {
           display: inline-block;
           float: none;
           > li {
+            display: inline-block;
             a {
               color: @white;
               font-size: 16px;
