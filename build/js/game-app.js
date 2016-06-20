@@ -70,6 +70,7 @@ $(function() {
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
 				});
+
 				scene.goExtraRound(info);
 			};
 			/**
@@ -95,6 +96,7 @@ $(function() {
 
 				if (player.traits.length){
 					$('[data-self-start]').hide();
+					$('.a-user-supergame').show();
 
 					var $selfResult = $('[data-self-result]');
 
@@ -422,6 +424,7 @@ $(function() {
 
 				$(form).parent().fadeOut(500, function() {
 					$userResult.fadeIn(200);
+					$('.a-user-supergame').show();
 				});
 			};
 			
@@ -463,6 +466,15 @@ $(function() {
 				});
 				var slides = _.template(tmpl)(usersInfo);
 				$.each($(slides), function(i, slide) {
+					var $content = $(slide).find('[data-nicescroll-block]'),
+						$inner = $content.find('[data-nicescroll-inner]');
+					$content.addClass('nicescroll-on').niceScroll($inner, {
+						'cursorcolor': '#00abe8',
+						'cursorwidth': 12,
+						'cursorborder': '0',
+						'cursorborderradius': 12,
+						'autohidemode': false
+					});
 					$('.users-slider').slick('slickAdd', slide);
 				});
 
