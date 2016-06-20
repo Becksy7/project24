@@ -423,6 +423,7 @@ $(function() {
 					$userResult.fadeIn(200);
 				});
 			};
+			
 			/**
 			 * Создаем попапы для суперигры
 			 * @param data - пришедшие данные
@@ -430,11 +431,11 @@ $(function() {
 			scene.makeExtraUsers = function(data, info) {
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
-					d = data;//$.parseJSON(data),
+					d = data,//$.parseJSON(data),
 					usersInfo = {
 						users : d.users
 					};
-				console.log(d, usersInfo);
+//				console.log(d, d.users, usersInfo);
 
 				$.each(usersInfo.users, function(index, value) {
 					var user = usersInfo.users[index];
@@ -459,17 +460,96 @@ $(function() {
 						usersInfo.users[index].nopopup = false;
 					}
 				});
+				var slides = _.template(tmpl)(usersInfo);
+				$.each($(slides), function(i, slide) {
+					$('.users-slider').slick('slickAdd', slide);
+				});
 
-				scene.$.extraRound.append(_.template(tmpl)(usersInfo));
+
+				$('.users-slider').promise().done(function(){
+					var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
+					$('.users-slider').slick('goTo', +lastActive + 3);
+				});
+
+				//scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
 				var tmpl2 = scene.$.extraUserPopupTemplate.html();
 
 				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
 
 				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
+				
+
+				$('[data-modal-user-choose]').each(function(i, element) {
+					$(element).find('form').validate({
+						submitHandler: function(form) {
+							//var dd = $.Deferred();
+
+							var guessedTraits = [];
+							var characterId = $(form).find('input[name="characterid"]').val();
+							var $checkboxes = $(form).find('input[type="checkbox"]:checked');
+							if ($checkboxes.length) {
+								$checkboxes.each(function(i, checkbox) {
+									guessedTraits.push($(checkbox).val());
+								});
+							}
+
+							guessedTraits = guessedTraits.join(',');
 
 
+							$.ajax({
+								url: scene.urls.guessCharTraits,
+								method: 'POST',
+								data: {
+									"character-id": characterId,
+									"trait-ids": guessedTraits
+								},
+								dataType: 'json',
+								success: function(data) {
+									console.log('success', data);
+									scene.makePersTraitsResult(form, data);
+								},
+								error: function(data) {
+									console.log('error', data);
+									scene.sayError(data, '[data-user-traits-choose]', '[data-user-traits-error]');
+								}
+							});
+							return false;
+						}
+					})
+				})
 
+
+			};
+			scene.makePersTraitsResult = function(form, data) {
+				var id = $(form).parents('.modal').attr('id'),
+					$results = $('[data-id="#' + id + '"]'),
+					$traits = $results.find('.trait'),
+					incorrect = data.incorrectTraitIds,
+					correct = data.correctTraitIds,
+					score = data.userScore;
+
+				UserScore.set(score);
+
+				$('#'+id).modal('hide');
+				$results.find('[data-user-offer]').hide();
+				$results.find('[data-user-result]').show();
+
+				$traits.each(function(i, trait) {
+					var id = parseInt($(trait).attr('data-trait-id')),
+						$placeholder = $(trait).find('[data-trait-result]'),
+						resultHtml = "";
+
+					if ( ($.inArray(id, incorrect) + 1)){
+						//means this value is incorrect
+						resultHtml = '<i class="icon icon-minus"></i>';
+
+					} else if (($.inArray(id, correct) + 1)){
+						//means this value is correct
+						resultHtml = '+1'; //if some else value requred, change here!!!!
+					}
+					$placeholder.html(resultHtml);
+				});
 			};
 			/**
 			 * Первый шаг игры
@@ -509,16 +589,48 @@ $(function() {
 					url     : scene.urls.extraRoundUsers,
 					method  : 'POST',
 					success : function(data) {
-
 						scene.makeExtraUsers(data, info);
 					},
 					error: function(data) {
-						console.log(data);
+						console.info(data);
+						ErrorPopup.show(data.error);
 					}
 				});
 			};
 			scene.goExtraRound = function(info) {
 				scene.getExtraUsers(info);
+
+				// $('[data-user-arrow="right"]').attr('data-next-users',false);
+				var $slider = $('.users-slider');
+				$slider.slick({
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: false,
+					prevArrow: $('[data-user-arrow="left"]'),
+					nextArrow: $('[data-user-arrow="right"]')
+				});
+				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				// 	console.log(currentSlide,nextSlide);
+				// });
+				$(document).on('click','[data-user-arrow]',function(e) {
+					e.preventDefault();
+
+					var $this = $(this),
+						direction = $this.attr('data-user-arrow');
+					if (direction == "right") {
+						var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
+						var lastSlide = $('.users-slider').find('.slick-slide').last().attr('data-slick-index');
+
+						if (lastActive == lastSlide ){
+							scene.getExtraUsers(info);
+							// $('.users-slider').promise().done(function(){
+							// 	console.log('ok',lastActive, +lastActive +3);
+							// 	$('.users-slider').slick('goTo', +lastActive + 3);
+							// });
+						}
+					}
+				});
+
 			};
 
 			return {
@@ -627,6 +739,17 @@ $(function() {
 			};
 			return {
 				set: set
+			}
+		})()
+		, ErrorPopup = (function() {
+			var error = 'Произошла ошибка. Перезагрузите стараницу и попробуйте еще раз.';
+			var show = function(msg) {
+				var msg = msg ? msg : error;
+				$('#errorModal').find('.modal-body').html(msg);
+				$('#errorModal').show();
+			};
+			return {
+				show: show
 			}
 		})()
 	/**

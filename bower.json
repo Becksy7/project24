@@ -25,6 +25,7 @@
     "underscore": "^1.8.3",
     "isMobile": "ismobilejs#^0.4.0",
     "jquery-validation": "^1.15.0",
-    "webui-popover": "^1.2.11"
+    "webui-popover": "^1.2.11",
+    "slick-carousel": "^1.6.0"
   }
 }

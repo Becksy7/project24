@@ -157,7 +157,12 @@ $(function() {
                         $('#superGame').fadeOut();
                     }).on('hide.bs.modal','[data-modal-user-choose]',function() {
                         $('#superGame').fadeIn();
-                    })
+                    }).on('shown.bs.modal','#superGame',function() {
+                        $('.users-slider').resize();
+                    });
+
+
+                    
                 }
 
             }

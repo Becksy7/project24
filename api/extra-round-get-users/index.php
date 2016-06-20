@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+header('Content-type: application/json');
 
 $answer = array(
 	"users" => array(
@@ -26,6 +29,5 @@ $answer = array(
 //	"message"=> "Произошла ошибка"
 //);
 
-header('Content-type: application/json');
 
 echo json_encode($answer);

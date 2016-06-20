@@ -124,7 +124,9 @@ module.exports = function(grunt) {
                     {expand: true, cwd: 'bower_components/jquery-validation/dist/', src: 'jquery.validate.min.js', dest: 'build/vendor/'},
                     {expand: true, cwd: 'bower_components/webui-popover/dist/', src: 'jquery.webui-popover.min.js', dest: 'build/vendor/'},
                     {expand: true, cwd: 'bower_components/bootstrap/less/', src: '**', dest: 'src/styles/bootstrap/'},
-                    {expand: true, cwd: 'bower_components/webui-popover/dist/', src: 'jquery.webui-popover.css', dest: 'src/styles/vendor/'}
+                    {expand: true, cwd: 'bower_components/webui-popover/dist/', src: 'jquery.webui-popover.css', dest: 'src/styles/vendor/'},
+                    {expand: true, cwd: 'bower_components/slick-carousel/slick/', src: 'slick.min.js', dest: 'build/vendor/'},
+                    {expand: true, cwd: 'bower_components/slick-carousel/slick/', src: 'slick.css', dest: 'src/styles/vendor/'}
                 ]
             }
         },
