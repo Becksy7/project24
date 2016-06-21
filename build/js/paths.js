@@ -4,3 +4,5 @@ window.PATHS = {
 	userSayHimself: "api/user-set-traits/",
 	extraRoundUsers: "api/extra-round-get-users/"
 };
+
+window.scene_id = 1233;
