@@ -28,12 +28,7 @@ $(function() {
 		})()
 		, Scene = (function() {
 			var scene = {};
-			scene.urls = {
-				getScene: "api/scene.json",
-				guessCharTraits: "api/guess-character-traits/",
-				userSayHimself: "api/user-set-traits/",
-				extraRoundUsers: "api/extra-round-get-users/"
-			};
+			scene.urls = PATHS;
 			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
 
 
