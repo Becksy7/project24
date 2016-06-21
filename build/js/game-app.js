@@ -48,6 +48,9 @@ $(function() {
 
 			var load = function() {
 				$.ajax({
+					data: {
+						sid: scene_id
+					},
 					url: scene.urls.getScene,
 					method: 'POST',
 					success: scene.success,
@@ -89,7 +92,7 @@ $(function() {
 				// 	UserPlace.set(player.currentPlace);
 				// }
 
-				if (player.traits.length){
+				if ((player.traits) && (player.traits.length)){
 					$('[data-self-start]').hide();
 					$('.a-user-supergame').show();
 					$('a[href="#superGame"]').show();
