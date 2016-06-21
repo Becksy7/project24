@@ -65,6 +65,8 @@ $(function() {
 				scene.firstStep(info);
 				scene.loadCurrentState(info);
 
+				SceneLinks.set(info.prevSceneLink, info.nextSceneLink);
+
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
 				});
@@ -397,10 +399,15 @@ $(function() {
 				var $form = $(checkbox).parents('form'),
 					$submit = $form.find('[type="submit"]');
 				$submit.attr('disabled',true);
+
 				$(document).on('click', checkbox, function() {
-					var $checked = $(checkbox + ':checked');
-					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
-					$(checkbox).not(":checked").attr("disabled", bol);
+					var $this = $(this),
+						$form = $this.parents('form'),
+						$submit = $form.find('[type="submit"]'),
+						$checked = $form.find('input[type="checkbox"]:checked'),
+						bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+					
+					$form.find('input[type="checkbox"]:not(:checked)').attr("disabled", bol);
 
 					$submit.attr('disabled', ($checked.length < scene.MAXCHECKEDTRAITS) );
 				});
@@ -777,6 +784,15 @@ $(function() {
 			};
 			return {
 				show: show
+			}
+		})()
+		, SceneLinks = (function() {
+			var set = function(prev, next) {
+				$('.layout-main > .scene-arrow__left').attr('href', prev);
+				$('.layout-main > .scene-arrow__right').attr('href', next);
+			};
+			return {
+				set: set
 			}
 		})()
 	/**

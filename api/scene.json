@@ -36,6 +36,8 @@
         { "id":5,"name": "деликатный", "image":"faces/face2.svg"},
         { "id":6,"name": "ласковый", "image":"faces/face3.svg"},
         { "id":7,"name": "терпеливый", "image":"faces/face4.svg"}
-    ]
+    ],
+    "nextSceneLink": "/path/to/scene/",
+    "prevSceneLink": "/path/to/scene/"
   }
 }
