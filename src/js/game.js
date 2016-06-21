@@ -5,7 +5,7 @@ $(function() {
         return {
             init : function() {
                 //DummyModule.init();
-                PageHeightCalc.init();
+                //PageHeightCalc.init();
                 NoPortraitLayout.init();
                 UserBookmark.init();
                 InterfaceElements.init();

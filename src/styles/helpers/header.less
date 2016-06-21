@@ -1,73 +1,70 @@
-.navbar-fixed-top {
-  min-width: @min_width;
-  left: 0;
-  border: 0;
-  position: absolute;
-  .navbar-collapse {
-    width: 320px !important;
-    padding: 0;
-    margin: 0;
-    margin-right: -320px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: auto !important;
-    .transition(.5s margin-right ease);
-    .nav {
-      width: 220px;
-      background-color: fade(@black, 90%);
-      margin: 0;
-      margin-left: 100px;
+
+  .navbar-fixed-top {
+    min-width: @min_width;
+    left: 0;
+    border: 0;
+    position: absolute;
+    .navbar-collapse {
+      width: 320px !important;
       padding: 0;
-    }
-    &.in {
-      width: 320px;
-      margin-right: 0;
-    }
-    &.collapsing {
-      width: 320px;
+      margin: 0;
       margin-right: -320px;
-    }
-    .nav-close {
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
-      display: block;
-      position: absolute;
-      left: 0;
+      position: fixed;
       top: 0;
-      cursor: pointer;
-
-      background-color: fade(@black, 70%);
-      text-align: center;
-      color: @lightblue;
-      &:before {
-        color: @lightblue;
-        font-size: 30px;
+      right: 0;
+      height: auto !important;
+      .transition(.5s margin-right ease);
+      .nav {
+        width: 220px;
+        background-color: fade(@black, 90%);
+        margin: 0;
+        margin-left: 100px;
+        padding: 0;
       }
-      &:hover, &:focus {
+      &.in {
+        width: 320px;
+        margin-right: 0;
+      }
+      &.collapsing {
+        width: 320px;
+        margin-right: -320px;
+      }
+      .nav-close {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+
+        background-color: fade(@black, 70%);
+        text-align: center;
         color: @lightblue;
+        &:before {
+          color: @lightblue;
+          font-size: 30px;
+        }
+        &:hover, &:focus {
+          color: @lightblue;
+        }
       }
     }
   }
-}
 
-body:not([class*="game"]) {
-  .navbar-brand {
-    display: none;
-  }
-
-}
 
 body.desktop{
-  &.page-index,
-  &.page-about,
-  &.page-rules,
-  &.page-rating {
+
+  &:not([class*="game"]) {
     .navbar-brand {
       display: none;
     }
+  }
     @media (min-width: 1024px) {
+      .navbar-brand{
+        margin-top: 60px;
+      }
       .navbar-toggle{
         display: none;
       }
@@ -135,26 +132,19 @@ body.desktop{
         }
       }
     }
-  }
 }
 
-body:not([class*='desktop']) {
-  &.page-index,
-  &.page-about,
-  &.page-rules,
-  &.page-rating {
-    header {
-      .container {
-        width: 1136px;
-      }
-    }
+
     .navbar-header {
       position: absolute;
+      width: 100%;
       right: 0;
       top: 0;
     }
     .navbar-toggle {
       display: block;
     }
-  }
+
+body:not(.desktop){
+
 }
