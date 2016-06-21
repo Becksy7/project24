@@ -13,6 +13,7 @@ $(function() {
             return {
                 init : function() {
                     if (!isMobile.any){
+                        console.log('desktop');
                         $('body').addClass('desktop');
                     }
                 }
