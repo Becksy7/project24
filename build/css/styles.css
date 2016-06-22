@@ -1784,6 +1784,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .share__text{margin-right:10px}
 .share--desktop{position:absolute;bottom:15px;right:30px;display:none}
 .ya-share2{display:inline-block;height:36px;vertical-align:middle}
+.page-caption__text,.personage__photo,.popup-header .photo,.user,.user.slick-slide,.user__name,.user__option{vertical-align:top}
 .ya-share2 .ya-share2__list_direction_horizontal>.ya-share2__item{margin-left:5px}
 .ya-share2__link{border-radius:50%;background-clip:padding-box;overflow:hidden}
 .ya-share2 .ya-share2__container_size_m .ya-share2__icon{height:36px;width:36px;line-height:36px;text-align:center;font-size:20px;background:0 0}
@@ -1818,7 +1819,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .scene-links__i{display:block;margin:0 30px 30px 20px}
 .scene-links__lk{display:block;position:relative;padding:10px 10px 10px 70px;background-color:rgba(0,0,0,.7)}
 .heart-block,.popup,.popup-close,.scene-links .icon{position:absolute}
-.popover-ui-close:before,.popup-close:before{text-decoration:inherit;text-transform:none;font-family:wland;font-style:normal;speak:none;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.popover-ui-close:before,.popup-close:before,.scene-arrow:before{text-decoration:inherit;text-transform:none;font-family:wland;font-style:normal;speak:none;font-variant:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .scene-links__text{color:#FFF;font-size:20px}
 .scene-links .icon{color:#FFF;font-size:48px;width:70px;height:70px;line-height:70px;text-align:center;left:-20px;top:-15px}
 .popup,.popup-body{border-radius:10px}
@@ -1831,7 +1832,6 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popup{box-shadow:0 0 25px rgba(150,150,150,.4);z-index:1050}
 .popup:after,.popup:before{content:" ";display:table}
 .popup-body{padding:0;padding-bottom:20px;background-color:#FFF;width:335px}
-.personage__photo,.popup-header .photo{border-radius:100%;overflow:hidden;vertical-align:top}
 .popup-footer{padding-top:25px;text-align:center}
 .popup-close{font-size:16px;color:#00abe8;top:15px;right:15px}
 .popup-close:before{font-weight:400;display:inline-block;text-align:center;line-height:1em;content:'\e805'}
@@ -1840,7 +1840,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popup-header{height:145px;padding:15px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
 .personage__name,.personage__photo,.popup-header .name,.popup-header .photo,.trait__smile,.trait__title{display:inline-block}
-.popup-header .photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.popup-header .photo{margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
 .popup-header .name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
@@ -1864,7 +1864,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .personage.popup{position:static}
 .personage.popover-ui{max-width:335px;border:0}
 .personage__photo img,.user__image img{max-width:100%}
-.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover;overflow:hidden}
 .heart,.heart__result,.popover-ui-close{position:absolute}
 .personage__name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .personage__descr{font-size:16px;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
@@ -1881,33 +1881,36 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-pers2-beach{left:24%;top:30%}
 .heart-karlos-beach{right:32%;top:30%}
-.scene-arrow__right,.slick-arrow.slick-next{right:10px}
 .heart__result{left:44px;top:29px;padding:0;margin:0;z-index:100;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;font-size:24px;font-weight:500;color:#FFF}
 .user__header,.user__option{text-align:left;width:300px}
-.user{padding:15px;display:inline-block;vertical-align:top}
+.user{padding:15px;display:inline-block}
 .user--single{width:335px;display:block;margin:0 auto}
-.user.slick-slide{display:inline-block;float:none;vertical-align:top;padding:0;width:300px}
+.user.slick-slide{display:inline-block;float:none;padding:0;width:300px}
 .user__image{display:inline-block;margin-right:15px;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8;background-color:#FFF;background-size:cover}
-.user__name{display:inline-block;vertical-align:top;text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
+.user__name{display:inline-block;text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
 .user__header{margin:0 auto;margin-bottom:20px}
 .user__content{width:300px;max-height:325px;overflow-x:hidden}
 .user__content .traits{height:250px}
 .user__content[data-user-result]{height:250px;position:relative}
 .user__content[data-user-result] .nicescroll-rails.nicescroll-rails-vr{display:block!important}
 .user__content .traits--result{margin-top:0;height:auto}
-.user__option{display:inline-block;vertical-align:top;margin:0 15px}
-.scene-arrow,.slick-arrow{font-size:35px;color:#00abe8;position:absolute;top:50%;margin-top:-18px;z-index:2}
+.user__option{display:inline-block;margin:0 15px}
+.scene-arrow,.slick-arrow{font-size:35px;color:#00abe8;position:absolute;top:50%;margin-top:-18px}
 .copyright__social,.error,.error__text,.error__title,.input-block,.page-caption,.page-content,.scene-arrow:before{text-align:center}
 .user__btn{position:absolute;bottom:-85px;left:50%;transform:translateX(-50%);padding:10px 70px}
-.scene-arrow__left,.slick-arrow.slick-prev{left:10px}
 .users-slider{padding:0 40px}
-.scene-arrow:before{font-family:wland;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;font-variant:normal;text-transform:none;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.scene-arrow{z-index:851}
+.scene-arrow:before{font-weight:400;display:inline-block;line-height:1em}
 .scene-arrow,.scene-arrow:focus,.scene-arrow:hover,.slick-arrow,.slick-arrow:hover{text-decoration:none}
+.scene-arrow__left{left:4px}
 .scene-arrow__left:before{content:'\e808'}
 .scene-arrow__left.slick-arrow.slick-disabled,.scene-arrow__left.slick-arrow.slick-hidden{display:none}
+.scene-arrow__right{right:4px}
 .scene-arrow__right:before{content:'\e809'}
-.slick-arrow{border:0;background-color:transparent}
+.slick-arrow{z-index:2;border:0;background-color:transparent}
+.slick-arrow.slick-prev{left:10px}
 .slick-arrow.slick-prev:before{content:'\e808'}
+.slick-arrow.slick-next{right:10px}
 .slick-arrow.slick-next:before{content:'\e809'}
 .slick-arrow.slick-hidden{display:block}
 .error{margin-top:90px}
@@ -1922,7 +1925,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .page-caption:after,.page-caption:before{content:" ";display:table}
 .page-caption__logo{display:inline-block;float:left}
 .page-caption__logo img{width:225px}
-.page-caption__text{margin:0 auto;display:inline-block;vertical-align:top}
+.page-caption__text{margin:0 auto;display:inline-block}
 .page-caption__text span{text-transform:uppercase;font-size:32px;color:#000}
 .page-caption__text span b{color:#520860;font-weight:900}
 .page-caption__text h2{color:#FFF;font-size:36px;font-weight:500;margin-top:65px}
