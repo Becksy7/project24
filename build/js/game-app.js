@@ -30,7 +30,7 @@ $(function() {
 			var scene = {};
 			scene.urls = PATHS;
 			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
-
+			scene.LAST_ID = 0;
 
 			scene.$ = {};
 			scene.$.infoPopupsTemplate = $('#info-popups-template');
@@ -64,8 +64,6 @@ $(function() {
 				scene.makeUserTraits(info);
 				scene.firstStep(info);
 				scene.loadCurrentState(info);
-
-				SceneLinks.set(info.prevSceneLink, info.nextSceneLink);
 
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
@@ -115,7 +113,7 @@ $(function() {
 
 							if (guessed) {
 								isGuessed = true;
-								var id = character.code + '-' + i++,
+								var id = character.id,
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
 									$result = $('#' + id).find('[data-personage-result]'),
@@ -399,15 +397,10 @@ $(function() {
 				var $form = $(checkbox).parents('form'),
 					$submit = $form.find('[type="submit"]');
 				$submit.attr('disabled',true);
-
 				$(document).on('click', checkbox, function() {
-					var $this = $(this),
-						$form = $this.parents('form'),
-						$submit = $form.find('[type="submit"]'),
-						$checked = $form.find('input[type="checkbox"]:checked'),
-						bol = $checked.length >= scene.MAXCHECKEDTRAITS;
-					
-					$form.find('input[type="checkbox"]:not(:checked)').attr("disabled", bol);
+					var $checked = $(checkbox + ':checked');
+					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+					$(checkbox).not(":checked").attr("disabled", bol);
 
 					$submit.attr('disabled', ($checked.length < scene.MAXCHECKEDTRAITS) );
 				});
@@ -443,6 +436,10 @@ $(function() {
 			 * @param data - пришедшие данные
 			 */
 			scene.makeExtraUsers = function(data, info) {
+                if (data.hasOwnProperty('last_id')) {
+                    scene.LAST_ID = data.last_id;
+                }
+
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
 					d = data,//$.parseJSON(data),
@@ -524,7 +521,7 @@ $(function() {
 								url: scene.urls.guessCharTraits,
 								method: 'POST',
 								data: {
-									"character-id": characterId,
+									"user-id": characterId,
 									"trait-ids": guessedTraits
 								},
 								dataType: 'json',
@@ -622,6 +619,7 @@ $(function() {
 				$.ajax({
 					url     : scene.urls.extraRoundUsers,
 					method  : 'POST',
+                    data: {last_id: scene.LAST_ID},
 					success : function(data) {
 						scene.makeExtraUsers(data, info);
 					},
@@ -784,15 +782,6 @@ $(function() {
 			};
 			return {
 				show: show
-			}
-		})()
-		, SceneLinks = (function() {
-			var set = function(prev, next) {
-				$('.layout-main > .scene-arrow__left').attr('href', prev);
-				$('.layout-main > .scene-arrow__right').attr('href', next);
-			};
-			return {
-				set: set
 			}
 		})()
 	/**
