@@ -107,7 +107,7 @@ $(function() {
 
 				if (characters.length){
 					var isGuessed = false;
-					var i = 0;
+					
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
 							var character = characters[index];
@@ -115,7 +115,7 @@ $(function() {
 
 							if (guessed) {
 								isGuessed = true;
-								var id = character.code + '-' + i++,
+								var id = character.id,
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
 									$result = $('#' + id).find('[data-personage-result]'),
