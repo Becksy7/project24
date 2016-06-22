@@ -96,7 +96,7 @@ $(function() {
                         .on('hidden.bs.collapse',function() {
                             $('#user-bookmark').removeClass('rolled');
                         });
-                    $('#user-panel a.btn-default').on('click',function(e) {
+                    $('#user-panel a.btn-default:not(.a-user-supergame__btn)').on('click',function(e) {
                        e.stopPropagation();
                     });
 
