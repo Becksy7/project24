@@ -2,6 +2,9 @@
     &.unautorized{
         display: none!important;
     }
+    &__scrollable{
+        height: 388px;
+    }
     &-bookmark{
         position: absolute;
         right: 0;
@@ -109,7 +112,7 @@
         }
     }
     &-panel{
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 0;
         z-index: (@zindex-navbar+500);
@@ -121,7 +124,7 @@
         &__wrap{
             width: 367px;
             margin-left: 48px;
-            height: 100%;
+            min-height: 100%;
             background-color: fade(@black,70%);
         }
         &.in{

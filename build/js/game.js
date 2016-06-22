@@ -177,7 +177,12 @@ $(function() {
                         $('.users-slider').resize();
                     });
 
-
+                    $('.a-user__scrollable').niceScroll({
+                        cursorcolor: "rgba(255,255,255,0.2)",
+                        background: "rgba(255,255,255,0)",
+                        cursorborder: "1px solid transparent",
+                        autohidemode:"hidden"
+                    });
                     
                 }
 
