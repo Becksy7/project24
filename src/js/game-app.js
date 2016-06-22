@@ -30,7 +30,7 @@ $(function() {
 			var scene = {};
 			scene.urls = PATHS;
 			scene.MAXCHECKEDTRAITS = 5;//макс. число выбранных черт характера
-
+			scene.LAST_ID = 0;
 
 			scene.$ = {};
 			scene.$.infoPopupsTemplate = $('#info-popups-template');
@@ -121,7 +121,8 @@ $(function() {
 									$result = $('#' + id).find('[data-personage-result]'),
 									$traits = $result.find('.trait'),
 									rightAnswers = correct.length,
-									$badge = $('[data-target="#' + id + '"]').find('[data-heart-badge]').text(rightAnswers).show();
+									popoverId = $('#' + id).parents('.webui-popover').attr('id');
+									$('[data-target="' + popoverId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
 
 
 								$traits.each(function(i, trait) {
@@ -196,15 +197,17 @@ $(function() {
 					score = data.userScore,
 					rightAnswers = correct.length,
 					blockId = $(form).parents('.popover-ui').attr('id'),
-					$badge = $('.heart[data-target="#' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers);
+					popoverId = $('#'+blockId).parents('.webui-popover').attr('id');
+					console.log(blockId,popoverId, rightAnswers, $('[data-target="' + popoverId + '"]').length);
+					$badge = $('[data-target="' + popoverId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
 
 				UserScore.set(score);
 
-				$(form).parent().fadeOut(500, function() {
-					$(form).find('[data-nicescroll-block]').niceScroll().remove();
-					$results.fadeIn(200);
-					$badge.fadeIn(200);
-				});
+				// $(form).parent().fadeOut(500, function() {
+				// 	$(form).find('[data-nicescroll-block]').niceScroll().remove();
+				// 	$results.fadeIn(200);
+				// 	$badge.fadeIn(200);
+				// });
 
 				$traits.each(function(i, trait) {
 					var id = parseInt($(trait).attr('data-trait-id')),
@@ -443,6 +446,9 @@ $(function() {
 			 * @param data - пришедшие данные
 			 */
 			scene.makeExtraUsers = function(data, info) {
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
 					d = data,//$.parseJSON(data),
@@ -524,7 +530,7 @@ $(function() {
 								url: scene.urls.guessCharTraits,
 								method: 'POST',
 								data: {
-									"character-id": characterId,
+									"user-id": characterId,
 									"trait-ids": guessedTraits
 								},
 								dataType: 'json',
@@ -622,6 +628,7 @@ $(function() {
 				$.ajax({
 					url     : scene.urls.extraRoundUsers,
 					method  : 'POST',
+					data: {last_id: scene.LAST_ID},
 					success : function(data) {
 						scene.makeExtraUsers(data, info);
 					},
