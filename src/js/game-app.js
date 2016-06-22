@@ -446,6 +446,9 @@ $(function() {
 			 * @param data - пришедшие данные
 			 */
 			scene.makeExtraUsers = function(data, info) {
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
 					d = data,//$.parseJSON(data),
