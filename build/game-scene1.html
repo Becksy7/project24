@@ -246,7 +246,7 @@
             <div id="hearts-target"></div>
             <script type="text/template" id="hearts-template">
                 <% _.each(users, function(item, key, list){
-    var target = item.code + '-' + key, prop = 'heart-' + item.code + '-' + scene;
+    var target = item.id, prop = 'heart-' + item.code + '-' + scene;
     %>
                     <a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
                         <img src="images/heart-icon.svg">
