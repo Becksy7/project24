@@ -1840,9 +1840,8 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .popup-content p{font-size:16px;text-align:center;font-weight:400;padding:0 30px}
 .popup-header{height:145px;padding:15px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
-.personage__name,.personage__photo,.popup-header .name,.popup-header .photo,.trait__smile,.trait__title{display:inline-block}
-.popup-header .photo{margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
-.popup-header .name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
+.popup-header .photo{display:inline-block;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
+.popup-header .name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
 .result{position:absolute;left:45px;top:130px;z-index:1050;width:45px;height:45px;line-height:45px;border-radius:50%;background-color:#00abe8;text-align:center}
@@ -1854,20 +1853,20 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .traits--result,.traits--tall{height:250px;margin-bottom:10px}
 .trait{width:100%;height:60px;margin-bottom:2px;background-color:#eaecf3;padding:0 15px;position:relative;overflow:hidden}
 .trait label{width:100%;font-weight:400}
-.trait__smile{margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
+.trait__smile{display:inline-block;margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
 .trait__smile img{width:33px;height:33px;margin:6px}
 .trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
-.trait__title{text-align:left}
+.trait__title{display:inline-block;text-align:left}
 .heart__result,.personage__descr,.trait__value,.users-slider{text-align:center}
 .trait__value{width:50px;margin:0;float:right}
 .trait__value .icon-minus{font-size:5px;color:red}
 .trait__value .icon-tick{font-size:18px;color:#969696}
 .personage.popup{position:static}
-.personage.popover-ui{max-width:335px;border:0}
+.personage.popover-ui{max-width:335px;border:0;display:none}
 .personage__photo img,.user__image img{max-width:100%}
-.personage__photo{margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover;overflow:hidden}
+.personage__photo{display:inline-block;margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover;overflow:hidden}
 .heart,.heart__result,.popover-ui-close{position:absolute}
-.personage__name{margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
+.personage__name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
 .personage__descr{font-size:16px;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
 .content-table__row .content-table__img,.user__image{overflow:hidden;background-clip:padding-box;background-position:center;background-repeat:no-repeat}
 .popover-ui{display:none}

@@ -248,11 +248,11 @@
                 <% _.each(users, function(item, key, list){
     var target = item.id, prop = 'heart-' + item.code + '-' + scene;
     %>
-                    <a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
+                    <a href="#" data-popover-webui data-content-id="<%= target %>" data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
                         <img src="images/heart-icon.svg">
                         <span class="badge heart__result" data-heart-badge style="display: none;"></span>
                     </a>
-                    <div id="<%= target %>" class="popover-ui personage">
+                    <div id="<%= target %>" class="popover-ui personage parent">
                         <div class="popover-ui-body">
                             <div class="popover-ui-header">
                                 <div class="popover-ui-close"></div>
