@@ -660,6 +660,9 @@ $(function() {
 				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 				// 	console.log(currentSlide,nextSlide);
 				// });
+				$(document).on('click','[href="#superGame"]',function() {
+					$slider.slick('reinit');
+				});
 				$(document).on('click','[data-user-arrow]',function(e) {
 					e.preventDefault();
 
@@ -802,8 +805,8 @@ $(function() {
 		})()
 		, SceneLinks = (function() {
 			var set = function(prev, next) {
-				$('.layout-main > .scene-arrow__left').attr('href', prev);
-				$('.layout-main > .scene-arrow__right').attr('href', next);
+				$('.layout-main > .scene-arrow__left').attr('href', prev).show();
+				$('.layout-main > .scene-arrow__right').attr('href', next).show();
 			};
 			return {
 				set: set

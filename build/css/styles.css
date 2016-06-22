@@ -957,7 +957,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 .container-fluid>.navbar-collapse,.container-fluid>.navbar-header,.container>.navbar-collapse,.container>.navbar-header{margin-right:-15px;margin-left:-15px}
 .navbar-static-top{z-index:950;border-width:0 0 1px}
-.navbar-fixed-bottom,.navbar-fixed-top{position:fixed;right:0;left:0;z-index:969}
+.navbar-fixed-bottom,.navbar-fixed-top{position:fixed;right:0;left:0;z-index:1049}
 .navbar-fixed-top{top:0}
 .navbar-fixed-bottom{bottom:0;margin-bottom:0;border-width:1px 0 0}
 .navbar-brand{float:left;padding:15px;font-size:18px;line-height:20px;height:50px}
@@ -1725,7 +1725,7 @@ body.desktop .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 .a-user.unautorized{display:none!important}
 .a-user__scrollable{height:388px}
 .a-user-bookmark,.a-user-bookmark--inside:before{height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px}
-.a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:1180}
+.a-user-bookmark{position:absolute;right:0;top:82px;width:167px;background-color:rgba(0,0,0,.7);margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:1040}
 .a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto;z-index:10}
 .a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
 .a-user-pic__wrap,.a-user__soc-network{border-radius:100%;background-clip:padding-box}
@@ -1745,7 +1745,7 @@ body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
 .a-user-info{margin:14px 0 10px;color:#FFF}
 .a-user-info__points{font-size:30px;display:block;line-height:1em}
 .a-user-info__units{display:block;font-size:16px;line-height:1em}
-.a-user-panel{position:absolute;right:0;top:0;z-index:1450;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
+.a-user-panel{position:absolute;right:0;top:0;z-index:1041;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
 .a-user-panel__wrap{width:367px;margin-left:48px;min-height:100%;background-color:rgba(0,0,0,.7)}
 .a-user-panel.in{width:415px;margin-right:0}
 .a-user-panel.collapsing{width:415px;margin-right:-415px}
