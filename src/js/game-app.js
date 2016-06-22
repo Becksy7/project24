@@ -5,7 +5,7 @@ $(function() {
 			return {
 				init: function() {
 					//DummyModule.init();
-					Popovers.init();
+					//Popovers.init();
 					Rostelekom.init();
 					Scene.init();
 				}
@@ -16,11 +16,11 @@ $(function() {
 	 *
 	 */
 		, Popovers = (function() {
-			var $popovers = $('[data-webiu-popover]');
+			var $popovers = $('[data-webui-popover]');
 			return {
 				init: function() {
 					$popovers.each(function(i, popover) {
-						var id = $(popover).attr('data-webiu-popover');
+						var id = $(popover).attr('data-webui-popover');
 						$(popover).webuiPopover({url: id});
 					});
 				}
@@ -106,8 +106,10 @@ $(function() {
 				}
 
 				if (characters.length){
+					scene.secondStep(info); // по сути мы не знаем, на каком сейчас шаге юзер, но наверно уже ознакомился со сценой
+
 					var isGuessed = false;
-					
+
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
 							var character = characters[index];
@@ -116,13 +118,15 @@ $(function() {
 							if (guessed) {
 								isGuessed = true;
 								var id = character.id,
+									
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
-									$result = $('#' + id).find('[data-personage-result]'),
-									$traits = $result.find('.trait'),
+									$results = $('#' + id).find('[data-personage-result]'),
+									$chooseForm = $('#' + id).find('[data-personage-choose]'),
+									$traits = $results.find('.trait'),
 									rightAnswers = correct.length,
-									popoverId = $('#' + id).parents('.webui-popover').attr('id');
-									$('[data-target="' + popoverId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
+									$badge = $('[data-content-id="' + id + '"]').find('[data-heart-badge]').text(rightAnswers);
+
 
 
 								$traits.each(function(i, trait) {
@@ -141,13 +145,16 @@ $(function() {
 									$placeholder.html(resultHtml);
 								});
 								//show chosen block:
-								$('#'+id).find('.popover-ui-content').hide();
-								$result.show();
+
+								$chooseForm.find('[data-nicescroll-block]').hasClass('nicescroll-on') && $content.niceScroll().remove();
+								$chooseForm.hide().addClass('hidden');
+
+								$results.show();
+								$badge.show();
+
 							}
 						}
 					};
-
-					isGuessed ? scene.secondStep(info) : '';
 				}
 			};
 			/**
@@ -190,24 +197,22 @@ $(function() {
 			 * @param data - данные, пришедшие из формы
 			 */
 			scene.makeTraitsResult = function(form, data) {
-				var $results = $(form).parent().siblings('[data-personage-result]'),
+				var blockId = $(form).parents('.personage.parent').attr('id'),
+					$results = $('#'+blockId).find('[data-personage-result]'),
 					$traits = $results.find('.trait'),
 					incorrect = data.incorrectTraitIds,
 					correct = data.correctTraitIds,
 					score = data.userScore,
 					rightAnswers = correct.length,
-					blockId = $(form).parents('.popover-ui').attr('id'),
-					popoverId = $('#'+blockId).parents('.webui-popover').attr('id');
-					console.log(blockId,popoverId, rightAnswers, $('[data-target="' + popoverId + '"]').length);
-					$badge = $('[data-target="' + popoverId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
+					$badge = $('[data-content-id="' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
 
 				UserScore.set(score);
 
-				// $(form).parent().fadeOut(500, function() {
-				// 	$(form).find('[data-nicescroll-block]').niceScroll().remove();
-				// 	$results.fadeIn(200);
-				// 	$badge.fadeIn(200);
-				// });
+				$(form).parent().fadeOut(500, function() {
+					$(form).find('[data-nicescroll-block]').niceScroll().remove();
+					$results.fadeIn(200);
+					$badge.fadeIn(200);
+				});
 
 				$traits.each(function(i, trait) {
 					var id = parseInt($(trait).attr('data-trait-id')),
@@ -232,11 +237,13 @@ $(function() {
 			scene.makePopoverHandlers = function(users) {
 
 				$('[data-popover-webui]').each(function(i, link) {
+
 					var $link = $(link),
 						id = $link.attr('data-target');
+
 					$link.webuiPopover({
 						url: id,
-						placement: 'auto-right',
+						placement: 'right',
 						onShow: function($element) {
 
 							var $content = $element.find('[data-nicescroll-block]');
