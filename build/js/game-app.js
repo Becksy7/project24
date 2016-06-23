@@ -106,9 +106,8 @@ $(function() {
 				}
 
 				if (characters.length){
-					scene.secondStep(info); // по сути мы не знаем, на каком сейчас шаге юзер, но наверно уже ознакомился со сценой
 
-					var isGuessed = false;
+					var isGuessed = {count : 0 };
 
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
@@ -116,7 +115,9 @@ $(function() {
 							var guessed = character.guessedTraitsByPlayer;
 
 							if (guessed) {
-								isGuessed = true;
+
+								isGuessed.count++;
+
 								var id = character.id,
 									
 									correct = guessed.correct,
@@ -144,17 +145,22 @@ $(function() {
 									}
 									$placeholder.html(resultHtml);
 								});
-								//show chosen block:
-
-								$chooseForm.find('[data-nicescroll-block]').hasClass('nicescroll-on') && $content.niceScroll().remove();
-								$chooseForm.hide().addClass('hidden');
-
-								$results.show();
-								$badge.show();
-
+								//make pointer "me guessed!!!"
+								$chooseForm.attr('data-guessed',true);
 							}
 						}
 					};
+					console.log('ok',(isGuessed.count > 0) && (isGuessed.count == characters.length), player.traits && player.traits.length);
+					if ( (isGuessed.count > 0) && (isGuessed.count == characters.length) ){
+						if ((player.traits) && (player.traits.length)){
+							console.log('ok',isGuessed.count, characters.length);
+							scene.secondStep(info);
+							//если все угаданы + юзер вводил свои данные, то суперигру показываем
+							$('#superGame').modal('show');
+						}
+					}
+					//(isGuessed.count > 0) ? scene.secondStep(info) : '';
+
 				}
 			};
 			/**
@@ -447,7 +453,19 @@ $(function() {
 					$('a[href="#superGame"]').show();
 				});
 			};
-			
+			/**
+			 * Создаем попапы для суперигры
+			 * @param data - пришедшие данные
+			 */
+			scene.makeAnswerNoUsers = function(data, info) {
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
+				var msg = $('.users-slider').attr('data-no-users');
+				$('.users-slider').html(msg);
+				$('[data-user-arrow]').attr('disabled',true).hide();
+
+			};
 			/**
 			 * Создаем попапы для суперигры
 			 * @param data - пришедшие данные
@@ -488,30 +506,34 @@ $(function() {
 					}
 				});
 				var slides = _.template(tmpl)(usersInfo);
-				$.each($(slides), function(i, slide) {
-					var $content = $(slide).find('[data-nicescroll-block]'),
-						$inner = $content.find('[data-nicescroll-inner]');
-					$content.addClass('nicescroll-on').niceScroll($inner, {
-						'cursorcolor': '#00abe8',
-						'cursorwidth': 12,
-						'cursorborder': '0',
-						'cursorborderradius': 12,
-						'autohidemode': false
+
+				$('.users-slider').fadeOut(200, function() {
+					$('[data-user-arrow]').attr('disabled',true);
+					$('.users-slider').html('').append(slides);
+					$.each($('.users-slider').find('.user'), function(i, slide) {
+						var $content = $(slide).find('[data-nicescroll-block]'),
+							$inner = $content.find('[data-nicescroll-inner]');
+						if (!$content.hasClass('.nicescroll-on')){
+							$content.addClass('nicescroll-on').niceScroll($inner, {
+								'cursorcolor': '#00abe8',
+								'cursorwidth': 12,
+								'cursorborder': '0',
+								'cursorborderradius': 12,
+								'autohidemode': false
+							});
+						} else {
+							$content.niceScroll('refresh');
+						}
 					});
-					$('.users-slider').slick('slickAdd', slide);
+					$('.users-slider').fadeIn(200, function() {
+						$('[data-user-arrow]').removeAttr('disabled');
+					});
 				});
 
-
-				$('.users-slider').promise().done(function(){
-					var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-					$('.users-slider').slick('goTo', +lastActive + 3);
-				});
-
-				//scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
 				var tmpl2 = scene.$.extraUserPopupTemplate.html();
 
-				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
+				scene.$.extraUserPopup.html(_.template(tmpl2)(usersInfo));
 
 				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
 				
@@ -586,6 +608,7 @@ $(function() {
 					}
 					$placeholder.html(resultHtml);
 				});
+				$results.find('[data-nicescroll-block]').niceScroll('refresh');
 			};
 			/**
 			 * Первый шаг игры
@@ -612,7 +635,6 @@ $(function() {
 			 * @param info - массив сцены
 			 */
 			scene.secondStep = function(info) {
-
 				//show choose section in heart popups
 				var $heartPopups = $('.popover-ui.personage');
 
@@ -622,6 +644,14 @@ $(function() {
 					$form = $startContent.siblings('[data-personage-choose]');
 					$startContent.fadeOut(500, function() {
 						$form.fadeIn(200);
+						if ($form.attr('data-guessed')) {
+							//строим угаданного
+							$form.hide();
+							$this.find('[data-personage-result]').show();
+							//badge
+							var id = $this.attr('id');
+							$('[data-content-id="' + id + '"]').find('[data-heart-badge]').show();
+						}
 					});
 				});
 
@@ -630,6 +660,7 @@ $(function() {
 					scene.$.header.find('.explain.active').removeClass('active');
 					scene.$.header.find('.explain').eq(1).fadeIn(200).addClass('active');
 				});
+
 			};
 			scene.getExtraUsers = function(info) {
 				$.ajax({
@@ -637,7 +668,12 @@ $(function() {
 					method  : 'POST',
 					data: {last_id: scene.LAST_ID},
 					success : function(data) {
-						scene.makeExtraUsers(data, info);
+						if (data.noUsersAnymore){
+							//больше нету
+							scene.makeAnswerNoUsers(data,info);
+						} else {
+							scene.makeExtraUsers(data, info);
+						}
 					},
 					error: function(data) {
 						console.info(data);
@@ -650,13 +686,13 @@ $(function() {
 
 				// $('[data-user-arrow="right"]').attr('data-next-users',false);
 				var $slider = $('.users-slider');
-				$slider.slick({
-					slidesToShow: 3,
-					slidesToScroll: 3,
-					infinite: false,
-					prevArrow: $('[data-user-arrow="left"]'),
-					nextArrow: $('[data-user-arrow="right"]')
-				});
+				// $slider.slick({
+				// 	slidesToShow: 3,
+				// 	slidesToScroll: 3,
+				// 	infinite: false,
+				// 	prevArrow: $('[data-user-arrow="left"]'),
+				// 	nextArrow: $('[data-user-arrow="right"]')
+				// });
 				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 				// 	console.log(currentSlide,nextSlide);
 				// });
@@ -666,20 +702,8 @@ $(function() {
 				$(document).on('click','[data-user-arrow]',function(e) {
 					e.preventDefault();
 
-					var $this = $(this),
-						direction = $this.attr('data-user-arrow');
-					if (direction == "right") {
-						var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-						var lastSlide = $('.users-slider').find('.slick-slide').last().attr('data-slick-index');
+					scene.getExtraUsers(info);
 
-						if (lastActive == lastSlide ){
-							scene.getExtraUsers(info);
-							// $('.users-slider').promise().done(function(){
-							// 	console.log('ok',lastActive, +lastActive +3);
-							// 	$('.users-slider').slick('goTo', +lastActive + 3);
-							// });
-						}
-					}
 				});
 
 			};

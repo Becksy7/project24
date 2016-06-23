@@ -1636,7 +1636,7 @@ body.desktop .navbar-fixed-top .navbar-collapse .nav-close{display:none}
 body.desktop .navbar-fixed-top .nav.navbar-nav{display:inline-block;float:none}
 body.desktop .navbar-fixed-top .nav.navbar-nav>li{display:inline-block}
 body.desktop .navbar-fixed-top .nav.navbar-nav>li a{color:#FFF;font-size:16px;line-height:40px;text-transform:uppercase;padding:0 15px;border-radius:25px;background-clip:padding-box}
-body.desktop .navbar-fixed-top .nav.navbar-nav>li a:focus,body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover:focus,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:focus,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover:focus{color:#FFF;background-color:#084194}
+body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover:focus,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover:focus{color:#FFF;background-color:#084194}
 body.desktop .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 }
 .page-about .layout-wrapper,.page-index,.page-index .layout-wrapper,.page-index.desktop,.page-index.desktop .layout-wrapper,.page-rating .layout-wrapper,.page-rules .layout-wrapper{min-height:100%}
@@ -1861,6 +1861,8 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .trait__value{width:50px;margin:0;float:right}
 .trait__value .icon-minus{font-size:5px;color:red}
 .trait__value .icon-tick{font-size:18px;color:#969696}
+form .trait{-webkit-transition:.3s background-color ease;transition:.3s background-color ease}
+form .trait:hover{background-color:#ddd}
 .personage.popup{position:static}
 .personage.popover-ui{max-width:335px;border:0;display:none}
 .personage__photo img,.user__image img{max-width:100%}
