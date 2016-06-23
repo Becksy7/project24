@@ -453,7 +453,19 @@ $(function() {
 					$('a[href="#superGame"]').show();
 				});
 			};
-			
+			/**
+			 * Создаем попапы для суперигры
+			 * @param data - пришедшие данные
+			 */
+			scene.makeAnswerNoUsers = function(data, info) {
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
+				var msg = $('.users-slider').attr('data-no-users');
+				$('.users-slider').html(msg);
+				$('[data-user-arrow]').attr('disabled',true).hide();
+
+			};
 			/**
 			 * Создаем попапы для суперигры
 			 * @param data - пришедшие данные
@@ -494,37 +506,34 @@ $(function() {
 					}
 				});
 				var slides = _.template(tmpl)(usersInfo);
-				$.each($(slides), function(i, slide) {
-					var $content = $(slide).find('[data-nicescroll-block]'),
-						$inner = $content.find('[data-nicescroll-inner]');
-					$content.addClass('nicescroll-on').niceScroll($inner, {
-						'cursorcolor': '#00abe8',
-						'cursorwidth': 12,
-						'cursorborder': '0',
-						'cursorborderradius': 12,
-						'autohidemode': false
-					});
 
-				});
 				$('.users-slider').fadeOut(200, function() {
 					$('[data-user-arrow]').attr('disabled',true);
-					$('.users-slider').html('').append(slides).fadeIn(200, function() {
+					$('.users-slider').html('').append(slides);
+					$.each($('.users-slider').find('.user'), function(i, slide) {
+						var $content = $(slide).find('[data-nicescroll-block]'),
+							$inner = $content.find('[data-nicescroll-inner]');
+						if (!$content.hasClass('.nicescroll-on')){
+							$content.addClass('nicescroll-on').niceScroll($inner, {
+								'cursorcolor': '#00abe8',
+								'cursorwidth': 12,
+								'cursorborder': '0',
+								'cursorborderradius': 12,
+								'autohidemode': false
+							});
+						} else {
+							$content.niceScroll('refresh');
+						}
+					});
+					$('.users-slider').fadeIn(200, function() {
 						$('[data-user-arrow]').removeAttr('disabled');
 					});
 				});
 
-
-
-				// $('.users-slider').promise().done(function(){
-				// 	var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-				// 	$('.users-slider').slick('goTo', +lastActive + 3);
-				// });
-
-				//scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
 				var tmpl2 = scene.$.extraUserPopupTemplate.html();
 
-				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
+				scene.$.extraUserPopup.html(_.template(tmpl2)(usersInfo));
 
 				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
 				
@@ -599,6 +608,7 @@ $(function() {
 					}
 					$placeholder.html(resultHtml);
 				});
+				$results.find('[data-nicescroll-block]').niceScroll('refresh');
 			};
 			/**
 			 * Первый шаг игры
@@ -658,7 +668,12 @@ $(function() {
 					method  : 'POST',
 					data: {last_id: scene.LAST_ID},
 					success : function(data) {
-						scene.makeExtraUsers(data, info);
+						if (data.noUsersAnymore){
+							//больше нету
+							scene.makeAnswerNoUsers(data,info);
+						} else {
+							scene.makeExtraUsers(data, info);
+						}
 					},
 					error: function(data) {
 						console.info(data);
