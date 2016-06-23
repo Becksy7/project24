@@ -106,9 +106,8 @@ $(function() {
 				}
 
 				if (characters.length){
-					scene.secondStep(info); // по сути мы не знаем, на каком сейчас шаге юзер, но наверно уже ознакомился со сценой
 
-					var isGuessed = false;
+					var isGuessed = {count : 0 };
 
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
@@ -116,7 +115,9 @@ $(function() {
 							var guessed = character.guessedTraitsByPlayer;
 
 							if (guessed) {
-								isGuessed = true;
+
+								isGuessed.count++;
+
 								var id = character.id,
 									
 									correct = guessed.correct,
@@ -144,17 +145,22 @@ $(function() {
 									}
 									$placeholder.html(resultHtml);
 								});
-								//show chosen block:
-
-								$chooseForm.find('[data-nicescroll-block]').hasClass('nicescroll-on') && $content.niceScroll().remove();
-								$chooseForm.hide().addClass('hidden');
-
-								$results.show();
-								$badge.show();
-
+								//make pointer "me guessed!!!"
+								$chooseForm.attr('data-guessed',true);
 							}
 						}
 					};
+					console.log('ok',(isGuessed.count > 0) && (isGuessed.count == characters.length), player.traits && player.traits.length);
+					if ( (isGuessed.count > 0) && (isGuessed.count == characters.length) ){
+						if ((player.traits) && (player.traits.length)){
+							console.log('ok',isGuessed.count, characters.length);
+							scene.secondStep(info);
+							//если все угаданы + юзер вводил свои данные, то суперигру показываем
+							$('#superGame').modal('show');
+						}
+					}
+					//(isGuessed.count > 0) ? scene.secondStep(info) : '';
+
 				}
 			};
 			/**
@@ -612,7 +618,6 @@ $(function() {
 			 * @param info - массив сцены
 			 */
 			scene.secondStep = function(info) {
-
 				//show choose section in heart popups
 				var $heartPopups = $('.popover-ui.personage');
 
@@ -622,6 +627,14 @@ $(function() {
 					$form = $startContent.siblings('[data-personage-choose]');
 					$startContent.fadeOut(500, function() {
 						$form.fadeIn(200);
+						if ($form.attr('data-guessed')) {
+							//строим угаданного
+							$form.hide();
+							$this.find('[data-personage-result]').show();
+							//badge
+							var id = $this.attr('id');
+							$('[data-content-id="' + id + '"]').find('[data-heart-badge]').show();
+						}
 					});
 				});
 
@@ -630,6 +643,7 @@ $(function() {
 					scene.$.header.find('.explain.active').removeClass('active');
 					scene.$.header.find('.explain').eq(1).fadeIn(200).addClass('active');
 				});
+
 			};
 			scene.getExtraUsers = function(info) {
 				$.ajax({

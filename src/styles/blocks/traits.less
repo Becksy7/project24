@@ -77,4 +77,10 @@
             color: @darkgray;
         }
     }
+    form & {
+        .transition(.3s background-color ease);
+        &:hover{
+            background-color: lighten(@gray-light,40%);
+        }
+    }
 }
