@@ -504,14 +504,21 @@ $(function() {
 						'cursorborderradius': 12,
 						'autohidemode': false
 					});
-					$('.users-slider').slick('slickAdd', slide);
+
+				});
+				$('.users-slider').fadeOut(200, function() {
+					$('[data-user-arrow]').attr('disabled',true);
+					$('.users-slider').html('').append(slides).fadeIn(200, function() {
+						$('[data-user-arrow]').removeAttr('disabled');
+					});
 				});
 
 
-				$('.users-slider').promise().done(function(){
-					var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-					$('.users-slider').slick('goTo', +lastActive + 3);
-				});
+
+				// $('.users-slider').promise().done(function(){
+				// 	var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
+				// 	$('.users-slider').slick('goTo', +lastActive + 3);
+				// });
 
 				//scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
@@ -664,13 +671,13 @@ $(function() {
 
 				// $('[data-user-arrow="right"]').attr('data-next-users',false);
 				var $slider = $('.users-slider');
-				$slider.slick({
-					slidesToShow: 3,
-					slidesToScroll: 3,
-					infinite: false,
-					prevArrow: $('[data-user-arrow="left"]'),
-					nextArrow: $('[data-user-arrow="right"]')
-				});
+				// $slider.slick({
+				// 	slidesToShow: 3,
+				// 	slidesToScroll: 3,
+				// 	infinite: false,
+				// 	prevArrow: $('[data-user-arrow="left"]'),
+				// 	nextArrow: $('[data-user-arrow="right"]')
+				// });
 				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 				// 	console.log(currentSlide,nextSlide);
 				// });
@@ -680,20 +687,8 @@ $(function() {
 				$(document).on('click','[data-user-arrow]',function(e) {
 					e.preventDefault();
 
-					var $this = $(this),
-						direction = $this.attr('data-user-arrow');
-					if (direction == "right") {
-						var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-						var lastSlide = $('.users-slider').find('.slick-slide').last().attr('data-slick-index');
+					scene.getExtraUsers(info);
 
-						if (lastActive == lastSlide ){
-							scene.getExtraUsers(info);
-							// $('.users-slider').promise().done(function(){
-							// 	console.log('ok',lastActive, +lastActive +3);
-							// 	$('.users-slider').slick('goTo', +lastActive + 3);
-							// });
-						}
-					}
 				});
 
 			};
