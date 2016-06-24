@@ -839,7 +839,6 @@ $(function() {
 		})()
 		, SceneBg = (function() {
 			var set = function(url) {
-				console.log('set bg', url,$('.layout-main').length);
 				$('.layout-main').attr('style','background-image: url(' + url + ')');
 			};
 			return {
