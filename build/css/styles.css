@@ -1628,10 +1628,10 @@ body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display
 .navbar-fixed-top .navbar-collapse .nav-close:before{color:#00abe8;font-size:30px}
 .navbar-fixed-top .navbar-collapse .nav-close:focus,.navbar-fixed-top .navbar-collapse .nav-close:hover{color:#00abe8}
 .navbar-brand{padding:0}
-body.desktop:not([class*=game]) .navbar-brand{margin-top:0}
+body.desktop:not([class*=game]) .navbar-brand{margin:0}
 body.desktop:not([class*=game]) .navbar-brand img{width:160px}
 body.desktop[class*=game] .navbar-header{position:absolute;width:100%;right:0;top:0}
-@media (min-width:1024px){body.desktop .navbar-brand{margin-top:60px}
+@media (min-width:1024px){body.desktop .navbar-brand{margin:60px 20px 0}
 body.desktop .navbar-toggle{display:none}
 body.desktop .navbar-fixed-top{margin:0 auto;width:auto!important;padding-top:40px;display:block;min-width:1136px;position:relative;min-height:100px}
 body.desktop .navbar-fixed-top .container{padding:0}
