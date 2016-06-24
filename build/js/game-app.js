@@ -66,6 +66,7 @@ $(function() {
 				scene.loadCurrentState(info);
 
 				SceneLinks.set(info.prevSceneLink, info.nextSceneLink);
+				SceneBg.set(info.image);
 
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
@@ -150,10 +151,10 @@ $(function() {
 							}
 						}
 					};
-					console.log('ok',(isGuessed.count > 0) && (isGuessed.count == characters.length), player.traits && player.traits.length);
+
 					if ( (isGuessed.count > 0) && (isGuessed.count == characters.length) ){
 						if ((player.traits) && (player.traits.length)){
-							console.log('ok',isGuessed.count, characters.length);
+
 							scene.secondStep(info);
 							//если все угаданы + юзер вводил свои данные, то суперигру показываем
 							$('#superGame').modal('show');
@@ -564,11 +565,11 @@ $(function() {
 								},
 								dataType: 'json',
 								success: function(data) {
-									console.log('success', data);
+
 									scene.makePersTraitsResult(form, data);
 								},
 								error: function(data) {
-									console.log('error', data);
+
 									scene.sayError(data, '[data-user-traits-choose]', '[data-user-traits-error]');
 								}
 							});
@@ -831,6 +832,14 @@ $(function() {
 			var set = function(prev, next) {
 				$('.layout-main > .scene-arrow__left').attr('href', prev).show();
 				$('.layout-main > .scene-arrow__right').attr('href', next).show();
+			};
+			return {
+				set: set
+			}
+		})()
+		, SceneBg = (function() {
+			var set = function(url) {
+				$('.layout-main').attr('style','background-image: url(' + url + ')');
 			};
 			return {
 				set: set
