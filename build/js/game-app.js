@@ -67,6 +67,19 @@ $(function() {
 
 				SceneLinks.set(info.prevSceneLink, info.nextSceneLink);
 				SceneBg.set(info.image);
+				SceneSharing.set({
+					title: '#Уандерлэнд',
+					description: info.shareText,
+
+					contentByService: {
+						vkontakte: {
+							image: info.shareImageVk
+						},
+						facebook: {
+							image: info.shareImageFb
+						}
+					}
+				});
 
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
@@ -840,6 +853,16 @@ $(function() {
 		, SceneBg = (function() {
 			var set = function(url) {
 				$('.layout-main').attr('style','background-image: url(' + url + ')');
+			};
+			return {
+				set: set
+			}
+		})()
+		,SceneSharing = (function() {
+			var set = function(data) {
+				Ya.share2(document.getElementById('share'), {
+					content: data
+				});
 			};
 			return {
 				set: set
