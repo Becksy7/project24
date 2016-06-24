@@ -1665,7 +1665,7 @@ body.desktop .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 .page-game .layout-main{background:url(..//images/game_bg.jpg) center no-repeat;background-size:cover;max-width:1136px;margin:0 auto}
 .page-game-scene1,[class*=page-game-scene]{background-color:#02bdff}
 .page-game-scene1 .layout-wrapper,[class*=page-game-scene] .layout-wrapper{position:relative;overflow:hidden}
-.page-game-scene1 .layout-main,[class*=page-game-scene] .layout-main{background:center no-repeat #deb57d;background-size:100% auto;position:relative;max-width:1136px;margin:0 auto}
+.page-game-scene1 .layout-main,[class*=page-game-scene] .layout-main{background:center no-repeat #deb57d;background-size:cover;position:relative;max-width:1136px;margin:0 auto}
 .page-404 .layout-main,.page-404.desktop .layout-main{width:1136px;margin:0 auto;margin-top:100px}
 .page-404 .share,.page-404 footer,.page-404 header,.page-404.desktop .share,.page-404.desktop footer,.page-404.desktop header{display:none}
 .page-index .layout-main,.page-index.desktop .layout-main{background:url(..//images/index_bg.jpg) top no-repeat;background-size:cover;width:1136px;margin:0 auto;padding:25px 35px;box-shadow:0 30px 50px #5eb6d8;position:relative}
@@ -1887,6 +1887,7 @@ form .trait:hover{background-color:#ddd}
 .heart-rob-scene-1{right:32%;top:30%}
 .heart-miranda-scene-2{right:38%;top:37%}
 .heart-tom-scene-2{left:37%;top:28%}
+.heart-grace-scene-3{left:28%;top:33%}
 .heart-nick-scene-4{right:33%;top:43%}
 .heart__result{left:44px;top:29px;padding:0;margin:0;z-index:100;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;font-size:24px;font-weight:500;color:#FFF}
 .user__header,.user__option{text-align:left;width:300px}
