@@ -56,12 +56,20 @@ body[class*="game"]{
         height: 100%;
 
     }
-    //&.desktop{
+    .layout-wrapper{
+        height: 640px;
+        min-height: 640px;
+    }
+    &.desktop{
         .layout-wrapper{
-            height: 640px;
-            min-height: 640px;
+            height: 740px;
+            min-height: 740px;
+            .layout-main{
+                height: 640px;
+                min-height: 640px;
+            }
         }
-    //}
+    }
     .layout-main{
         padding-top: 1px;
     }
