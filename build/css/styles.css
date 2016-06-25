@@ -1901,10 +1901,10 @@ form .trait:hover{background-color:#ddd}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-colett-scene-1{left:24%;top:30%}
 .heart-rob-scene-1{right:32%;top:30%}
-.heart-miranda-scene-2{right:38%;top:37%}
-.heart-tom-scene-2{left:37%;top:28%}
-.heart-grace-scene-3{left:28%;top:33%}
-.heart-nick-scene-3{right:33%;top:43%}
+.heart-miranda-scene-2{left:28%;top:33%}
+.heart-tom-scene-2{right:33%;top:43%}
+.heart-grace-scene-3{right:38%;top:37%}
+.heart-nick-scene-3{left:37%;top:28%}
 .heart__result{left:44px;top:29px;padding:0;margin:0;z-index:100;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;font-size:24px;font-weight:500;color:#FFF}
 .user__header,.user__option{text-align:left;width:300px}
 .user{padding:15px;display:inline-block}
