@@ -1631,7 +1631,7 @@ body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display
 body.desktop:not([class*=game]) .navbar-brand{margin:0}
 body.desktop:not([class*=game]) .navbar-brand img{width:160px}
 body.desktop[class*=game] .navbar-header{position:absolute;width:100%;right:0;top:0}
-@media (min-width:1024px){body.desktop .navbar-brand{margin:60px 20px 0}
+@media (min-width:1024px){body.desktop .navbar-brand{margin:78px 20px 0}
 body.desktop .navbar-toggle{display:none}
 body.desktop .navbar-fixed-top{margin:0 auto;width:auto!important;padding-top:40px;display:block;min-width:1136px;position:relative;min-height:100px}
 body.desktop .navbar-fixed-top .container{padding:0}
@@ -1799,7 +1799,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .a-user-choose .trait{background-color:transparent}
 .a-user-choose .trait .icon-tick,.a-user-choose .trait__title{color:#FFF}
 .rostelekom-logo-small{height:40px}
-.share{text-align:center;padding:20px 0}
+.share{text-align:center;margin:20px 0;width:100%}
 .share__text{margin-right:10px}
 .share--desktop{position:absolute;bottom:15px;right:30px;display:none}
 .ya-share2{display:inline-block;height:36px;vertical-align:middle}
@@ -1901,10 +1901,10 @@ form .trait:hover{background-color:#ddd}
 .heart img{margin-right:-20px;margin-bottom:-40px}
 .heart-colett-scene-1{left:24%;top:30%}
 .heart-rob-scene-1{right:32%;top:30%}
-.heart-miranda-scene-2{right:38%;top:37%}
-.heart-tom-scene-2{left:37%;top:28%}
-.heart-grace-scene-3{left:28%;top:33%}
-.heart-nick-scene-3{right:33%;top:43%}
+.heart-miranda-scene-2{left:28%;top:33%}
+.heart-tom-scene-2{right:33%;top:43%}
+.heart-grace-scene-3{right:38%;top:37%}
+.heart-nick-scene-3{left:37%;top:28%}
 .heart__result{left:44px;top:29px;padding:0;margin:0;z-index:100;width:45px;height:45px;line-height:45px;border-radius:50%;background-clip:padding-box;background-color:#00abe8;font-size:24px;font-weight:500;color:#FFF}
 .user__header,.user__option{text-align:left;width:300px}
 .user{padding:15px;display:inline-block}
