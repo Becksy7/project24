@@ -865,6 +865,9 @@ $(function() {
 		,SceneSharing = (function() {
 			var set = function(data) {
 				Ya.share2(document.getElementById('share'), {
+                    theme : {
+                        services: 'facebook,vkontakte'
+                    },
 					content: data
 				});
 			};
