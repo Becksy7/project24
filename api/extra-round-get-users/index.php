@@ -28,6 +28,6 @@ $answer = array(
 //	"error"=>true,
 //	"message"=> "Произошла ошибка"
 //);
-$answer = array("noUsersAnymore" => true);
+//$answer = array("noUsersAnymore" => true);
 
 echo json_encode($answer);
