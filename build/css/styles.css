@@ -1645,7 +1645,6 @@ body.desktop .navbar-fixed-top .nav.navbar-nav>li a{color:#FFF;font-size:16px;li
 body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover:focus,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover,body.desktop .navbar-fixed-top .nav.navbar-nav>li.active a:hover:focus{color:#FFF;background-color:#084194}
 body.desktop .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 }
-.page-about .layout-wrapper,.page-index .layout-wrapper,.page-index.desktop .layout-wrapper,.page-rating .layout-wrapper,.page-rules .layout-wrapper{min-height:100%}
 .navbar-header{position:absolute;width:100%;right:0;top:0}
 .navbar-toggle{display:block}
 .header__promo{display:inline-block;float:right;text-align:center}
@@ -1677,10 +1676,12 @@ body[class*=game] .header__promo{display:none}
 .page-404 .layout-main,.page-404.desktop .layout-main{width:1136px;margin:0 auto;margin-top:100px}
 .page-404 .share,.page-404 footer,.page-404 header,.page-404.desktop .share,.page-404.desktop footer,.page-404.desktop header{display:none}
 .page-index,.page-index.desktop{background:url(..//images/index_main.jpg) top no-repeat;background-size:cover;min-height:100%}
+.page-index .layout-wrapper,.page-index.desktop .layout-wrapper{min-height:100%;min-height:100vh}
 .page-index .layout-main,.page-index.desktop .layout-main{width:1136px;margin:0 auto;padding:25px 35px;position:relative}
 @media (min-width:1024px){.page-index.desktop .navbar-fixed-top .nav.navbar-nav>li a{color:#1f73ba}
 .page-index.desktop .navbar-fixed-top .nav.navbar-nav>li.active a{color:#FFF}
 }
+.page-about .layout-wrapper,.page-rating .layout-wrapper,.page-rules .layout-wrapper{min-height:100%}
 .page-about .layout-main,.page-rating .layout-main,.page-rules .layout-main{width:1136px;margin:0 auto;padding:25px 35px;overflow-x:hidden}
 .page-rules .page-content,.page-rules section.page-caption{max-width:768px;background-color:#FFF;margin:0 auto}
 .page-rules .page-caption{padding:40px 40px 0;border-top-right-radius:30px;border-top-left-radius:30px}
