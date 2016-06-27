@@ -843,8 +843,12 @@ $(function() {
 		})()
 		, SceneLinks = (function() {
 			var set = function(prev, next) {
-				$('.layout-main > .scene-arrow__left').attr('href', prev).show();
-				$('.layout-main > .scene-arrow__right').attr('href', next).show();
+                if (prev) {
+                    $('.layout-main > .scene-arrow__left').attr('href', prev).show();
+                }
+                if (next) {
+                    $('.layout-main > .scene-arrow__right').attr('href', next).show();
+                }
 			};
 			return {
 				set: set
@@ -861,6 +865,9 @@ $(function() {
 		,SceneSharing = (function() {
 			var set = function(data) {
 				Ya.share2(document.getElementById('share'), {
+                    theme : {
+                        services: 'facebook,vkontakte'
+                    },
 					content: data
 				});
 			};
