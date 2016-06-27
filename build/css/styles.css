@@ -1966,8 +1966,10 @@ form .trait:hover{background-color:#ddd}
 .page-caption__promo span{display:inline-block;font-size:16px;font-weight:500;margin-bottom:15px}
 .page-caption__promo span.white{color:#FFF}
 .page-caption__promo p{margin-top:10px;font-size:14px;color:#000}
-.input-block{position:relative;width:450px;margin:0 auto;margin-top:37px;margin-bottom:40px;padding:25px;padding-bottom:55px;background-color:#FFF;border-radius:15px;background-clip:padding-box}
-@media (max-height:1199px) and (max-width:1700px){.input-block{margin-top:340px}
+.input-block{position:relative;width:360px;margin:0 auto;margin-top:60%;margin-bottom:40px;padding:25px;padding-bottom:55px;background-color:#FFF;border-radius:15px;background-clip:padding-box}
+@media (max-width:2200px){.input-block{margin-top:40%}
+}
+@media (max-height:1199px) and (max-width:1700px){.input-block{margin-top:410px}
 }
 @media (max-height:800px) and (max-width:1366px){.input-block{margin-top:260px}
 }
