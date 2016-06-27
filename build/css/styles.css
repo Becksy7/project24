@@ -1964,7 +1964,13 @@ form .trait:hover{background-color:#ddd}
 .page-caption__promo span{display:inline-block;font-size:16px;font-weight:500;margin-bottom:15px}
 .page-caption__promo span.white{color:#FFF}
 .page-caption__promo p{margin-top:10px;font-size:14px;color:#000}
-.input-block{position:relative;width:450px;margin:0 auto;margin-top:180px;margin-bottom:40px;padding:25px;padding-bottom:55px;background-color:#FFF;border-radius:15px;background-clip:padding-box}
+.input-block{position:relative;width:450px;margin:0 auto;margin-top:37px;margin-bottom:40px;padding:25px;padding-bottom:55px;background-color:#FFF;border-radius:15px;background-clip:padding-box}
+@media (max-height:1199px) and (max-width:1700px){.input-block{margin-top:340px}
+}
+@media (max-height:800px) and (max-width:1366px){.input-block{margin-top:260px}
+}
+@media (max-height:690px) and (max-width:1280px){.input-block{margin-top:260px}
+}
 .input-block p{font-size:20px}
 .input-block p b{font-weight:700}
 .input-block__btn{position:absolute;border-radius:10px;background-clip:padding-box;bottom:-35px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);font-size:48px;line-height:80px;font-weight:500;padding:0 50px}
