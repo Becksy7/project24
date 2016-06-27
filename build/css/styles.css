@@ -1801,7 +1801,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .rostelekom-logo-small{height:40px}
 .share{text-align:center;margin:20px 0;width:100%}
 .share__text{margin-right:10px}
-.share--desktop{position:absolute;bottom:15px;right:30px;display:none}
+.share--desktop{position:absolute;top:100%;right:0;display:none}
 .ya-share2{display:inline-block;height:36px;vertical-align:middle}
 .page-caption__text,.personage__photo,.popup-header .photo,.user,.user.slick-slide,.user__name,.user__option{vertical-align:top}
 .ya-share2 .ya-share2__list_direction_horizontal>.ya-share2__item{margin-left:5px}
@@ -2005,7 +2005,7 @@ form .trait:hover{background-color:#ddd}
 .paging__ctrl--prev:before{content:'\e808'}
 .paging__ctrl--next:before{content:'\e809'}
 .paging-wrap{text-align:center}
-.rating{max-width:600px;margin-top:40px}
+.rating{max-width:600px}
 .content-table{width:100%;display:table;background-color:transparent;color:#000}
 .content-table__row{display:table-row}
 .content-table__row:first-child,.content-table__row:last-child{border:0}
