@@ -2,13 +2,22 @@
   position: relative;
   width: 450px;
   margin: 0 auto;
-  margin-top: 180px;
+  margin-top: 37px;
   margin-bottom: 40px;
   padding: 25px;
   padding-bottom: 55px;
   background-color: @white;
   .border-radius(15px);
   text-align: center;
+  @media (max-height: 1199px) and (max-width: 1700px){
+    margin-top: 340px;
+  }
+  @media (max-height:800px) and (max-width: 1366px){
+    margin-top: 260px;
+  }
+  @media (max-height:690px) and (max-width: 1280px){
+    margin-top: 260px;
+  }
   p {
     font-size: 20px;
     b {
