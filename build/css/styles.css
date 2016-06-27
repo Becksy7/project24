@@ -1639,7 +1639,7 @@ body.desktop .navbar-toggle{display:none}
 body.desktop .navbar-fixed-top{margin:0 auto;width:auto!important;padding-top:40px;display:block;min-width:1136px;position:relative;min-height:100px}
 body.desktop .navbar-fixed-top .container{padding:0}
 body.desktop .navbar-fixed-top .navbar-header{margin:0}
-body.desktop .navbar-fixed-top .navbar-collapse{width:auto!important;float:none;margin:0;text-align:center;position:static;display:block;border:0;height:auto!important;min-height:200px!important;box-shadow:none}
+body.desktop .navbar-fixed-top .navbar-collapse{width:auto!important;float:none;margin:0;text-align:center;position:static;display:block;border:0;height:auto!important;min-height:100px!important;box-shadow:none}
 body.desktop .navbar-fixed-top .navbar-collapse .nav{width:auto;margin:0;background-color:transparent}
 body.desktop .navbar-fixed-top .navbar-collapse .nav-close{display:none}
 body.desktop .navbar-fixed-top .nav.navbar-nav{display:inline-block;float:none}
