@@ -2,7 +2,7 @@
 .share{
     text-align: center;
     margin: 20px 0;
-    width: 100%;
+
     &__text{
         display: inline-block;
         vertical-align: middle;
@@ -14,6 +14,22 @@
         right: 0;
         display: none;
 
+    }
+}
+body[class*="game"]{
+    .footer{
+        text-align: center;
+    }
+    .share{
+        display: inline-block;
+        padding: 20px 36px;
+        margin: 0;
+        background-color: fade(@black,70%);
+        .border-top-radius(10px);
+        &__text{
+            color: @white;
+            font-size: 16px;
+        }
     }
 }
 .ya-share2{
