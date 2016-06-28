@@ -1837,7 +1837,7 @@ body[class*=game] .share__text{color:#FFF;font-size:16px}
 .scene-header .caption b{font-weight:900;text-transform:uppercase;color:#263945}
 .scene-header .explain{display:block;width:370px;font-size:24px;color:#000;margin:0 auto}
 .scene-header .explain:last-child a,.scene-header .explain:not(.active){display:none}
-.scene-header .explain a{color:#FFF;border-bottom:1px solid #FFF}
+.scene-header .explain a{color:#f57b20;border-bottom:1px solid}
 .scene-aside{position:absolute;bottom:0;right:0;width:270px;padding-bottom:18px;z-index:850}
 .scene-aside__partner{margin-top:45px;background-color:rgba(0,0,0,.7);padding:16px;margin-left:70px;border-bottom-left-radius:10px;border-top-left-radius:10px}
 .scene-links .icon,.scene-links__lk{border-radius:6px;background-clip:padding-box}
