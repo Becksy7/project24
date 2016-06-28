@@ -1809,7 +1809,7 @@ body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 body[class*=game] .footer{text-align:center}
 body[class*=game] .share{display:inline-block;padding:20px 36px;margin:0;background-color:rgba(0,0,0,.7);border-top-right-radius:10px;border-top-left-radius:10px}
 body[class*=game] .share__text{color:#FFF;font-size:16px}
-.ya-share2{display:inline-block;height:36px;vertical-align:middle}
+.ya-share2{display:inline-block;height:auto;vertical-align:middle}
 .page-caption__text,.personage__photo,.popup-header .photo,.user,.user.slick-slide,.user__name,.user__option{vertical-align:top}
 .ya-share2 .ya-share2__list_direction_horizontal>.ya-share2__item{margin-left:5px}
 .ya-share2__link{border-radius:50%;background-clip:padding-box;overflow:hidden}
