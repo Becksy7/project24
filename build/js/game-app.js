@@ -195,12 +195,12 @@ $(function() {
 			 * Построение сердечек с попапами
 			 * @param users - данные о персонажах
 			 */
-			scene.makeHearts = function(users) {
+			scene.makeHearts = function(users, info) {
 				var tmpl = scene.$.heartsTemplate.html();
 
 				scene.$.hearts.html(_.template(tmpl)(users));
 
-				scene.makePopoverHandlers(users);
+				scene.makePopoverHandlers(info);
 			};
 			/**
 			 * Построение заголовка игры(шаблонизация)
@@ -254,7 +254,7 @@ $(function() {
 			 * Построение маленьких поповеров у сердечек
 			 * @param users
 			 */
-			scene.makePopoverHandlers = function(users) {
+			scene.makePopoverHandlers = function(info) {
 
 				$('[data-popover-webui]').each(function(i, link) {
 
@@ -283,12 +283,13 @@ $(function() {
 					});
 				});
 				$(document).on('click', '[data-goto-choose]', function() {
-					var $this = $(this),
-						$startContent = $this.parent();//.find('[data-start-content]'),
-					$form = $startContent.siblings('[data-personage-choose]');
-					$startContent.fadeOut(500, function() {
-						$form.fadeIn(200);
-					});
+					// var $this = $(this),
+					// 	$startContent = $this.parent();//.find('[data-start-content]'),
+					// $form = $startContent.siblings('[data-personage-choose]');
+					// $startContent.fadeOut(500, function() {
+					// 	$form.fadeIn(200);
+					// });
+					scene.secondStep(info);
 				});
 
 				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]');
@@ -642,7 +643,7 @@ $(function() {
 					traits: info.traits
 				};
 
-				scene.makeHearts(data);
+				scene.makeHearts(data, info);
 			};
 			/**
 			 * Второй шаг игры
