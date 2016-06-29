@@ -292,7 +292,7 @@ $(function() {
 					scene.secondStep(info);
 				});
 
-				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]');
+				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]', 2, 5);
 
 
 				$('[data-personage-choose]').each(function(i, element) {
@@ -426,7 +426,9 @@ $(function() {
 			 * Отслеживание чекбоксов, чтобы было выбрано 5, не больше
 			 * @param checkbox - строка с селектором чекбокса
 			 */
-			scene.checkboxLimiting = function(checkbox) {
+			scene.checkboxLimiting = function(checkbox, min, max) {
+				var min = min || scene.MAXCHECKEDTRAITS,
+					max = max || scene.MAXCHECKEDTRAITS;
 				var $form = $(checkbox).parents('form'),
 					$submit = $form.find('[type="submit"]');
 				$submit.attr('disabled',true);
@@ -436,11 +438,11 @@ $(function() {
 						$form = $this.parents('form'),
 						$submit = $form.find('[type="submit"]'),
 						$checked = $form.find('input[type="checkbox"]:checked'),
-						bol = $checked.length >= scene.MAXCHECKEDTRAITS;
+						bol = $checked.length >= max;
 					
 					$form.find('input[type="checkbox"]:not(:checked)').attr("disabled", bol);
 
-					$submit.attr('disabled', ($checked.length < scene.MAXCHECKEDTRAITS) );
+					$submit.attr('disabled', ($checked.length < min) );
 				});
 			};
 			/**
@@ -550,7 +552,7 @@ $(function() {
 
 				scene.$.extraUserPopup.html(_.template(tmpl2)(usersInfo));
 
-				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
+				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]', 2, 5);
 				
 
 				$('[data-modal-user-choose]').each(function(i, element) {

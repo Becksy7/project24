@@ -1930,7 +1930,7 @@ form .trait:hover{background-color:#ddd}
 .user__option{display:inline-block;margin:0 15px}
 .scene-arrow,.slick-arrow{font-size:35px;color:#00abe8;position:absolute;top:50%;margin-top:-18px}
 .copyright__social,.error,.error__text,.error__title,.input-block,.page-caption,.page-content,.scene-arrow:before{text-align:center}
-.user__btn{position:absolute;bottom:-85px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);padding:10px 70px}
+.user__btn{position:absolute;bottom:-48px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);padding:10px 70px}
 .users-slider{padding:0 40px}
 .scene-arrow{z-index:851}
 .scene-arrow:before{font-weight:400;display:inline-block;line-height:1em}
