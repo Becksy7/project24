@@ -1767,7 +1767,7 @@ body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
 .a-user-info{margin:14px 0 10px;color:#FFF}
 .a-user-info__points{font-size:30px;display:block;line-height:1em}
 .a-user-info__units{display:block;font-size:16px;line-height:1em}
-.a-user-panel{position:absolute;right:0;top:0;z-index:1041;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
+.a-user-panel{position:absolute;right:0;top:0;z-index:1050;margin-right:-415px;width:415px!important;height:100%!important;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease}
 .a-user-panel__wrap{width:367px;margin-left:48px;min-height:100%;background-color:rgba(0,0,0,.7)}
 .a-user-panel.in{width:415px;margin-right:0}
 .a-user-panel.collapsing{width:415px;margin-right:-415px}
