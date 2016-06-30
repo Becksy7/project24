@@ -2,13 +2,13 @@
 
 <script type="text/template" id="hearts-template">
     <% _.each(users, function(item, key, list){
-    var target = item.code + '-' + key, prop = 'heart-' + item.code + '-' + scene;
+    var target = item.id, prop = 'heart-' + item.code + '-' + scene;
     %>
-    <a href="#" data-popover-webui data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
+    <a href="#" data-popover-webui data-content-id="<%= target %>" data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
         <img src="/build/images/heart-icon.svg">
         <span class="badge heart__result" data-heart-badge style="display: none;"></span>
     </a>
-    <div id="<%= target %>" class="popover-ui personage">
+    <div id="<%= target %>" class="popover-ui personage parent">
         <div class="popover-ui-body">
             <div class="popover-ui-header">
                 <div class="popover-ui-close"></div>
@@ -21,10 +21,11 @@
                 <div class="personage__descr" data-personage-descr data-nicescroll-block>
                     <p><%= item.description %></p>
                 </div>
-<!--                <a class="btn btn-primary btn-fullwidth" data-goto-choose>Угадать черты характера</a>-->
-                <!-- -->
+                <a class="btn btn-primary btn-fullwidth" data-goto-choose>Угадать черты характера</a>
+
             </div>
             <div class="popover-ui-content personage" data-personage-choose style="display:none;">
+                <p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
                 <!-- checkboxes here-->
                 <form>
                     <input type="text" style="display: none;" name="characterid" value="<%=item.id%>">

@@ -96,7 +96,7 @@ $(function() {
                         .on('hidden.bs.collapse',function() {
                             $('#user-bookmark').removeClass('rolled');
                         });
-                    $('#user-panel a.btn-default').on('click',function(e) {
+                    $('#user-panel a.btn-default:not(.a-user-supergame__btn)').on('click',function(e) {
                        e.stopPropagation();
                     });
 
@@ -177,7 +177,12 @@ $(function() {
                         $('.users-slider').resize();
                     });
 
-
+                    $('.a-user__scrollable').niceScroll({
+                        cursorcolor: "rgba(255,255,255,0.2)",
+                        background: "rgba(255,255,255,0)",
+                        cursorborder: "1px solid transparent",
+                        autohidemode:"hidden"
+                    });
                     
                 }
 

@@ -9,15 +9,15 @@
         margin: 0 auto;
     }
 }
-.page-game-scene1{
+.page-game-scene1, [class*="page-game-scene"]{
     background-color: lighten(@lightblue, 5%);
     .layout-wrapper{
         position: relative;
         overflow: hidden;
     }
     .layout-main {
-        background: url("@{public}/images/scene1_bg.jpg") no-repeat center;
-        .background-size(100% auto);
+        background: #deb57d no-repeat center;
+        .background-size(cover);
         position: relative;
         max-width: @min_width;
         margin: 0 auto;
@@ -40,18 +40,31 @@
 
 .page-index.desktop,
 .page-index {
+    background: url("@{public}/images/index_main.jpg") no-repeat top;
+    .background-size(cover);
     min-height: 100%;
     .layout-wrapper{
         min-height: 100%;
+        min-height: 100vh;
+
     }
     .layout-main {
-        background: url("@{public}/images/index_bg.jpg") no-repeat top;
-        .background-size(cover);
+
         width: @min_width;
         margin: 0 auto;
         padding: 25px 35px;
-        .box-shadow(0 30px 50px @shadowcolor);
         position: relative;
+    }
+}
+.page-index.desktop{
+    @media (min-width: 1024px) {
+        .navbar-fixed-top .nav.navbar-nav > li a {
+            color: @lightcyan;
+        }
+
+        .navbar-fixed-top .nav.navbar-nav > li.active a {
+            color: @white;
+        }
     }
 }
 .page-about,
@@ -67,16 +80,27 @@
         overflow-x: hidden;
     }
 }
-    //.footer{
-    //    .share{
-    //        .opacity(0);
-    //        .transition(.5s opacity ease);
-    //    }
-    //}
-    //&.go{
-    //    .footer{
-    //        .share{
-    //            .opacity(1);
-    //        }
-    //    }
-    //}
+.page-rules{
+    section.page-caption, .page-content{
+        max-width: 768px;
+        background-color: @white;
+        margin: 0 auto;
+    }
+    .page-caption{
+        padding: 40px 40px 0;
+        .border-top-radius(30px);
+        &__text{
+            h2{
+                margin-top: 0;
+                color: @black;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .page-content{
+        width: auto;
+        padding: 0 40px 40px;
+        .border-bottom-radius(30px);
+        margin-bottom: 50px;
+    }
+}

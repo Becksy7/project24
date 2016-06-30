@@ -1,7 +1,6 @@
 .copyright {
   .clearfix;
-  width: 1136px;
-  margin: 0 auto;
+  .make-row();
   &__in {
     display: inline-block;
     float: left;
@@ -18,6 +17,12 @@
       }
       &:last-of-type {
         margin-left: 25px;
+      }
+      a{
+        color: @white;
+        &:hover, &:hover:focus{
+          color: @white;
+        }
       }
     }
   }

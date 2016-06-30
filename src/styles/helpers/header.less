@@ -1,150 +1,201 @@
 
-  .navbar-fixed-top {
+.navbar-fixed-top {
     min-width: @min_width;
     left: 0;
     border: 0;
     position: absolute;
     .navbar-collapse {
-      width: 320px !important;
-      padding: 0;
-      margin: 0;
-      margin-right: -320px;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: auto !important;
-      .transition(.5s margin-right ease);
-      .nav {
-        width: 220px;
-        background-color: fade(@black, 90%);
-        margin: 0;
-        margin-left: 100px;
+        width: 320px !important;
         padding: 0;
-      }
-      &.in {
-        width: 320px;
-        margin-right: 0;
-      }
-      &.collapsing {
-        width: 320px;
+        margin: 0;
         margin-right: -320px;
-      }
-      .nav-close {
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-        display: block;
-        position: absolute;
-        left: 0;
+        position: fixed;
         top: 0;
-        cursor: pointer;
-
-        background-color: fade(@black, 70%);
-        text-align: center;
-        color: @lightblue;
-        &:before {
-          color: @lightblue;
-          font-size: 30px;
-        }
-        &:hover, &:focus {
-          color: @lightblue;
-        }
-      }
-    }
-  }
-
-
-body.desktop{
-
-  &:not([class*="game"]) {
-    .navbar-brand {
-      display: none;
-    }
-  }
-    @media (min-width: 1024px) {
-      .navbar-brand{
-        margin-top: 60px;
-      }
-      .navbar-toggle{
-        display: none;
-      }
-      .navbar-fixed-top {
-        margin: 0 auto;
-        width: auto!important;
-        padding-top: 40px;
-        display: block;
-        min-width: @min_width;
-        position: relative;
-        min-height: 100px;
-        .navbar-collapse {
-          width: 100% !important;
-          float: none;
-          margin: 0;
-          text-align: center;
-          position: static;
-          display: block;
-          border: 0;
-          .box-shadow(none);
-          .nav {
-            width: auto;
+        right: 0;
+        height: 100%;
+        height: 100vh;
+        max-height: 100%;
+        max-height: 100vh;
+        .transition(.5s margin-right ease);
+        .nav {
+            width: 220px;
+            background-color: fade(@black, 90%);
             margin: 0;
-            background-color: @transparent;
-          }
-          .nav-close {
+            margin-left: 100px;
+            padding: 0;
+        }
+        &.in {
+            width: 320px;
+            margin-right: 0;
+        }
+        &.collapsing {
+            width: 320px;
+            margin-right: -320px;
+        }
+        .nav-close {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+
+            background-color: fade(@black, 70%);
+            text-align: center;
+            color: @lightblue;
+            &:before {
+                color: @lightblue;
+                font-size: 30px;
+            }
+            &:hover, &:focus {
+                color: @lightblue;
+            }
+        }
+    }
+}
+.navbar-brand{
+    padding: 0;
+    img{
+        width: 160px;
+    }
+}
+body:not(.desktop){
+    .navbar-nav{
+        >li{
+            >a{
+                padding: 35px 30px;
+            }
+        }
+    }
+}
+body.desktop {
+
+    &:not([class*="game"]) {
+        .navbar-brand {
+            margin: 0;
+            img {
+                width: 175px;
+            }
+        }
+    }
+    &[class*="game"]{
+        .navbar-header {
+            position: absolute;
+            width: 100%;
+            right: 0;
+            top: 0;
+        }
+    }
+    @media (min-width: 1024px) {
+        .navbar-brand {
+            margin: 78px 20px 0;
+        }
+
+        .navbar-toggle {
             display: none;
-          }
         }
-        .nav.navbar-nav {
-          display: inline-block;
-          float: none;
-          > li {
-            display: inline-block;
-            a {
-              color: @white;
-              font-size: 16px;
-              line-height: 40px;
-              text-transform: uppercase;
-              padding: 0 15px;
-              .border-radius(25px);
-              &:focus {
-                color: @white;
-                background-color: @cyan;
-              }
-              &:hover, &:hover:focus {
-                color: @white;
-                background-color: @cyan;
-              }
+
+        .navbar-fixed-top {
+            margin: 0 auto;
+            width: auto !important;
+            padding-top: 40px;
+            display: block;
+            min-width: @min_width;
+            position: relative;
+            max-height: 100px;
+            .container{
+                padding: 0;
             }
-            &.active {
-              a {
-                color: @white;
-                background-color: @cyan;
-                &:hover, &:focus, &:hover:focus {
-                  color: @white;
-                  background-color: @cyan;
+            .navbar-header{
+                margin: 0;
+            }
+            .navbar-collapse {
+                width: auto !important;
+                float: none;
+                margin: 0;
+                text-align: center;
+                position: static;
+                display: block;
+                border: 0;
+                height: auto!important;
+
+
+                min-height: 100px!important;
+                .box-shadow(none);
+                .nav {
+                    width: auto;
+                    margin: 0;
+                    background-color: @transparent;
                 }
-              }
+                .nav-close {
+                    display: none;
+                }
             }
-            & + li {
-              border-top: 0;
+            .nav.navbar-nav {
+                display: inline-block;
+                float: none;
+                > li {
+                    display: inline-block;
+                    a {
+                        color: @white;
+                        font-size: 16px;
+                        line-height: 40px;
+                        text-transform: uppercase;
+                        padding: 0 15px;
+                        .border-radius(25px);
+                        &:hover, &:hover:focus {
+                            color: @white;
+                            background-color: @cyan;
+                        }
+                    }
+                    &.active {
+                        a {
+                            color: @white;
+                            background-color: @cyan;
+                            &:hover, &:hover:focus {
+                                color: @white;
+                                background-color: @cyan;
+                            }
+                        }
+                    }
+                    & + li {
+                        border-top: 0;
+                    }
+                }
             }
-          }
         }
-      }
     }
 }
 
+.navbar-header {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 0;
+}
 
-    .navbar-header {
-      position: absolute;
-      width: 100%;
-      right: 0;
-      top: 0;
+.navbar-toggle {
+    display: block;
+}
+
+.header {
+    &__promo {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        img {
+            width: 130px;
+            height: auto;
+        }
     }
-    .navbar-toggle {
-      display: block;
+}
+
+body[class*="game"] {
+    .header {
+        &__promo {
+            display: none;
+        }
     }
-
-body:not(.desktop){
-
 }

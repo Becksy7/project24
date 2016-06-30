@@ -8,7 +8,7 @@
 			<div class="modal-body">
 				<a href="#" data-user-arrow="left" class="scene-arrow scene-arrow__left"></a>
 				<a href="#" data-user-arrow="right" class="scene-arrow scene-arrow__right"></a>
-				<div id="extraround-target" class="users-slider"></div>
+				<div id="extraround-target" class="users-slider" data-no-users="Вы угадали черты всех игроков. Приходите завтра и угадывайте черты новых игроков, чтобы получить приз!"></div>
 			</div>
 			<a class="btn btn-primary modal__btn" data-dismiss="modal">Готово</a>
 		</div>
@@ -83,6 +83,7 @@
 							<span class="user__name"><%= user.name %></span>
 						</div>
 						<div class="user__traits" data-user-traits-choose>
+							<p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
 							<form class="user__form">
 								<input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
 								<div class="traits traits--tall" data-nicescroll-block>

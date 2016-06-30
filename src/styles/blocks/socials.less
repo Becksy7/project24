@@ -1,7 +1,8 @@
 
 .share{
     text-align: center;
-    padding: 20px 0;
+    margin: 20px 0;
+
     &__text{
         display: inline-block;
         vertical-align: middle;
@@ -9,15 +10,31 @@
     }
     &--desktop {
         position: absolute;
-        bottom: 15px;
-        right: 30px;
+        top: 100%;
+        right: 0;
         display: none;
 
     }
 }
+body[class*="game"]{
+    .footer{
+        text-align: center;
+    }
+    .share{
+        display: inline-block;
+        padding: 20px 36px;
+        margin: 0;
+        background-color: fade(@black,70%);
+        .border-top-radius(10px);
+        &__text{
+            color: @white;
+            font-size: 16px;
+        }
+    }
+}
 .ya-share2{
     display: inline-block;
-    height: 36px;
+    height: auto;
     vertical-align: middle;
     .ya-share2__list_direction_horizontal > .ya-share2__item{
         margin-left: 5px;

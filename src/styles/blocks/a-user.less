@@ -2,6 +2,9 @@
     &.unautorized{
         display: none!important;
     }
+    &__scrollable{
+        height: 388px;
+    }
     &-bookmark{
         position: absolute;
         right: 0;
@@ -13,7 +16,7 @@
         cursor: pointer;
         margin-right: 0;
         .transition(.5s margin-right ease);
-        z-index: 1180;
+        z-index: 1040;
 
         &--inside{
             background: @transparent;
@@ -109,10 +112,10 @@
         }
     }
     &-panel{
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 0;
-        z-index: (@zindex-navbar+500);
+        z-index: 1041;
 
         margin-right: -415px;
         width: 415px!important;
@@ -121,7 +124,7 @@
         &__wrap{
             width: 367px;
             margin-left: 48px;
-            height: 100%;
+            min-height: 100%;
             background-color: fade(@black,70%);
         }
         &.in{

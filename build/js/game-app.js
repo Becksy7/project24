@@ -5,7 +5,7 @@ $(function() {
 			return {
 				init: function() {
 					//DummyModule.init();
-					Popovers.init();
+					//Popovers.init();
 					Rostelekom.init();
 					Scene.init();
 				}
@@ -16,11 +16,11 @@ $(function() {
 	 *
 	 */
 		, Popovers = (function() {
-			var $popovers = $('[data-webiu-popover]');
+			var $popovers = $('[data-webui-popover]');
 			return {
 				init: function() {
 					$popovers.each(function(i, popover) {
-						var id = $(popover).attr('data-webiu-popover');
+						var id = $(popover).attr('data-webui-popover');
 						$(popover).webuiPopover({url: id});
 					});
 				}
@@ -65,6 +65,22 @@ $(function() {
 				scene.firstStep(info);
 				scene.loadCurrentState(info);
 
+				SceneLinks.set(info.prevSceneLink, info.nextSceneLink);
+				SceneBg.set(info.image);
+				SceneSharing.set({
+					title: '#Уандерлэнд',
+					description: info.shareText,
+
+					contentByService: {
+						vkontakte: {
+							image: info.shareImageVk
+						},
+						facebook: {
+							image: info.shareImageFb
+						}
+					}
+				});
+
 				$(document).on('click', '[data-to-step="2"]', function() {
 					scene.secondStep(info);
 				});
@@ -104,22 +120,28 @@ $(function() {
 				}
 
 				if (characters.length){
-					var isGuessed = false;
-					var i = 0;
+
+					var isGuessed = {count : 0 };
+
 					for(var index in characters) {
 						if (characters.hasOwnProperty(index)) {
 							var character = characters[index];
 							var guessed = character.guessedTraitsByPlayer;
 
 							if (guessed) {
-								isGuessed = true;
+
+								isGuessed.count++;
+
 								var id = character.id,
+									
 									correct = guessed.correct,
 									incorrect = guessed.incorrect,
-									$result = $('#' + id).find('[data-personage-result]'),
-									$traits = $result.find('.trait'),
+									$results = $('#' + id).find('[data-personage-result]'),
+									$chooseForm = $('#' + id).find('[data-personage-choose]'),
+									$traits = $results.find('.trait'),
 									rightAnswers = correct.length,
-									$badge = $('[data-target="#' + id + '"]').find('[data-heart-badge]').text(rightAnswers).show();
+									$badge = $('[data-content-id="' + id + '"]').find('[data-heart-badge]').text(rightAnswers);
+
 
 
 								$traits.each(function(i, trait) {
@@ -137,14 +159,22 @@ $(function() {
 									}
 									$placeholder.html(resultHtml);
 								});
-								//show chosen block:
-								$('#'+id).find('.popover-ui-content').hide();
-								$result.show();
+								//make pointer "me guessed!!!"
+								$chooseForm.attr('data-guessed',true);
 							}
 						}
 					};
 
-					isGuessed ? scene.secondStep(info) : '';
+					if ( (isGuessed.count > 0) && (isGuessed.count == characters.length) ){
+						if ((player.traits) && (player.traits.length)){
+
+							scene.secondStep(info);
+							//если все угаданы + юзер вводил свои данные, то суперигру показываем
+							$('#superGame').modal('show');
+						}
+					}
+					//(isGuessed.count > 0) ? scene.secondStep(info) : '';
+
 				}
 			};
 			/**
@@ -165,12 +195,12 @@ $(function() {
 			 * Построение сердечек с попапами
 			 * @param users - данные о персонажах
 			 */
-			scene.makeHearts = function(users) {
+			scene.makeHearts = function(users, info) {
 				var tmpl = scene.$.heartsTemplate.html();
 
 				scene.$.hearts.html(_.template(tmpl)(users));
 
-				scene.makePopoverHandlers(users);
+				scene.makePopoverHandlers(info);
 			};
 			/**
 			 * Построение заголовка игры(шаблонизация)
@@ -187,14 +217,14 @@ $(function() {
 			 * @param data - данные, пришедшие из формы
 			 */
 			scene.makeTraitsResult = function(form, data) {
-				var $results = $(form).parent().siblings('[data-personage-result]'),
+				var blockId = $(form).parents('.personage.parent').attr('id'),
+					$results = $('#'+blockId).find('[data-personage-result]'),
 					$traits = $results.find('.trait'),
 					incorrect = data.incorrectTraitIds,
 					correct = data.correctTraitIds,
 					score = data.userScore,
 					rightAnswers = correct.length,
-					blockId = $(form).parents('.popover-ui').attr('id'),
-					$badge = $('.heart[data-target="#' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers);
+					$badge = $('[data-content-id="' + blockId + '"]').find('[data-heart-badge]').text(rightAnswers).show();
 
 				UserScore.set(score);
 
@@ -224,14 +254,16 @@ $(function() {
 			 * Построение маленьких поповеров у сердечек
 			 * @param users
 			 */
-			scene.makePopoverHandlers = function(users) {
+			scene.makePopoverHandlers = function(info) {
 
 				$('[data-popover-webui]').each(function(i, link) {
+
 					var $link = $(link),
 						id = $link.attr('data-target');
+
 					$link.webuiPopover({
 						url: id,
-						placement: 'auto-right',
+						placement: 'right',
 						onShow: function($element) {
 
 							var $content = $element.find('[data-nicescroll-block]');
@@ -251,15 +283,16 @@ $(function() {
 					});
 				});
 				$(document).on('click', '[data-goto-choose]', function() {
-					var $this = $(this),
-						$startContent = $this.parent();//.find('[data-start-content]'),
-					$form = $startContent.siblings('[data-personage-choose]');
-					$startContent.fadeOut(500, function() {
-						$form.fadeIn(200);
-					});
+					// var $this = $(this),
+					// 	$startContent = $this.parent();//.find('[data-start-content]'),
+					// $form = $startContent.siblings('[data-personage-choose]');
+					// $startContent.fadeOut(500, function() {
+					// 	$form.fadeIn(200);
+					// });
+					scene.secondStep(info);
 				});
 
-				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]');
+				scene.checkboxLimiting('[data-personage-choose] input[type=checkbox]', 2, 5);
 
 
 				$('[data-personage-choose]').each(function(i, element) {
@@ -393,16 +426,23 @@ $(function() {
 			 * Отслеживание чекбоксов, чтобы было выбрано 5, не больше
 			 * @param checkbox - строка с селектором чекбокса
 			 */
-			scene.checkboxLimiting = function(checkbox) {
+			scene.checkboxLimiting = function(checkbox, min, max) {
+				var min = min || scene.MAXCHECKEDTRAITS,
+					max = max || scene.MAXCHECKEDTRAITS;
 				var $form = $(checkbox).parents('form'),
 					$submit = $form.find('[type="submit"]');
 				$submit.attr('disabled',true);
-				$(document).on('click', checkbox, function() {
-					var $checked = $(checkbox + ':checked');
-					var bol = $checked.length >= scene.MAXCHECKEDTRAITS;
-					$(checkbox).not(":checked").attr("disabled", bol);
 
-					$submit.attr('disabled', ($checked.length < scene.MAXCHECKEDTRAITS) );
+				$(document).on('click', checkbox, function() {
+					var $this = $(this),
+						$form = $this.parents('form'),
+						$submit = $form.find('[type="submit"]'),
+						$checked = $form.find('input[type="checkbox"]:checked'),
+						bol = $checked.length >= max;
+					
+					$form.find('input[type="checkbox"]:not(:checked)').attr("disabled", bol);
+
+					$submit.attr('disabled', ($checked.length < min) );
 				});
 			};
 			/**
@@ -430,16 +470,27 @@ $(function() {
 					$('a[href="#superGame"]').show();
 				});
 			};
-			
+			/**
+			 * Создаем попапы для суперигры
+			 * @param data - пришедшие данные
+			 */
+			scene.makeAnswerNoUsers = function(data, info) {
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
+				var msg = $('.users-slider').attr('data-no-users');
+				$('.users-slider').html(msg);
+				$('[data-user-arrow]').attr('disabled',true).hide();
+
+			};
 			/**
 			 * Создаем попапы для суперигры
 			 * @param data - пришедшие данные
 			 */
 			scene.makeExtraUsers = function(data, info) {
-                if (data.hasOwnProperty('last_id')) {
-                    scene.LAST_ID = data.last_id;
-                }
-
+				if (data.hasOwnProperty('last_id')) {
+					scene.LAST_ID = data.last_id;
+				}
 				//make users
 				var tmpl = scene.$.extraRoundTemplate.html(),
 					d = data,//$.parseJSON(data),
@@ -472,32 +523,36 @@ $(function() {
 					}
 				});
 				var slides = _.template(tmpl)(usersInfo);
-				$.each($(slides), function(i, slide) {
-					var $content = $(slide).find('[data-nicescroll-block]'),
-						$inner = $content.find('[data-nicescroll-inner]');
-					$content.addClass('nicescroll-on').niceScroll($inner, {
-						'cursorcolor': '#00abe8',
-						'cursorwidth': 12,
-						'cursorborder': '0',
-						'cursorborderradius': 12,
-						'autohidemode': false
+
+				$('.users-slider').fadeOut(200, function() {
+					$('[data-user-arrow]').attr('disabled',true);
+					$('.users-slider').html('').append(slides);
+					$.each($('.users-slider').find('.user'), function(i, slide) {
+						var $content = $(slide).find('[data-nicescroll-block]'),
+							$inner = $content.find('[data-nicescroll-inner]');
+						if (!$content.hasClass('.nicescroll-on')){
+							$content.addClass('nicescroll-on').niceScroll($inner, {
+								'cursorcolor': '#00abe8',
+								'cursorwidth': 12,
+								'cursorborder': '0',
+								'cursorborderradius': 12,
+								'autohidemode': false
+							});
+						} else {
+							$content.niceScroll('refresh');
+						}
 					});
-					$('.users-slider').slick('slickAdd', slide);
+					$('.users-slider').fadeIn(200, function() {
+						$('[data-user-arrow]').removeAttr('disabled');
+					});
 				});
 
-
-				$('.users-slider').promise().done(function(){
-					var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-					$('.users-slider').slick('goTo', +lastActive + 3);
-				});
-
-				//scene.$.extraRound.append(_.template(tmpl)(usersInfo));
 				//make users popups
 				var tmpl2 = scene.$.extraUserPopupTemplate.html();
 
-				scene.$.extraUserPopup.append(_.template(tmpl2)(usersInfo));
+				scene.$.extraUserPopup.html(_.template(tmpl2)(usersInfo));
 
-				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]');
+				scene.checkboxLimiting('[data-modal-user-choose] input[type=checkbox]', 2, 5);
 				
 
 				$('[data-modal-user-choose]').each(function(i, element) {
@@ -526,11 +581,11 @@ $(function() {
 								},
 								dataType: 'json',
 								success: function(data) {
-									console.log('success', data);
+
 									scene.makePersTraitsResult(form, data);
 								},
 								error: function(data) {
-									console.log('error', data);
+
 									scene.sayError(data, '[data-user-traits-choose]', '[data-user-traits-error]');
 								}
 							});
@@ -570,6 +625,7 @@ $(function() {
 					}
 					$placeholder.html(resultHtml);
 				});
+				$results.find('[data-nicescroll-block]').niceScroll('refresh');
 			};
 			/**
 			 * Первый шаг игры
@@ -589,14 +645,13 @@ $(function() {
 					traits: info.traits
 				};
 
-				scene.makeHearts(data);
+				scene.makeHearts(data, info);
 			};
 			/**
 			 * Второй шаг игры
 			 * @param info - массив сцены
 			 */
 			scene.secondStep = function(info) {
-
 				//show choose section in heart popups
 				var $heartPopups = $('.popover-ui.personage');
 
@@ -606,6 +661,14 @@ $(function() {
 					$form = $startContent.siblings('[data-personage-choose]');
 					$startContent.fadeOut(500, function() {
 						$form.fadeIn(200);
+						if ($form.attr('data-guessed')) {
+							//строим угаданного
+							$form.hide();
+							$this.find('[data-personage-result]').show();
+							//badge
+							var id = $this.attr('id');
+							$('[data-content-id="' + id + '"]').find('[data-heart-badge]').show();
+						}
 					});
 				});
 
@@ -614,14 +677,20 @@ $(function() {
 					scene.$.header.find('.explain.active').removeClass('active');
 					scene.$.header.find('.explain').eq(1).fadeIn(200).addClass('active');
 				});
+
 			};
 			scene.getExtraUsers = function(info) {
 				$.ajax({
 					url     : scene.urls.extraRoundUsers,
 					method  : 'POST',
-                    data: {last_id: scene.LAST_ID},
+					data: {last_id: scene.LAST_ID},
 					success : function(data) {
-						scene.makeExtraUsers(data, info);
+						if (data.noUsersAnymore){
+							//больше нету
+							scene.makeAnswerNoUsers(data,info);
+						} else {
+							scene.makeExtraUsers(data, info);
+						}
 					},
 					error: function(data) {
 						console.info(data);
@@ -634,33 +703,24 @@ $(function() {
 
 				// $('[data-user-arrow="right"]').attr('data-next-users',false);
 				var $slider = $('.users-slider');
-				$slider.slick({
-					slidesToShow: 3,
-					slidesToScroll: 3,
-					infinite: false,
-					prevArrow: $('[data-user-arrow="left"]'),
-					nextArrow: $('[data-user-arrow="right"]')
-				});
+				// $slider.slick({
+				// 	slidesToShow: 3,
+				// 	slidesToScroll: 3,
+				// 	infinite: false,
+				// 	prevArrow: $('[data-user-arrow="left"]'),
+				// 	nextArrow: $('[data-user-arrow="right"]')
+				// });
 				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 				// 	console.log(currentSlide,nextSlide);
 				// });
+				$(document).on('click','[href="#superGame"]',function() {
+					$slider.slick('reinit');
+				});
 				$(document).on('click','[data-user-arrow]',function(e) {
 					e.preventDefault();
 
-					var $this = $(this),
-						direction = $this.attr('data-user-arrow');
-					if (direction == "right") {
-						var lastActive = $('.users-slider').find('.slick-active').last().attr('data-slick-index');
-						var lastSlide = $('.users-slider').find('.slick-slide').last().attr('data-slick-index');
+					scene.getExtraUsers(info);
 
-						if (lastActive == lastSlide ){
-							scene.getExtraUsers(info);
-							// $('.users-slider').promise().done(function(){
-							// 	console.log('ok',lastActive, +lastActive +3);
-							// 	$('.users-slider').slick('goTo', +lastActive + 3);
-							// });
-						}
-					}
 				});
 
 			};
@@ -782,6 +842,40 @@ $(function() {
 			};
 			return {
 				show: show
+			}
+		})()
+		, SceneLinks = (function() {
+			var set = function(prev, next) {
+                if (prev) {
+                    $('.layout-main > .scene-arrow__left').attr('href', prev).show();
+                }
+                if (next) {
+                    $('.layout-main > .scene-arrow__right').attr('href', next).show();
+                }
+			};
+			return {
+				set: set
+			}
+		})()
+		, SceneBg = (function() {
+			var set = function(url) {
+				$('.layout-main').attr('style','background-image: url(' + url + ')');
+			};
+			return {
+				set: set
+			}
+		})()
+		,SceneSharing = (function() {
+			var set = function(data) {
+				Ya.share2(document.getElementById('share'), {
+                    theme : {
+                        services: 'facebook,vkontakte'
+                    },
+					content: data
+				});
+			};
+			return {
+				set: set
 			}
 		})()
 	/**
