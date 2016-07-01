@@ -6,6 +6,7 @@ $(function() {
             init : function() {
                 //DummyModule.init();
                 AddDesktopClass.init();
+                ShowOrientationDisclamer.init();
             }
         }
     })()
@@ -14,6 +15,39 @@ $(function() {
                 init : function() {
                     if (!isMobile.any){
                         $('body').addClass('desktop');
+                    }
+                }
+            }
+        })()
+    /**
+     * Forbid to rotate screen on mobile devices
+     */
+        ,ShowOrientationDisclamer = (function(){
+            var $dPopup = $('#disclamer'),
+                isPortrait = function() {
+                    var ww = $(window).width(),
+                        wh = $(window).height();
+
+                    if (wh > ww){
+                        return true;
+                    }
+                    return false;
+                },
+                showDisclamer = function() {
+                    var isportrait = isPortrait();
+
+                    if (isportrait) {
+                        $dPopup.modal('show');
+                    } else {
+                        $dPopup.modal('hide');
+                    }
+                };
+            return {
+                init : function() {
+                    if (isMobile.any){
+                        $('body').addClass('mobile');
+                        showDisclamer();
+                        $(window).on('resize orientationchange', showDisclamer);
                     }
                 }
             }
