@@ -5,7 +5,8 @@
     var target = item.id, prop = 'heart-' + item.code + '-' + scene;
     %>
     <a href="#" data-popover-webui data-content-id="<%= target %>" data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
-        <img src="/build/images/heart-icon.svg">
+        <img src="/build/images/heart-icon.png">
+        <span class="badge heart__question">?</span>
         <span class="badge heart__result" data-heart-badge style="display: none;"></span>
     </a>
     <div id="<%= target %>" class="popover-ui personage parent">

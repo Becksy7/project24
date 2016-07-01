@@ -1,9 +1,14 @@
 
 .navbar-fixed-top {
     min-width: @min_width;
+    max-width: @max_width;
     left: 0;
     border: 0;
     position: absolute;
+    .container{
+        min-width: @min_width;
+        max-width: 1360px;
+    }
     .navbar-collapse {
         width: 320px !important;
         padding: 0;
@@ -59,7 +64,14 @@
     padding: 0;
     margin-left: 15px;
     img{
-        width: 160px;
+        width: 275px;
+    }
+    span {
+        position: relative;
+        bottom: -10px;
+        font-size: 14px;
+        color: @black;
+        font-weight: 500;
     }
 }
 body:not(.desktop){
@@ -76,22 +88,29 @@ body.desktop {
     &:not([class*="game"]) {
         .navbar-brand {
             margin: 0;
-            img {
-                width: 175px;
+            img{
+                width: 275px;
+            }
+            span {
+                position: relative;
+                bottom: -10px;
+                font-size: 14px;
+                color: @black;
+                font-weight: 500;
             }
         }
     }
     &[class*="game"]{
         .navbar-header {
-            position: absolute;
+            //position: absolute;
             width: 100%;
-            right: 0;
-            top: 30px;
+            //right: 0;
+            //top: 0;
         }
     }
     @media (min-width: 1024px) {
         .navbar-brand {
-            margin: 78px 20px 0;
+            //margin: 78px 20px 0;
         }
 
         .navbar-toggle {
@@ -101,11 +120,11 @@ body.desktop {
         .navbar-fixed-top {
             margin: 0 auto;
             width: auto !important;
-            padding-top: 40px;
+            padding-top: 10px;
             display: block;
             min-width: @min_width;
             position: relative;
-            max-height: 100px;
+            max-height: 130px;
             .container{
                 padding: 0;
             }
@@ -172,7 +191,7 @@ body.desktop {
 }
 
 .navbar-header {
-    position: absolute;
+    position: relative;
     width: 100%;
     right: 0;
     top: 30px;
@@ -186,19 +205,21 @@ body.desktop {
 .header {
     &__promo {
         display: inline-block;
-        float: right;
+        position: absolute;
+        top: 25px;
+        right: 50px;
         text-align: center;
         img {
-            width: 130px;
+            width: 180px;
             height: auto;
         }
     }
 }
 
-body[class*="game"] {
+/*body[class*="game"] {
     .header {
         &__promo {
             display: none;
         }
     }
-}
+}*/
