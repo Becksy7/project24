@@ -70,14 +70,14 @@
 	<% if (!user.nopopup) { %>
 
 	<div class="modal fade" id="<%= target %>" tabindex="-1" role="dialog" data-modal-user-choose>
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button class="close" type="button" data-dismiss="modal"><i class="icon icon-cross"></i></button>
 					<div class="modal-title">Выбор черт характера</div>
 				</div>
 				<div class="modal-body">
-					<div class="user user--single">
+					<div class="user user--single user--wide">
 						<div class="user__header">
 							<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 							<span class="user__name"><%= user.name %></span>
@@ -86,7 +86,7 @@
 							<p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
 							<form class="user__form">
 								<input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
-								<div class="traits traits--tall" data-nicescroll-block>
+								<div class="traits traits--tall">
 									<% _.each(user.traits, function(trait, key, list){
 									var uid = user.id + key;
 									%>

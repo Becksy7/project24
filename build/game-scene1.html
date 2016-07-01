@@ -81,7 +81,7 @@
                 <div class="a-user-panel collapse width" id="user-panel">
                     <div class="a-user-panel__wrap">
                         <div class="a-user__name">Константин Константинопольский</div>
-                        <div class="a-user-bookmark a-user-bookmark--inside" data-toggle="collapse" data-target="#user-panel">
+                        <div class="a-user-bookmark a-user-bookmark--inside">
                             <div class="a-user-pic">
                                 <div class="a-user-pic__wrap">
                                     <img class="a-user-pic__img" src="">
@@ -100,10 +100,11 @@
                                 <a href="#" class="btn btn-default">Выйти</a>
                             </div>
                         </div>
+                        <div class="a-user-supergame">
+                            <a href="#superGame" class="btn btn-default a-user-supergame__btn" data-toggle="modal">Суперигра</a>
+                        </div>
+                        <a class="a-user__close" data-toggle="collapse" data-target="#user-panel"><i class="icon icon-arrow-right"></i></a>
                         <div class="a-user__scrollable">
-                            <div class="a-user-supergame">
-                                <a href="#superGame" class="btn btn-default a-user-supergame__btn" data-toggle="modal">Суперигра</a>
-                            </div>
                             <div class="a-user-traits">
                                 <div class="a-user-traits__wrap">
                                     <div id="user-traits-container"></div>
@@ -207,10 +208,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="rostelekom scene-aside__partner">
-                    <img class="rostelekom-logo" src="images/rostelekom-logo-big-w.svg">
-                    <a href="#" class="btn btn-primary rostelekom__btn">Подключить</a>
-                </div>
+                <?//= publicdir('images/rostelekom-logo-big-w.svg') ?>
             </aside>
             <section class="page-caption">
                 <div class="page-caption__text">
@@ -405,14 +403,14 @@
 	%>
                     <% if (!user.nopopup) { %>
                         <div class="modal fade" id="<%= target %>" tabindex="-1" role="dialog" data-modal-user-choose>
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-md">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button class="close" type="button" data-dismiss="modal"><i class="icon icon-cross"></i></button>
                                         <div class="modal-title">Выбор черт характера</div>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="user user--single">
+                                        <div class="user user--single user--wide">
                                             <div class="user__header">
                                                 <div class="user__image"><img src="images/<%= user.image %>"></div>
                                                 <span class="user__name"><%= user.name %></span>
@@ -421,7 +419,7 @@
                                                 <p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
                                                 <form class="user__form">
                                                     <input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
-                                                    <div class="traits traits--tall" data-nicescroll-block>
+                                                    <div class="traits traits--tall">
                                                         <% _.each(user.traits, function(trait, key, list){
 									var uid = user.id + key;
 									%>
@@ -467,16 +465,12 @@
             <a href="#" class="scene-arrow scene-arrow__left" title="Предыдущая сцена"></a>
             <a href="#" class="scene-arrow scene-arrow__right" title="Следующая сцена"></a>
         </main>
-        <footer class="navbar-fixed-bottom footer" role="contentinfo">
-            <div class="container">
-                <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
-                <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
-                <div class="share">
-                    <span class="share__text">Поделиться:</span>
-                    <div class="ya-share2" id="share" data-services="vkontakte,facebook"></div>
-                </div>
-            </div>
-        </footer>
+        <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+        <div class="share">
+            <span class="share__text">Поделиться:</span>
+            <div class="ya-share2" id="share" data-services="vkontakte,facebook"></div>
+        </div>
     </div>
     <script src="vendor/jquery.min.js"></script>
     <script src="vendor/bootstrap.min.js"></script>

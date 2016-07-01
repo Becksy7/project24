@@ -1,4 +1,8 @@
 .copyright {
+  display: inline-block;
+  @media(min-width: 1345px){
+    margin-top: -92px;
+  }
   .clearfix;
   .make-row();
   &__in {
@@ -7,10 +11,10 @@
     height: 40px;
     .border-top-radius(5px);
     padding: 0 30px;
-    background-color: @dirtygreen;
+    //background-color: @dirtygreen;
     span {
       line-height: 40px;
-      color: @white;
+      color: @text-color;
       font-size: 12px;
       &:first-of-type {
         margin-right: 10px;
@@ -19,9 +23,9 @@
         margin-left: 25px;
       }
       a{
-        color: @white;
+        color: @text-color;
         &:hover, &:hover:focus{
-          color: @white;
+          color: @text-color;
         }
       }
     }

@@ -1,13 +1,4 @@
-<?php if (strpos($page, 'game') !== false): ?>
-    <?php if (strpos($page, 'game-scene') !== false): ?>
-    <footer class="navbar-fixed-bottom footer" role="contentinfo">
-        <div class="container">
-
-            <?php include "src/views/blocks/footer-share.phtml" ?>
-        </div>
-    </footer>
-    <?php endif; ?>
-<?php else : ?>
+<?php if (strpos($page, 'game') === false): ?>
     <footer class="footer-simple">
         <div class="container">
             <?php include "src/views/blocks/copyright.phtml" ?>

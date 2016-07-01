@@ -26,12 +26,11 @@ html{
     width: 100%;
     -ms-overflow-x: hidden;
     min-height: 100%;
-    height: 100%;
 }
 // container & wrapper
 .container {
     width     : 100%;
-    max-width: @min_width;
+    max-width: 1500px;
     margin       : 0 auto;
     position     : relative;
 }
@@ -62,8 +61,8 @@ body[class*="game"]{
     }
     &.desktop{
         .layout-wrapper{
-            height: 740px;
-            min-height: 740px;
+            height: 730px;
+            min-height: 730px;
             .layout-main{
                 height: 630px;
                 min-height: 630px;
@@ -100,11 +99,6 @@ body:not([class*="game"]){
         height: 100%;
         padding-bottom: 100px;
         position: relative;
-    }
-    .share{
-        position: absolute;
-        width: 100%;
-        bottom: 40px;
     }
 }
 body.page-index:not([class*="desktop"]) {

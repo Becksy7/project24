@@ -3,7 +3,7 @@
         display: none!important;
     }
     &__scrollable{
-        height: 388px;
+        height: 295px;
     }
     &-bookmark{
         position: absolute;
@@ -21,20 +21,15 @@
         &--inside{
             background: @transparent;
             position: relative;
-            margin-left: -48px;
-            width: 415px;
+            cursor: default;
+            width: 100%;
             top: auto;
             z-index: 10;
-            &:before{
-                content: "";
-                width: 48px;
-                height: 70px;
-                background-color: fade(@black, 70%);
-                .border-left-radius(70px);
-                position: absolute;
-                left: 0;
-                top: 0;
-                z-index: 0;
+            .a-user-pic{
+                margin: 8px 10px 8px 15px;
+            }
+            .a-user-rating{
+                margin: 8px 8px 0;
             }
         }
         &.rolled{
@@ -161,9 +156,11 @@
     }
     &__logout{
         float: right;
-        margin: 13px 30px;
+        margin: 13px 33px 0 0;
     }
     &-supergame{
+        position: relative;
+        width: 415px;
         padding: 20px;
         margin-top: 3px;
         border-top: 1px solid fade(@white, 20%);
@@ -176,13 +173,16 @@
         &__btn{
             text-transform: uppercase;
             color: @lightblue;
-            padding: 10px 46px;
+            padding: 6px 75px;
+            border: 4px solid @lightblue;
             background: @white;
             font-size: 24px;
             font-weight: bold;
+            border-radius: 12px;
             &:hover, &:focus, &:hover:focus{
                 color: @lightblue;
                 background: @white;
+                border: 4px solid @lightblue;
             }
             body.mobile &{
                 font-size: 20px;
@@ -264,6 +264,27 @@
                 margin-top: -20px;
             }
         }
+    }
+    &__close{
+        position: absolute;
+        height: 67px;
+        .border-left-radius(67px);
+        width: 46px;
+        background-color: rgba(0,0,0,.7);
+        line-height: 67px;
+        top: 163px;
+        left: -46px;
+        text-align: right;
+        cursor: pointer;
+        .icon{
+            color: @white;
+            font-size: 25px;
+            margin-right: 8px;
+        }
+        //position: absolute;
+        //left: 0;
+        //top: 0;
+        //z-index: 0;
     }
     &-choose{
         &__head{
