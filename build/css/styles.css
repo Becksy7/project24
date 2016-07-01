@@ -1945,7 +1945,7 @@ form .trait:hover{background-color:#ddd}
 .user__content .traits--result{margin-top:0;height:auto}
 .user__option{display:inline-block;margin:0 15px}
 .scene-arrow__left,.scene-arrow__right{background-color:#FFF;width:50px;height:70px}
-.scene-arrow,.slick-arrow{font-size:35px;color:#00abe8;position:absolute;top:50%;margin-top:-18px}
+.scene-arrow,.slick-arrow{font-size:35px;color:#00abe8;top:50%;margin-top:-18px;position:absolute}
 .copyright__social,.error,.error__text,.error__title,.input-block,.page-caption,.page-content,.scene-arrow:before{text-align:center}
 .user__btn{position:absolute;bottom:-36px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);padding:10px 70px}
 .users-slider{padding:0 40px}
@@ -1962,6 +1962,8 @@ form .trait:hover{background-color:#ddd}
 .slick-arrow.slick-next{right:10px}
 .slick-arrow.slick-next:before{content:'\e809'}
 .slick-arrow.slick-hidden{display:block}
+.layout-main.content-game-scene1>.scene-arrow{color:#FFF;position:absolute;top:285px}
+.layout-main.content-game-scene1>.scene-arrow__left,.layout-main.content-game-scene1>.scene-arrow__right{background-color:rgba(0,0,0,.7)}
 .error{margin-top:90px}
 .error__title h1{font-size:62px;font-weight:500;color:#084194}
 .error__text{color:#000;font-weight:500}
