@@ -1507,7 +1507,6 @@ td.visible-print,th.visible-print{display:table-cell!important}
 .webui-popover.out,.webui-popover.pop,.webui-popover.pop-out{opacity:0;filter:alpha(opacity=0)}
 .webui-popover-rtl{direction:rtl;text-align:right}
 .webui-popover{position:absolute;top:0;left:0;z-index:9999;display:none;min-width:50px;min-height:32px;padding:1px;text-align:left;white-space:normal;background-color:#fff;border:1px solid #ccc;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 5px 10px rgba(0,0,0,.2)}
-.panel,body.page-index:not([class*=desktop]) .layout-main{box-shadow:none}
 .webui-popover.top,.webui-popover.top-left,.webui-popover.top-right{margin-top:-10px}
 .webui-popover.right,.webui-popover.right-bottom,.webui-popover.right-top{margin-left:10px}
 .webui-popover.bottom,.webui-popover.bottom-left,.webui-popover.bottom-right{margin-top:10px}
@@ -1607,6 +1606,7 @@ body.rotate-me .layout-wrapper{position:relative;-webkit-transform:rotate(90deg)
 body:not([class*=game]) .layout-wrapper{min-height:100%;min-height:100vh;height:100%;padding-bottom:100px;position:relative}
 body:not([class*=game]) .share{position:absolute;width:100%;bottom:40px}
 body.page-index:not([class*=desktop]) .share,body.page-index:not([class*=desktop]) footer{display:none}
+body.page-index:not([class*=desktop]) .layout-main{box-shadow:none}
 body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display:block}
 .client-style ul.clean{list-style:none}
 .client-style ul.clean,.client-style ul.clean li{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
@@ -1725,7 +1725,7 @@ body[class*=game] .header__promo{display:none}
 .modal-header .close{margin-top:5px}
 .modal-header .icon{color:#00abe8;font-size:28px}
 .modal-content{height:550px}
-.modal-title{font-size:36px;font-weight:500;color:#3b5998;text-align:center;margin-top:15px}
+.modal-title{font-size:36px;font-weight:500;color:#253862;text-align:center;margin-top:15px}
 .modal-title b{font-weight:900;text-transform:uppercase;color:#263945}
 .modal-body{padding:0}
 .modal-body .text{margin:0 40px;height:400px;overflow:hidden;color:#000;font-size:20px;line-height:30px;font-weight:400}
@@ -1735,7 +1735,7 @@ body[class*=game] .header__promo{display:none}
 .characteristic label{width:100%;font-weight:400}
 .characteristic .smile{display:inline-block;margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background-clip:padding-box;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
 .characteristic .smile img{width:33px;height:33px;margin:6px}
-.characteristic .title,.characteristic .value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
+.characteristic .title,.characteristic .value{height:60px;line-height:60px;font-size:18px;color:#253862}
 .characteristic .title{display:inline-block;text-align:left}
 .characteristic input[type=checkbox],.characteristic input[type=checkbox]+label span.value{display:none}
 .characteristic .value{width:50px;margin:0;float:right;text-align:center}
@@ -1743,7 +1743,7 @@ body[class*=game] .header__promo{display:none}
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
 .characteristic input[type=checkbox]+label{font-weight:500}
 .characteristic input[type=checkbox]:checked+label span.value,.panel-heading{display:inline-block}
-.panel{border:0}
+.panel{border:0;box-shadow:none}
 .panel-heading{padding:0;vertical-align:top;max-width:600px}
 .panel-title{font-size:24px;color:#00abe8;font-weight:400}
 .panel-title>.small,.panel-title>.small>a,.panel-title>a,.panel-title>small,.panel-title>small>a{padding:5px 15px;min-height:45px}
@@ -1838,7 +1838,7 @@ body[class*=game] .share__text{color:#FFF;font-size:16px}
 .has-error .input-group+label.has-error{left:30px}
 .has-error label.has-error{position:absolute;top:100%;left:0;font-weight:400;font-size:12px;color:#fe345a}
 .scene-header{width:100%;text-align:center;padding-top:1px}
-.scene-header .caption{font-size:36px;font-weight:500;color:#3b5998;margin-top:35px}
+.scene-header .caption{font-size:36px;font-weight:500;color:#253862;margin-top:35px}
 .scene-header .caption b{font-weight:900;text-transform:uppercase;color:#263945}
 .scene-header .explain{display:block;width:370px;font-size:24px;color:#000;margin:0 auto}
 .scene-header .explain:last-child a,.scene-header .explain:not(.active){display:none}
@@ -1873,7 +1873,7 @@ body[class*=game] .share__text{color:#FFF;font-size:16px}
 .popup-header:after,.popup-header:before{content:" ";display:table}
 .popup-header:after{clear:both}
 .popup-header .photo{display:inline-block;margin:0;margin-right:20px;position:relative;overflow:hidden;width:115px;height:115px;border-radius:100%;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover}
-.popup-header .name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
+.popup-header .name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#253862}
 .popup--heart{left:115px;top:0}
 .popup--heart:before{width:0;height:0;position:absolute;left:-15px;top:105px;border-style:solid;border-width:20px 15px 20px 0;border-color:transparent #FFF transparent transparent}
 .result{position:absolute;left:45px;top:130px;z-index:1050;width:45px;height:45px;line-height:45px;border-radius:50%;background-color:#00abe8;text-align:center}
@@ -1887,7 +1887,7 @@ body[class*=game] .share__text{color:#FFF;font-size:16px}
 .trait label{width:100%;font-weight:400}
 .trait__smile{display:inline-block;margin-right:15px;margin-top:8px;float:left;height:45px;width:45px;border-radius:5px;background:-webkit-linear-gradient(#FFF,#9faaca);background:linear-gradient(#FFF,#9faaca)}
 .trait__smile img{width:33px;height:33px;margin:6px}
-.trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#3b5998}
+.trait__title,.trait__value{height:60px;line-height:60px;font-size:18px;color:#253862}
 .trait__title{display:inline-block;text-align:left}
 .heart__result,.personage__descr,.trait__value,.users-slider{text-align:center}
 .trait__value{width:50px;margin:0;float:right}
@@ -1900,7 +1900,7 @@ form .trait:hover{background-color:#ddd}
 .personage__photo img,.user__image img{max-width:100%}
 .personage__photo{display:inline-block;margin:0;margin-right:20px;position:relative;width:115px;height:115px;border-radius:100%;background-clip:padding-box;border:5px solid #00abe8;background-color:#FFF;background-position:center;background-repeat:no-repeat;background-size:cover;overflow:hidden}
 .heart,.heart__result,.popover-ui-close{position:absolute}
-.personage__name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#3b5998}
+.personage__name{display:inline-block;margin-top:40px;font-size:24px;font-weight:500;color:#253862}
 .personage__descr{font-size:16px;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
 .content-table__row .content-table__img,.user__image{overflow:hidden;background-clip:padding-box;background-position:center;background-repeat:no-repeat}
 .popover-ui{display:none}
@@ -1925,7 +1925,7 @@ form .trait:hover{background-color:#ddd}
 .user--single{width:335px;display:block;margin:0 auto}
 .user.slick-slide{display:inline-block;float:none;padding:0;width:300px}
 .user__image{display:inline-block;margin-right:15px;width:50px;height:50px;border-radius:100%;border:3px solid #00abe8;background-color:#FFF;background-size:cover}
-.user__name{display:inline-block;text-align:left;font-size:18px;font-weight:500;color:#3b5998;max-width:210px}
+.user__name{display:inline-block;text-align:left;font-size:18px;font-weight:500;color:#253862;max-width:210px}
 .user__header{margin:0 auto;margin-bottom:20px}
 .user__content{width:300px;max-height:325px;overflow-x:hidden}
 .user__content .traits{height:250px}
@@ -2045,3 +2045,9 @@ form .trait:hover{background-color:#ddd}
 .content-table__row .content-table__cell:nth-child(2){padding-left:10px;vertical-align:middle;text-align:left}
 .content-table__row .content-table__cell:nth-child(2) span{font-size:14px;font-weight:400;line-height:55px}
 .content-table__row .content-table__cell:last-child{text-align:right;float:right;width:45px;font-size:18px;font-weight:400;line-height:55px}
+.disclamer{background-color:rgba(37,56,98,.2)}
+.disclamer .modal-content{background-color:transparent;box-shadow:none;border:0}
+.disclamer .modal-body{position:relative;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);margin:0 auto;width:425px;height:425px;padding:40px 49px;border-radius:50%;background-clip:padding-box;background-color:#FFF;text-align:center}
+.disclamer__img{height:140px;display:inline-block;margin-bottom:30px;padding:8px 28px}
+.disclamer__text{font-size:20px}
+.disclamer__btn{margin-top:15px;font-size:32px}

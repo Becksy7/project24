@@ -1,0 +1,33 @@
+.disclamer{
+    background-color: fade(@darkblue,20%);
+    .modal-content{
+        background-color: @transparent;
+        .box-shadow(none);
+        border: 0;
+    }
+    .modal-body{
+        position: relative;
+        top: 50%;
+        .transform(translateY(-50%));
+        margin: 0 auto;
+        width: 425px;
+        height: 425px;
+        padding: 40px 49px;
+        .border-radius(50%);
+        background-color: @white;
+        text-align: center;
+    }
+    &__img{
+        height: 140px;
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 8px 28px;
+    }
+    &__text{
+        font-size: 20px;
+    }
+    &__btn{
+        margin-top: 15px;
+        font-size: 32px;
+    }
+}
