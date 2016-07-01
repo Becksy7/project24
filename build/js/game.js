@@ -101,6 +101,8 @@ $(function() {
                         $('#superGame').fadeIn();
                     }).on('shown.bs.modal','#superGame',function() {
                         $('.users-slider').resize();
+                        $('[data-popover-webui]').webuiPopover('hide');
+
                     });
 
                     $('.a-user__scrollable').niceScroll({
