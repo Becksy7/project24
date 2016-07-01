@@ -81,9 +81,10 @@
 						<div class="user__header">
 							<div class="user__image"><img src="/build/images/<%= user.image %>"></div>
 							<span class="user__name"><%= user.name %></span>
+							<p class="user__offer">Выбери от 2 до 5 эмоций персонажа</p>
 						</div>
 						<div class="user__traits" data-user-traits-choose>
-							<p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
+<!--							<p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>-->
 							<form class="user__form">
 								<input type="text" style="display: none;" name="characterid" value="<%=user.id%>">
 								<div class="traits traits--tall">

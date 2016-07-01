@@ -17,6 +17,7 @@
                     <img src="/build/<%= item.image %>">
                 </div>
                 <div class="personage__name"><%= item.name %></div>
+                <p class="personage__offer" data-pers-offer style="display:none">Выбери от 2 до 5 эмоций персонажа</p>
             </div>
             <div class="popover-ui-content personage" data-start-content>
                 <div class="personage__descr" data-personage-descr data-nicescroll-block>
@@ -26,7 +27,6 @@
 
             </div>
             <div class="popover-ui-content personage" data-personage-choose style="display:none;">
-                <p class="text-center">Выбери от 2 до 5 эмоций персонажа</p>
                 <!-- checkboxes here-->
                 <form>
                     <input type="text" style="display: none;" name="characterid" value="<%=item.id%>">

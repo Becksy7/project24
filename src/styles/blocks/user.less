@@ -2,17 +2,21 @@
   text-align: center;
 }
 .user {
+  width: 330px;
   padding: 15px;
   display: inline-block;
   vertical-align: top;
   &--single{
-    width: 335px;
     display: block;
     margin: 0 auto;
   }
   &--wide{
     width: 580px;
     margin-top: -20px;
+    .user__header{
+      max-width: 300px;
+      margin: 0 auto;
+    }
   }
   &.slick-slide{
     display: inline-block;
@@ -23,8 +27,9 @@
   }
 
   &__image {
-    display: inline-block;
+    float: left;
     margin-right: 15px;
+    margin-bottom: 10px;
     overflow: hidden;
     width: 50px;
     height: 50px;
@@ -39,8 +44,9 @@
     }
   }
   &__name {
-    display: inline-block;
-    vertical-align: top;
+    display: block;
+    margin-left: 70px;
+    margin-bottom: 8px;
     text-align: left;
     font-size: 18px;
     font-weight: 500;
@@ -48,21 +54,23 @@
     max-width: 210px;
   }
   &__header {
-    width: 300px;
+
+    min-height: 46px;
     margin: 0 auto;
     margin-bottom: 20px;
     text-align: left;
 
   }
   &__content {
-    width: 300px;
     max-height: 325px;
     overflow-x: hidden;
+    clear: both;
     .traits{
       height: 250px;
     }
     .btn {
       font-size: 16px;
+      width: 246px;
     }
     &[data-user-result]{
       height: 250px;
@@ -79,7 +87,6 @@
   &__option {
     display: inline-block;
     vertical-align: top;
-    width: 300px;
     margin: 0 15px;
     text-align: left;
   }
@@ -89,6 +96,10 @@
     left: 50%;
     .transform(translateX(-50%));
     padding: 10px 70px;
+  }
+  &__offer{
+    display: block;
+    margin-left: 70px;
   }
   &s-slider{
     padding: 0 40px;
