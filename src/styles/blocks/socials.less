@@ -1,7 +1,12 @@
 
 .share{
+    position: absolute;
+    width: 100%;
+    bottom: 40px;
+
     text-align: center;
     margin: 20px 0;
+    font-family: @font-family-sans-serif;
 
     &__text{
         display: inline-block;
@@ -21,13 +26,8 @@ body[class*="game"]{
         text-align: center;
     }
     .share{
-        display: inline-block;
-        padding: 20px 36px;
-        margin: 0;
-        background-color: fade(@black,70%);
-        .border-top-radius(10px);
+        bottom: 0;
         &__text{
-            color: @white;
             font-size: 16px;
         }
     }
