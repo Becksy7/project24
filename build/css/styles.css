@@ -1692,6 +1692,7 @@ body.desktop .navbar-fixed-top .nav.navbar-nav>li+li{border-top:0}
 .page-about .page-caption,.page-rules .page-caption{padding:40px 40px 0;border-top-right-radius:30px;border-top-left-radius:30px}
 .page-about .page-caption__text h2,.page-rules .page-caption__text h2{margin-top:0;color:#000;margin-bottom:30px}
 .page-about .page-content,.page-rules .page-content{width:auto;padding:0 40px 40px;border-bottom-right-radius:30px;border-bottom-left-radius:30px;margin-bottom:50px}
+.page-about .page-content .bs-example,.page-rules .page-content .bs-example{padding-top:15px}
 .social-login{margin:15px auto;text-align:center;max-width:220px}
 .social-login__txt{font-size:23px;line-height:48px;font-weight:400;font-style:normal}
 @media (max-width:1200px){.social-login__txt{font-size:18.33px}
