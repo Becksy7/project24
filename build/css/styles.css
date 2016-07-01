@@ -1555,7 +1555,6 @@ td.visible-print,th.visible-print{display:table-cell!important}
 .slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}
 .slick-list:focus{outline:0}
 .slick-list.dragging{cursor:pointer;cursor:hand}
-.a-user-bookmark,.characteristic input[type=checkbox]+label span,.popover-ui-close,.popup-close,.trait label,.traits input[type=checkbox]+label span{cursor:pointer}
 .slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 .slick-track{position:relative;top:0;left:0;display:block}
 .slick-track:after,.slick-track:before{display:table;content:''}
@@ -1742,6 +1741,7 @@ body[class*=game] .header__promo{display:none}
 .characteristic .value .icon-minus{font-size:5px;color:red}
 .characteristic .value .icon-tick{font-size:18px;color:#969696}
 .characteristic input[type=checkbox]+label{font-weight:500}
+.characteristic input[type=checkbox]+label span{cursor:pointer}
 .characteristic input[type=checkbox]:checked+label span.value,.panel-heading{display:inline-block}
 .panel{border:0;box-shadow:none}
 .panel-heading{padding:0;vertical-align:top;max-width:600px}
@@ -1750,14 +1750,15 @@ body[class*=game] .header__promo{display:none}
 .panel-title>.small span,.panel-title>.small>a span,.panel-title>a span,.panel-title>small span,.panel-title>small>a span{vertical-align:middle;font-size:24px;color:#00abe8;font-weight:400;border-bottom:2px dotted}
 .a-user-info,.a-user-pic{vertical-align:top;display:inline-block}
 .a-user.unautorized{display:none!important}
-.a-user__scrollable{height:388px}
-.a-user-bookmark,.a-user-bookmark--inside:before{height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px}
-.a-user-bookmark{position:absolute;right:0;top:120px;width:167px;background-color:rgba(0,0,0,.7);margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:1040}
-.a-user-bookmark--inside{background:0 0;position:relative;margin-left:-48px;width:415px;top:auto;z-index:10}
-.a-user-bookmark--inside:before{content:"";width:48px;background-color:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:0}
-.a-user-pic__wrap,.a-user__soc-network{border-radius:100%;background-clip:padding-box}
+.a-user__scrollable{height:295px}
+.a-user-bookmark{position:absolute;right:0;top:120px;width:167px;height:70px;border-bottom-left-radius:70px;border-top-left-radius:70px;background-color:rgba(0,0,0,.7);cursor:pointer;margin-right:0;-webkit-transition:.5s margin-right ease;transition:.5s margin-right ease;z-index:1040}
+.a-user-bookmark--inside{background:0 0;position:relative;cursor:default;width:100%;top:auto;z-index:10}
+.a-user-pic__wrap,.a-user-rating,.a-user__soc-network{background-clip:padding-box}
+.a-user__close,.popup-close,.trait label,.traits input[type=checkbox]+label span{cursor:pointer}
+.a-user-bookmark--inside .a-user-pic{margin:8px 10px 8px 15px}
+.a-user-bookmark--inside .a-user-rating{margin:8px 8px 0}
 .a-user-bookmark.rolled{margin-right:-167px}
-.a-user__soc-network{position:absolute;width:20px;height:20px;text-align:center;line-height:20px;bottom:-2px;right:-1px}
+.a-user__soc-network{position:absolute;width:20px;height:20px;text-align:center;line-height:20px;bottom:-2px;right:-1px;border-radius:100%}
 .a-user__soc-network:before{font-weight:400;display:inline-block;text-decoration:inherit;text-align:center;text-transform:none;line-height:1em;font-size:13px;color:#FFF}
 .a-user__soc-network.facebook{background-color:#496194}
 .a-user__soc-network.facebook:before{content:'\e802'}
@@ -1766,8 +1767,7 @@ body[class*=game] .header__promo{display:none}
 .a-user__name{font-size:24px;font-weight:600;color:#FFF;padding:10px 30px 4px}
 body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
 .a-user-pic{margin:8px;position:relative}
-.a-user-pic__wrap{width:54px;height:54px;border:4px solid #FFF;background-color:#00abe8;overflow:hidden}
-.a-user-supergame,.a-user-traits{border-bottom:1px solid rgba(255,255,255,.2)}
+.a-user-pic__wrap{width:54px;height:54px;border-radius:100%;border:4px solid #FFF;background-color:#00abe8;overflow:hidden}
 .a-user-pic__img{font-size:0;background-color:#00abe8;max-width:100%;max-height:100%}
 .a-user-info{margin:14px 0 10px;color:#FFF}
 .a-user-info__points{font-size:30px;display:block;line-height:1em}
@@ -1776,16 +1776,16 @@ body.mobile .a-user__name{font-size:20px;padding:5px 30px 4px}
 .a-user-panel__wrap{width:367px;margin-left:48px;min-height:100%;background-color:rgba(0,0,0,.7)}
 .a-user-panel.in{width:415px;margin-right:0}
 .a-user-panel.collapsing{width:415px;margin-right:-415px}
-.a-user-rating{display:inline-block;vertical-align:top;margin:8px 5px 0;width:54px;height:54px;text-align:center;border-radius:100%;background-clip:padding-box;background-color:#FFF;color:#000}
-.a-user-supergame__btn,.a-user-supergame__btn:focus,.a-user-supergame__btn:hover,.a-user-supergame__btn:hover:focus{color:#00abe8;background:#FFF}
+.a-user-rating{display:inline-block;vertical-align:top;margin:8px 5px 0;width:54px;height:54px;text-align:center;border-radius:100%;background-color:#FFF;color:#000}
 .a-user-rating__place{display:block;font-size:24px;font-weight:600;line-height:1em;margin-bottom:-7px;margin-top:8px}
 .a-user-rating__unit{font-size:12px;line-height:1em}
-.a-user__logout{float:right;margin:13px 30px}
-.a-user-supergame{padding:20px;margin-top:3px;border-top:1px solid rgba(255,255,255,.2);text-align:center;display:none}
+.a-user__logout{float:right;margin:13px 33px 0 0}
+.a-user-supergame{position:relative;width:415px;padding:20px;margin-top:3px;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);text-align:center;display:none}
 body.mobile .a-user-supergame{padding:10px 20px}
-.a-user-supergame__btn{text-transform:uppercase;padding:10px 46px;font-size:24px;font-weight:700}
+.a-user-supergame__btn{text-transform:uppercase;color:#00abe8;padding:6px 75px;border:4px solid #00abe8;background:#FFF;font-size:24px;font-weight:700;border-radius:12px}
+.a-user-supergame__btn:focus,.a-user-supergame__btn:hover,.a-user-supergame__btn:hover:focus{color:#00abe8;background:#FFF;border:4px solid #00abe8}
 body.mobile .a-user-supergame__btn{font-size:20px;padding:5px 18px}
-.a-user-traits{padding:5px 30px 20px;color:#FFF}
+.a-user-traits{padding:5px 30px 20px;color:#FFF;border-bottom:1px solid rgba(255,255,255,.2)}
 .a-user-traits__head{font-size:24px;color:#FFF;margin-bottom:10px}
 body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .a-user-traits .nicescroll-rails.nicescroll-rails-vr{background-color:rgba(255,255,255,.2);border-radius:12px;background-clip:padding-box}
@@ -1803,15 +1803,17 @@ body.mobile .a-user-traits__head{font-size:18px;margin-bottom:5px}
 .a-user-agreement-form__btn{display:inline-block;vertical-align:top;padding-left:15px;padding-right:15px}
 .a-user-agreement-form .input-group{padding-bottom:20px}
 .a-user-agreement-form label.has-error{margin-top:-20px}
-.a-user-choose__head{text-align:center;font-size:24px;color:#FFF;margin-bottom:10px}
+.a-user__close{position:absolute;height:67px;border-bottom-left-radius:67px;border-top-left-radius:67px;width:46px;background-color:rgba(0,0,0,.7);line-height:67px;top:163px;left:-46px;text-align:right}
+.a-user-choose__head,.share,body[class*=game] .footer{text-align:center}
+.a-user__close .icon{color:#FFF;font-size:25px;margin-right:8px}
+.a-user-choose__head{font-size:24px;color:#FFF;margin-bottom:10px}
 body.mobile .a-user-choose__head{font-size:18px;margin-bottom:5px}
 .a-user-choose .trait{background-color:transparent}
 .a-user-choose .trait .icon-tick,.a-user-choose .trait__title{color:#FFF}
 .rostelekom-logo-small{height:40px}
-.share{text-align:center;margin:20px 0}
+.share{margin:20px 0}
 .share__text{margin-right:10px}
 .share--desktop{position:absolute;top:100%;right:0;display:none}
-body[class*=game] .footer{text-align:center}
 body[class*=game] .share{display:inline-block;padding:20px 36px;margin:0;background-color:rgba(0,0,0,.7);border-top-right-radius:10px;border-top-left-radius:10px}
 body[class*=game] .share__text{color:#FFF;font-size:16px}
 .ya-share2{display:inline-block;height:auto;vertical-align:middle}
@@ -1908,7 +1910,7 @@ form .trait:hover{background-color:#ddd}
 .personage__descr{font-size:16px;font-weight:400;padding:0 30px;margin:20px 0 30px;height:190px;overflow:auto}
 .content-table__row .content-table__img,.user__image{overflow:hidden;background-clip:padding-box;background-position:center;background-repeat:no-repeat}
 .popover-ui{display:none}
-.popover-ui-close{font-size:16px;color:#00abe8;top:15px;right:15px}
+.popover-ui-close{font-size:16px;color:#00abe8;top:15px;right:15px;cursor:pointer}
 .popover-ui-close:before{font-weight:400;display:inline-block;text-align:center;line-height:1em;content:'\e805'}
 .heart,.webui-popover .webui-popover-content .popover-ui{display:block}
 .popover-ui-header{padding:15px;height:145px}
