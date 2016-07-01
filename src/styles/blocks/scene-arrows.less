@@ -1,6 +1,7 @@
 .scene-arrow{
     .icon;
     font-size: 35px;
+    line-height: 70px;
     color: @lightblue;
     position: absolute;
     top: 50%;
@@ -12,14 +13,24 @@
 
     &__left{
         .icon-arrow-left;
-        left: 4px;
+        background-color: @white;
+        left: 0;
+        width: 50px;
+        height: 70px;
+        padding-left: 10px;
+        .border-right-radius(50%);
         &.slick-arrow.slick-hidden, &.slick-arrow.slick-disabled{
             display: none;
         }
     }
     &__right{
-        right: 4px;
+        right: 0;
         .icon-arrow-right;
+        background-color: @white;
+        width: 50px;
+        height: 70px;
+        padding-left: 15px;
+        .border-left-radius(50%);
     }
 }
 .slick-arrow{
@@ -42,6 +53,7 @@
     &.slick-next{
         right: 10px;
         .icon-arrow-right;
+
     }
     &.slick-hidden{
         display: block;
