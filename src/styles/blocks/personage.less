@@ -9,10 +9,9 @@
         display: none;
     }
     &__photo{
-        display: inline-block;
-        vertical-align: top;
-        margin: 0;
-        margin-right: 20px;
+        float: left;
+
+        margin: 0 20px 0 0;
         position: relative;
         overflow: hidden;
         width: 115px;
@@ -29,13 +28,15 @@
         }
     }
     &__name {
-        display: inline-block;
-        margin-top: 40px;
+        display: block;
+        margin: 40px 0 10px 130px;
         font-size: 24px;
         font-weight: 500;
         color: @darkblue;
+        line-height: 1.1em;
     }
     &__descr{
+        clear: both;
         font-size: 16px;
         text-align: center;
         font-weight: 400;
@@ -46,6 +47,10 @@
     }
     &__result{
 
+    }
+    &__offer{
+        margin-left: 130px;
+        text-align: left;
     }
 }
 .popover-ui{

@@ -658,12 +658,16 @@ $(function() {
 				$.each($heartPopups, function(i, elem) {
 					var $this = $(elem),
 						$startContent = $this.find('[data-start-content]'),
+						$offerTxt = $this.find('[data-pers-offer]'),
 					$form = $startContent.siblings('[data-personage-choose]');
+					
 					$startContent.fadeOut(500, function() {
 						$form.fadeIn(200);
+						$offerTxt.show();
 						if ($form.attr('data-guessed')) {
 							//строим угаданного
 							$form.hide();
+							$offerTxt.hide();
 							$this.find('[data-personage-result]').show();
 							//badge
 							var id = $this.attr('id');
