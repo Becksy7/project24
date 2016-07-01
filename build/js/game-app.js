@@ -713,9 +713,9 @@ $(function() {
 				// $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
 				// 	console.log(currentSlide,nextSlide);
 				// });
-				$(document).on('click','[href="#superGame"]',function() {
-					$slider.slick('reinit');
-				});
+				// $(document).on('click','[href="#superGame"]',function() {
+				// 	//$slider.slick('reinit');
+				// });
 				$(document).on('click','[data-user-arrow]',function(e) {
 					e.preventDefault();
 
