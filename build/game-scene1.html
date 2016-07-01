@@ -201,13 +201,19 @@
                     <a href="#" class="btn btn-primary rostelekom__btn">Подключить</a>
                 </div>
             </aside>
+            <section class="page-caption">
+                <div class="page-caption__text">
+                    <span>Лето любви на </span><img src="images/foxlife_logo.png">
+                </div>
+            </section>
             <div id="header-target"></div>
             <script type="text/template" id="header-template">
                 <header class="scene-header">
                     <div class="caption">Сцена
-                        <%=id%>: <b><%=name%></b></div>
-                    <div class="explain active">Изучите сцену. <a href="#" data-to-step="2">Дальше</a></div>
-                    <div class="explain">Угадайте эмоции персонажа из этой сцены. <a href="#superGame" data-toggle="modal">Дальше</a></div>
+                        <%=id%>. <b>Угадай эмоции героев</b></div>
+                    <!--<div class="explain active">Изучите сцену. <a href="#" data-to-step="2">Дальше</a></div>
+		<div class="explain">Угадайте эмоции персонажа из этой сцены. <a href="#superGame" data-toggle="modal">Дальше</a></div>-->
+                    <a class="btn btn-primary" a href="#superGame" data-toggle="modal">Играть</a>
                 </header>
             </script>
             <div id="info-popups-target"></div>
@@ -255,7 +261,8 @@
     var target = item.id, prop = 'heart-' + item.code + '-' + scene;
     %>
                     <a href="#" data-popover-webui data-content-id="<%= target %>" data-target="<%= '#' + target %>" class="heart heart-icon <%= prop %>">
-                        <img src="images/heart-icon.svg">
+                        <img src="images/heart-icon.png">
+                        <span class="badge heart__question">?</span>
                         <span class="badge heart__result" data-heart-badge style="display: none;"></span>
                     </a>
                     <div id="<%= target %>" class="popover-ui personage parent">
@@ -352,7 +359,7 @@
                             <a class="btn btn-primary" data-toggle="modal" data-target="<%= target %>" <% if (user.nopopup) { %>
 				style="display:none;"
 			<% } %>
-			>Угадать черты характера</a>
+			>Выбрать черты</a>
                         </div>
                         <div class="user__content" data-user-result data-nicescroll-block <% if (!user.nopopup) { %>
                             style="display:none;"
