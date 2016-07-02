@@ -1655,7 +1655,7 @@ body.desktop[class*=game] .navbar-header{width:100%}
 body.desktop .navbar-fixed-top{margin:0 auto;padding:10px 0 0;width:auto!important;display:block;min-width:1136px;position:relative;max-height:130px}
 body.desktop .navbar-fixed-top .container{padding:0 30px}
 body.desktop .navbar-fixed-top .navbar-header{margin:0;top:0}
-body.desktop .navbar-fixed-top .navbar-collapse{width:auto!important;float:none;margin:0;text-align:center;position:static;display:block;border:0;height:auto!important;min-height:100px!important;box-shadow:none}
+body.desktop .navbar-fixed-top .navbar-collapse{width:auto!important;float:none;margin:0;text-align:center;position:static;display:block;border:0;height:auto!important;min-height:45px!important;box-shadow:none}
 body.desktop .navbar-fixed-top .navbar-collapse .nav{width:auto;margin:0;background-color:transparent}
 body.desktop .navbar-fixed-top .navbar-collapse .nav-close{display:none}
 body.desktop .navbar-fixed-top .nav.navbar-nav{margin:0 0 0 15px;display:inline-block;float:none;font-size:0;white-space:nowrap}
@@ -1702,7 +1702,9 @@ body.desktop .navbar-fixed-top .nav.navbar-nav>li a:hover,body.desktop .navbar-f
 .page-about .layout-main,.page-rating .layout-main,.page-rules .layout-main{width:1136px;margin:0 auto;padding:25px 35px;overflow-x:hidden}
 .page-about .page-content,.page-about section.page-caption,.page-rules .page-content,.page-rules section.page-caption{max-width:768px;background-color:#FFF;margin:0 auto}
 .page-about .page-caption,.page-rules .page-caption{padding:40px 40px 0;border-top-right-radius:30px;border-top-left-radius:30px}
+.page-about .page-caption__text,.page-rules .page-caption__text{padding-top:0}
 .page-about .page-caption__text h2,.page-rules .page-caption__text h2{margin-top:0;color:#000;margin-bottom:30px}
+.page-about.mobile .page-caption,.page-rules.mobile .page-caption{margin-top:110px}
 .page-about .page-content,.page-rules .page-content{width:auto;padding:0 40px 40px;border-bottom-right-radius:30px;border-bottom-left-radius:30px;margin-bottom:50px}
 .page-about .page-content .bs-example,.page-rules .page-content .bs-example{padding-top:15px}
 .social-login{margin:15px auto;text-align:center;max-width:220px}
