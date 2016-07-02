@@ -40,7 +40,7 @@
 
 .page-index.desktop,
 .page-index {
-    background: url("@{public}/images/index_main.jpg") no-repeat top;
+    background: url("@{public}/images/index_bg.jpg") no-repeat top;
     .background-size(cover);
     min-height: 100%;
     .layout-wrapper{
@@ -50,7 +50,8 @@
     }
     .layout-main {
 
-        width: @min_width;
+        min-width: @min_width;
+        max-width: @max_width;
         margin: 0 auto;
         padding: 25px 35px;
         padding-top: 0;
