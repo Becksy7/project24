@@ -71,6 +71,7 @@
         position: relative;
         bottom: -10px;
         font-size: 14px;
+        margin-left: 10px;
         color: @black;
         font-weight: 500;
     }
@@ -79,6 +80,7 @@ body:not(.desktop){
     .navbar-nav{
         >li{
             >a{
+                font-size: 16px;
                 padding: 35px 30px;
             }
         }
@@ -98,11 +100,20 @@ body:not(.desktop){
 }
 body.desktop {
 
-    &:not([class*="game"]) {
+
         .navbar-brand {
             margin: 0;
             img{
                 width: 275px;
+                @media (max-width: 1350px){
+                    width: 240px;
+                }
+                @media (max-width: 1280px){
+                    width: 220px;
+                }
+                @media (max-width: 1240px){
+                    width: 180px;
+                }
             }
             span {
                 position: relative;
@@ -110,6 +121,20 @@ body.desktop {
                 font-size: 14px;
                 color: @black;
                 font-weight: 500;
+                @media (max-width: 1350px){
+                    font-size: 12px;
+                    bottom: -7px;
+                }
+            }
+        }
+
+    .header {
+        &__promo img{
+            @media (max-width: 1350px){
+                width: 160px;
+            }
+            @media (max-width: 1280px){
+                width: 140px;
             }
         }
     }
@@ -132,14 +157,14 @@ body.desktop {
 
         .navbar-fixed-top {
             margin: 0 auto;
+            padding: 10px 0 0;
             width: auto !important;
-            padding-top: 10px;
             display: block;
             min-width: @min_width;
             position: relative;
             max-height: 130px;
             .container{
-                padding: 0;
+                padding: 0 30px;
             }
             .navbar-header{
                 margin: 0;
@@ -168,29 +193,35 @@ body.desktop {
                 }
             }
             .nav.navbar-nav {
+                margin: 0 0 0 15px;
                 display: inline-block;
                 float: none;
+                font-size: 0;
+                white-space: nowrap;
                 > li {
                     display: inline-block;
+                    & + li {
+                        margin-left: 3px;
+                    }
                     a {
                         color: @text-color;
-                        font-size: 16px;
+                        font-size: 14px;
                         line-height: 40px;
                         text-transform: uppercase;
                         padding: 0 15px;
                         .border-radius(25px);
                         &:hover, &:hover:focus {
                             color: @white;
-                            background-color: @cyan;
+                            background-color: @lightblue;
                         }
                     }
                     &.active {
                         a {
                             color: @white;
-                            background-color: @cyan;
+                            background-color: @lightblue;
                             &:hover, &:hover:focus {
                                 color: @white;
-                                background-color: @cyan;
+                                background-color: @lightblue;
                             }
                         }
                     }
@@ -217,11 +248,9 @@ body.desktop {
 
 .header {
     &__promo {
-        display: inline-block;
         position: absolute;
-        top: 25px;
-        right: 50px;
-        text-align: center;
+        top: 10px;
+        right: 0;
         img {
             width: 180px;
             height: auto;
