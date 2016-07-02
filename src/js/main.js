@@ -37,8 +37,10 @@ $(function() {
                     var isportrait = isPortrait();
 
                     if (isportrait) {
+
                         $dPopup.modal('show');
                     } else {
+                        
                         $dPopup.modal('hide');
                     }
                 };
@@ -46,6 +48,9 @@ $(function() {
                 init : function() {
                     if (isMobile.any){
                         $('body').addClass('mobile');
+                        if ($('body[class*=game]').length){
+                            $('html').addClass('v100');
+                        }
                         showDisclamer();
                         $(window).on('resize orientationchange', showDisclamer);
                     }
