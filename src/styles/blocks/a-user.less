@@ -3,7 +3,7 @@
         display: none!important;
     }
     &__scrollable{
-        height: 295px;
+        //height: 295px;
     }
     &-bookmark{
         position: absolute;
@@ -64,6 +64,8 @@
         font-weight: 600;
         color: @white;
         padding: 10px 30px 4px;
+        height: 61px;
+
         body.mobile &{
             font-size: 20px;
             padding: 5px 30px 4px;
@@ -185,7 +187,7 @@
             }
             body.mobile &{
                 font-size: 20px;
-                padding: 5px 18px;
+                padding: 5px 60px;
             }
         }
     }
@@ -193,7 +195,9 @@
         padding: 5px 30px 20px;
         color: @white;
         border-bottom: 1px solid fade(@white, 20%);
-
+        .traits--result{
+            height: 220px;
+        }
         &__head{
             font-size: 24px;
             color: @white;
@@ -211,6 +215,7 @@
     &-agreement{
         color: @white;
         padding: 10px 30px;
+        height: 130px;
         &__text{
             font-size: 14px;
             color: @white;

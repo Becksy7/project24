@@ -26,6 +26,9 @@ html{
     width: 100%;
     -ms-overflow-x: hidden;
     min-height: 100%;
+    &.v100{
+        height: 100%;
+    }
 }
 // container & wrapper
 .container {
@@ -68,6 +71,14 @@ body[class*="game"]{
                 min-height: 630px;
 
             }
+        }
+    }
+    &.mobile{
+        .layout-wrapper, .layout-main{
+            height: 640px;
+            height: 100vh;
+            min-height: 100vh;
+            max-height: 640px;
         }
     }
     .layout-main{
