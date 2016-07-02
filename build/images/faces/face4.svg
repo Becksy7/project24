@@ -4,17 +4,24 @@
 	 y="0px" viewBox="0 0 44 44" style="enable-background:new 0 0 44 44;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#00D013;}
-	.st1{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#FFFFFF;stroke-width:7;stroke-linecap:round;stroke-miterlimit:10;}
-	.st3{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;}
 </style>
 <g>
 	<g>
-		<path class="st0" d="M20.6,0c5-0.3,10,1.1,14.1,4c4.4,3.1,7.5,7.8,8.7,13.1c1.2,5.3,0.4,11.1-2.4,15.8c-2.6,4.5-6.8,8-11.6,9.7
-			c-5.6,2-11.9,1.7-17.2-1C6.8,39,2.6,34.1,0.9,28.3c-1.7-5.7-1-12.1,2-17.3C6.5,4.7,13.4,0.4,20.6,0z"/>
+		<g>
+			<path class="st0" d="M20.6,0c5-0.3,10,1.1,14.1,4c4.4,3.1,7.5,7.8,8.7,13.1c1.2,5.3,0.4,11.1-2.4,15.8c-2.6,4.5-6.8,8-11.6,9.7
+				c-5.6,2-11.9,1.7-17.2-1C6.8,39,2.6,34.1,0.9,28.3c-1.7-5.7-1-12.1,2-17.3C6.5,4.7,13.4,0.4,20.6,0z"/>
+		</g>
 	</g>
 </g>
-<polyline class="st1" points="32.2,20.4 28.8,18 32.2,15.7 "/>
-<polyline class="st2" points="13,18 13,18 13,18 "/>
-<polyline class="st3" points="22,33 22,33 22,33 "/>
+<g>
+	<path class="st1" d="M32.2,22.9c-0.5,0-1-0.1-1.4-0.5L24.5,18l6.3-4.4c1.1-0.8,2.7-0.5,3.5,0.6c0.8,1.1,0.5,2.7-0.6,3.5L33.2,18
+		l0.5,0.3c1.1,0.8,1.4,2.3,0.6,3.5C33.8,22.5,33,22.9,32.2,22.9z"/>
+</g>
+<g>
+	<path class="st1" d="M13,21.5c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5h0c1.9,0,3.5,1.6,3.5,3.5S15,21.5,13,21.5z"/>
+</g>
+<g>
+	<path class="st1" d="M22,37c-2.2,0-4-1.8-4-4s1.8-4,4-4h0c2.2,0,4,1.8,4,4S24.3,37,22,37z"/>
+</g>
 </svg>

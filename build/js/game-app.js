@@ -344,6 +344,12 @@ $(function() {
 					};
 					//console.log(data);
 				scene.$.userTraits.html(_.template(tmpl)(data));
+				var traitsH = $(window).height() -
+					$('.a-user-panel__wrap .a-user__name').outerHeight() -
+					$('.a-user-bookmark--inside').outerHeight() -
+					$('.a-user-panel__wrap .a-user-agreement').outerHeight() - 110;
+
+				$('.a-user-choose .traits').css('height',traitsH);
 				$('#user-panel').on('shown.bs.collapse',function() {
 					$('.a-user-choose .traits').addClass('nicescroll-on').niceScroll({
 						'cursorcolor': '#00abe8',
@@ -755,6 +761,7 @@ $(function() {
 					UserScore.set(score);
 
 					$('#agreement-form').fadeOut(500, function() {
+						$('.a-user-agreement__text').eq(0).hide();
 						$('#agreement-success').fadeIn(200);
 					});
 				}
@@ -803,18 +810,22 @@ $(function() {
 				},
 				init: function() {
 
-					$('#enter-agreement-num').on('click',function() {
+					$('#enter-agreement-num').on('click',function(e) {
+						e.preventDefault();
 						$('#agreement-offer').fadeOut(500, function(){
 							$('#agreement-form').fadeIn(200);
 						});
 					});
-					$('#enter-agreement-num').on('click',function() {
+					$('#enter-agreement-num').on('click',function(e) {
+						e.preventDefault();
 						$('#agreement-offer').fadeOut(500, function(){
 							$('#agreement-form').fadeIn(200);
 						});
 					});
-					$('#agreement-try-again').on('click',function() {
+					$('#agreement-try-again').on('click',function(e) {
+						e.preventDefault();
 						$('#agreement-error').fadeOut(500, function(){
+							$('.a-user-agreement__text').eq(0).show();
 							$('#agreement-form').fadeIn(200);
 						});
 					});
