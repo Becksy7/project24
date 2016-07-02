@@ -1,0 +1,26 @@
+.summer-bg {
+  position: relative;
+  margin: 20px auto;
+  height: 150px;
+  width: 150px;
+  .border-radius(50%);
+  border: 5px solid @white;
+  background: url("@{public}/images/summer_bg.jpg") no-repeat center;
+}
+.summer-win {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: -40px;
+  height: 80px;
+  width: 80px;
+  .border-radius(50%);
+  border: 3px solid @white;
+  background-color: @orange;
+  &__img {
+    position: absolute;
+    z-index: 11;
+    bottom: 15px;
+    right: 10px;
+  }
+}
