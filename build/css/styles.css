@@ -1974,8 +1974,8 @@ form .trait:hover{background-color:#ddd}
 .slick-arrow.slick-next{right:10px}
 .slick-arrow.slick-next:before{content:'\e809'}
 .slick-arrow.slick-hidden{display:block}
-.layout-main.content-game-scene1>.scene-arrow{color:#FFF;position:absolute;top:285px}
-.layout-main.content-game-scene1>.scene-arrow__left,.layout-main.content-game-scene1>.scene-arrow__right{background-color:rgba(0,0,0,.7)}
+body[class*=page-game-scene] .layout-main.content-game-scene1>.scene-arrow{color:#FFF;position:absolute;top:285px}
+body[class*=page-game-scene] .layout-main.content-game-scene1>.scene-arrow__left,body[class*=page-game-scene] .layout-main.content-game-scene1>.scene-arrow__right{background-color:rgba(0,0,0,.7)}
 .error{margin-top:140px}
 .error__title h1{font-size:62px;font-weight:500;color:#084194}
 .error__text{color:#000;font-weight:500}
