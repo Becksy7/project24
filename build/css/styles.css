@@ -1635,6 +1635,7 @@ body.page-index:not([class*=desktop]) .layout-main .share.share--desktop{display
 .navbar-brand{padding:0;margin-left:15px}
 .navbar-brand span{text-transform:uppercase;position:relative;bottom:-10px;font-size:14px;color:#000;font-weight:500}
 body:not(.desktop) .navbar-nav>li>a{padding:35px 30px}
+body:not(.desktop) .header__promo{position:static;float:right;margin-right:10px}
 body.desktop:not([class*=game]) .navbar-brand{margin:0}
 body.desktop:not([class*=game]) .navbar-brand span{position:relative;bottom:-10px;font-size:14px;color:#000;font-weight:500}
 body.desktop[class*=game] .navbar-header{width:100%}
